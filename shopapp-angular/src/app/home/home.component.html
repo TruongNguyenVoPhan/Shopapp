@@ -1,0 +1,325 @@
+<style>
+    .intro-section{
+        text-align: center;
+        color: white;
+        padding: 20px;
+    }
+    .search-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .product-category{
+        width: 200px;
+    }
+    .search-input, .product-category option{
+        width: 300px;
+        background-color: rgb(19, 23, 42);
+        margin-right: 10px;
+        border-color: rgba(255, 255, 255, 0.5);
+        color: white;
+    }
+    
+    .form-control{
+        background-color: transparent;
+        color: white;
+    }
+    .form-control::placeholder{ /* Chrome. Firefox, Opera, Safari 10.1 +*/
+        color: rgba(255, 255, 255, 0.5);
+        opacity: 1; /* Firefox */
+    }
+    .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */ 
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .form-control::-ms-input-placeholder{ /* Microsoft Edge */ 
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .product-item{
+        background-color: rgb(19, 23, 42);
+        border: 1px solid rgb(35, 39, 61);
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .product-item{
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .product-name{
+        color: white;
+    }
+    .product-description{
+        color: rgb(173, 178, 203);
+    }
+    .product-warranty{
+        color: rgb(242, 126, 212);
+    }
+    .product-price{
+        color: white;
+    }
+    .product-rating{
+        color: rgb(244, 244, 11);
+        margin-top: 10px;
+    }
+    .prduct-ations{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .space-x{
+        margin: 0 10px;/*margin-top, margin-right, margin-bottom,margin-left*/
+    }
+</style>
+<div class="container">
+   <div class="intro-section">
+        <h1>Day la trang home</h1>
+        <p>Tranng nay hien thi danh sach cac san pham,kem anh</p>
+        <p>Cac ban co  the xem san pham va muua hang o day</p>
+    </div>
+    <!-- Doan nay co 1 o search box ben trai, 1 combobox be phai -->
+    <div class="search-box">
+        <input type="text" class="form-control search-input" placeholder="Tìm sản phẩm">
+        <select class="form-control product-category">
+            <option selected disabled>Danh mục sản phẩm</option>
+            <option>Đồ điện tử</option>
+            <option>Gia dụng</option>
+            <option>Bánh kẹo</option>
+            <option>Hải sản</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product-item">
+                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                alt="Product Image" 
+                class="product-item">
+                <h3 class="product-name">Product 1</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci tempora aliquid eaque corporis provident delectus. Veritatis blanditiis quisquam, voluptatem aspernatur doloribus, eum eligendi reprehenderit, explicabo asperiores totam nisi commodi voluptate.</p>
+                <p class="product-warranty">Bao hanh 12 thang</p>
+                <p class="product-price">Gia: <del>$200</del> $100</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Them vao gio hang</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-secondary">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,108 @@
+.container{
+    color: white;
+    height: 100vh;
+}
+.login-form{
+    background-color: rgb(12, 12, 55);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    border: 1px solid rgb(32, 34, 60);
+    align-items: center;
+    justify-content: center;
+}
+.login-header {
+    font-size: 24px;
+    color: rgb(101, 224, 238);
+    text-align: center;
+}
+.form-control {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+.divider-nospace{
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.password-field{
+    position: relative;
+}
+
+.password-toggle{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgb(236, 235, 222);
+}
+
+.checkbox-text{
+    margin-top: 10px;
+    display: flex;
+    color: rgb(223, 236, 40);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-text input[type="checkbox"]:checked {
+    border-color: white;
+    background-color: rgb(223, 22, 206);
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.register-link {
+    color: rgb(101, 224, 238);
+    text-decoration: none;
+}
+
+.access-right {
+    background-color: rgb(61, 66, 91);
+    margin-top: 20px;
+    width: 200px;
+    border: 1px solid rgb(209, 42, 231);
+}
+
+.access-right:focus{
+    border: 1px solid rgb(233, 37, 132);
+}
+
+.form-control::placeholder{
+    /* Chrome. Firefox, Opera, Safari 10.1 +*/
+    color: rgb(90, 90, 84);
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder{
+    /* Internet Explorer 10-11 */
+    color: rgb(162, 155, 47);
+}
+
+.form-control:-ms-input-placeholder{
+    /* Microsoft Edge */ 
+    color: rgb(162, 155, 47);
+}
+
+.login-button{
+    background: linear-gradient(to right, rgb(237, 53, 200), rgb(165, 39, 184));
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
+    border: none;
+}
+
+.divider{
+    height: 1px;
+    background-color: rgb(223, 236, 40);
+    margin: 20px;
+}

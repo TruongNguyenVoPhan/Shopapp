@@ -1,0 +1,80 @@
+<app-header></app-header>
+<div class="container">
+    <div class="intro-section">
+         <h1>Day la trang Order</h1>
+         <p>Su dung bootsrtap</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+                <h2 class="product-header">Thông tin người nhận</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Họ và tên</label>
+                    <input type="text" class="form-control" id="inputName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputPhone" required>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2 class="product-order">Sản phẩm đã đặt hàng</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-start">Sản phẩm</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Tổng giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="poduct-info">
+                                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                                    alt="Product Image" class="product-image">
+                                <span class="prroduct-name">Tên sản phẩm</span>
+                            </div>
+                        </td>
+                        <td>2</td>
+                        <td>200,000 đ</td>
+                        <td>200,000 đ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="poduct-info">
+                                <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
+                                    alt="Product Image" class="product-image">
+                                <span class="prroduct-name">Tên sản phẩm</span>
+                            </div>
+                        </td>
+                        <td>1</td>
+                        <td>150,000 đ</td>
+                        <td>150,000 đ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-start mt-3">
+                <h4 class="header-text text-end">Tổng giá: 350,000 đ</h4>
+            </div>
+            <div class="text-start mt-3">
+                <h4 class="product-header">Nhập coupon</h4>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập coupon">
+                    <button class="btn btn-gradient" type="submit">Áp dụng</button>
+                </div>
+                <div class="text-start mt-3">
+                    <button class="btn btn-gradient" type="submit">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+</div>
+<app-footer></app-footer>

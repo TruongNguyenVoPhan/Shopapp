@@ -6,6 +6,7 @@ import { OrderCofirmComponent } from './app/order-confirm/order-confirm.componen
 import { LoginComponent } from './app/login/login.component';
 import { RegisterComponent } from './app/register/register.component';
 import { DetailProductComponent } from './app/detail-product/detail-product.component';
+import { FormsModule } from '@angular/forms';
 
-bootstrapApplication(DetailProductComponent, appConfig)
+bootstrapApplication(RegisterComponent, appConfig)
   .catch((err) => console.error(err));

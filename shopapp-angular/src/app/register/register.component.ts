@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
-  imports: [HeaderComponent, FooterComponent , FormsModule]
+  imports: [HeaderComponent, FooterComponent , FormsModule, CommonModule]
 })
 export class RegisterComponent {
+  @ViewChild (`Register`)  registerForm!: NgForm;
   phone: string;
   password: string;
   retypePassword: string; 
@@ -18,11 +21,11 @@ export class RegisterComponent {
   isAccepted: boolean;
   dateOfBirth: Date;  
   constructor(){
-    this.phone = "";
-    this.password = "";
-    this.retypePassword="";
-    this.fullName = "";
-    this.address = "";
+    this.phone = '';
+    this.password = '';
+    this.retypePassword='';
+    this.fullName = '';
+    this.address = '';
     this.isAccepted = false;
     this.dateOfBirth = new Date();
     this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear()-18)
@@ -31,13 +34,21 @@ export class RegisterComponent {
     console.log(`Phone typed: ${this.phone}`);
   }
   register(){
-    const message = `phone: ${this.phone}`
-    + `password: ${this.password}`
-    + `retypePassword: ${this.retypePassword}`
-    + `fullName: ${this.fullName}`
-    + `address: ${this.address}`
-    + `isAccepted: ${this.isAccepted}`;
-    + `dateOfBirth : ${this.dateOfBirth}`
+    const message = `phone: ${this.phone}`+
+                    `password: ${this.password}`+
+                    `retypePassword: ${this.retypePassword}`+
+                    `fullName: ${this.fullName}`+
+                    `address: ${this.address}`+
+                    `isAccepted: ${this.isAccepted}`+
+                    `dateOfBirth : ${this.dateOfBirth}`; 
    alert(message)
+  }
+  checkPasswordsMatch() {    
+    if (this.password !== this.retypePassword) {
+      this.registerForm.form.controls['retypePassword']
+            .setErrors({ 'passwordMismatch': true });
+    } else {
+      this.registerForm.form.controls['retypePassword'].setErrors(null);
+    }
   }
 }

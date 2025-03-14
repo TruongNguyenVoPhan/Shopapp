@@ -3,45 +3,57 @@ import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
-  imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule]
+  standalone: true,
+  imports: [ FooterComponent, FormsModule, CommonModule]
 })
 export class RegisterComponent {
-  @ViewChild(`registerForm`) registerForm!: NgForm;
-  phone: string;
-  password: string;
-  retypePassword: string;
-  fullName: string;
-  address: string;
-  isAccepted: boolean;
-  dateOfBirth: Date;
-  constructor() {
-    this.phone = '';
-    this.password = '';
-    this.retypePassword = '';
-    this.fullName = '';
-    this.address = '';
-    this.isAccepted = false;
-    this.dateOfBirth = new Date();
-    
-  }
-  onPhoneChange() {
+  @ViewChild('registerForm') registerForm!: NgForm;
+  phone: string = '1325002112';
+  password: string = '1234546';
+  retypePassword: string = '1234546';
+  fullName: string = 'Nguyen Van Coi';
+  address: string = 'dia chi 123';
+  isAccepted: boolean = true;
+  dateOfBirth: Date = new Date();
+
+  constructor(private http: HttpClient, private router: Router) {
+    this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
+  }  onPhoneChange() {
     console.log(`Phone typed: ${this.phone}`);
   }
   register() {
-    const message = `phone: ${this.phone}` +
-      `password: ${this.password}` +
-      `retypePassword: ${this.retypePassword}` +
-      `fullName: ${this.fullName}` +
-      `address: ${this.address}` +
-      `isAccepted: ${this.isAccepted}` +
-      `dateOfBirth : ${this.dateOfBirth}`;
-    alert(message)
+    const apiUrl = "http://localhost:8088/api/v1/users/register";
+    const registerData = {
+      fullname: this.fullName,
+      phone_number: this.phone,
+      address: this.address,
+      password: this.password,
+      retype_password: this.retypePassword,
+      date_of_birth: this.dateOfBirth,
+      facebook_account_id: 0,
+      google_account_id: 0,
+      role_id: 2
+    };
+
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    this.http.post(apiUrl, registerData, { headers }).subscribe({
+      next: (response: any) => {
+        if (response.status === 200 || response.status === 201) {
+          this.router.navigate(['/login']);
+        }
+      },
+      error: (error: any) => {
+        console.error("Đăng ký không thành công", error);
+      }
+    });
   }
   checkPasswordsMatch() {
     if (this.password !== this.retypePassword) {

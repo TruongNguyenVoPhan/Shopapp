@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   @ViewChild('registerForm') registerForm!: NgForm;
-  phone: string = '1325002112';
+  phone: string = '13250034112';
   password: string = '1234546';
   retypePassword: string = '1234546';
   fullName: string = 'Nguyen Van Coi';
@@ -46,12 +46,16 @@ export class RegisterComponent {
     
     this.http.post(apiUrl, registerData, { headers }).subscribe({
       next: (response: any) => {
-        if (response.status === 200 || response.status === 201) {
-          this.router.navigate(['/login']);
-        }
+        debugger
+        this.router.navigate(['/login']);
+      },
+      complete: () => {
+        debugger
       },
       error: (error: any) => {
-        console.error("Đăng ký không thành công", error);
+        debugger
+        alert("Cannot register: " + error.error)
+        console.error(error.error);
       }
     });
   }

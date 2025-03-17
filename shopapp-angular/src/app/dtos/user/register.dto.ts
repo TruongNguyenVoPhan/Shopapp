@@ -4,7 +4,7 @@ import {
     IsPhoneNumber,
     IsDate,
 } from 'class-validator';
-export class registerDto {
+export class RegisterDto {
     @IsString()
   address: string;
 

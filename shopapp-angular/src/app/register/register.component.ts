@@ -5,7 +5,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
-import { registerDto } from '../dtos/user/register.dto';
+import { RegisterDto } from '../dtos/user/register.dto';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ import { registerDto } from '../dtos/user/register.dto';
 })
 export class RegisterComponent {
   @ViewChild('registerForm') registerForm!: NgForm;
-  phone: string = '';
+  phoneNumber: string = '';
   password: string = '';
   retypePassword: string = '';
   fullName: string = '';
@@ -26,13 +26,13 @@ export class RegisterComponent {
 
   constructor(private router: Router, private userService: UserService) {
     this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
-  }  onPhoneChange() {
-    console.log(`Phone typed: ${this.phone}`);
+  }  onPhoneNumberChange() {
+    console.log(`Phone typed: ${this.phoneNumber}`);
   }
   register() {
-    const registerDto:registerDto = {
+    const registerDto:RegisterDto = {
       fullname: this.fullName,
-      phone_number: this.phone,
+      phone_number: this.phoneNumber,
       address: this.address,
       password: this.password,
       retype_password: this.retypePassword,

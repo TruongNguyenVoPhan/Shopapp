@@ -4,7 +4,7 @@ import {
     IsPhoneNumber,
     IsDate,
 } from 'class-validator';
-export class loginDto {
+export class LoginDto {
   @IsNotEmpty()
   @IsString()
   password: string;

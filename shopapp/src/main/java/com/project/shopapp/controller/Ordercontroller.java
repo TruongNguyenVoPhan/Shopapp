@@ -1,5 +1,6 @@
 package com.project.shopapp.controller;
 
+import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dtos.*;
 import com.project.shopapp.models.Order;
 import com.project.shopapp.responses.OrderResponse;
@@ -19,6 +20,7 @@ import java.util.List;
 @RequestMapping("${api.prefix}/orders")
 public class Ordercontroller {
     private final IOrderService orderService;
+    private final LocalizationUtils localizationUtils;
     @PostMapping("")
     public ResponseEntity<?> createorder
             (@RequestBody @Valid OrderDTO orderDTO,

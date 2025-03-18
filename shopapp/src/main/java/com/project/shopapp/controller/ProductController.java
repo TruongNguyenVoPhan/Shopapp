@@ -1,6 +1,7 @@
 package com.project.shopapp.controller;
 
 import com.github.javafaker.Faker;
+import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dtos.*;
 import com.project.shopapp.models.Product;
 import com.project.shopapp.models.ProductImage;
@@ -38,6 +39,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProductController {
     private final IProductService productService;
+    private final LocalizationUtils localizationUtils;
     @PostMapping("")
     //Neu tham so truyen vao la 1 object thi sao ? => Data Transfer Object = Request Object
     public ResponseEntity<?> createProducts(

@@ -53,16 +53,16 @@ public class CategoryController  {
         List<Category> categories = categoryService.getAllCategory();
         return ResponseEntity.ok(categories);
     }
-//    @PutMapping("/{id}")
-//    public ResponseEntity<UpdateCategoryResponse> updateCategory(
-//            @PathVariable Long id,
-//            @Valid @RequestBody CategoryDTO categoryDTO
-//    ) {
-//        categoryService.updateCategory(id,categoryDTO);
-//        return ResponseEntity.ok(UpdateCategoryResponse.builder()
-//                        .message(localizationUtils.getLocalizedMessage(MessageKeys.UPDATED_CATEGORY_SUCCESSFULLY)))
-//                .build());
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<UpdateCategoryResponse> updateCategory(
+            @PathVariable Long id,
+            @Valid @RequestBody CategoryDTO categoryDTO
+    ) {
+        UpdateCategoryResponse updateCategoryResponse = new UpdateCategoryResponse();
+        categoryService.updateCategory(id,categoryDTO);
+        updateCategoryResponse.setMessage(localizationUtils.getLocalizedMessage(MessageKeys.UPDATED_CATEGORY_SUCCESSFULLY));
+        return ResponseEntity.ok(updateCategoryResponse);
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable Long id){
         categoryService.deleteCategory(id);

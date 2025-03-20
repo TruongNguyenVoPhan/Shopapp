@@ -55,7 +55,10 @@ export class LoginComponent {
       }
     });
   }
-  
+  onRoleChange() {
+    debugger
+    console.log("Role được chọn:", this.selectedRole);
+  }
   login () {
     const messsage = `Phone: ${this.phoneNumber}, Password: ${this.password}`;
     debugger
@@ -68,7 +71,10 @@ export class LoginComponent {
       next: (response: LoginResponse) => {
         debugger
         const {token} = response
-        this.tokenService.setToken(token);
+        if(this.rememberMe){
+          this.tokenService.setToken(token);
+        }
+        
         // this.router.navigate(['/login']);
       },
       complete: () => {

@@ -9,6 +9,10 @@ public class MessageKeys {
 
     public static final String REGISTER_FAILED = "user.register.register_failed";
 
+    public static final String PASSWORD_NOT_CORRECT ="user.login.password_not_correct";
+
+    public static final String ROLE_NOT_EXIST = "user.login.role_not_exist";
+
     public static final String PASSWORD_NOT_MATCH = "user.register.password_not_match";
 
     public static final String CREATE_CATEGORY_SUCCESSFULLY = "category.create.create_successfully";

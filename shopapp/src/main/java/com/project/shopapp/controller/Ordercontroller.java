@@ -6,6 +6,7 @@ import com.project.shopapp.models.Order;
 import com.project.shopapp.responses.OrderResponse;
 import com.project.shopapp.services.IOrderService;
 import com.project.shopapp.services.OrderService;
+import com.project.shopapp.ultils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,9 +35,9 @@ public class Ordercontroller {
                 return ResponseEntity.badRequest().body(errorMessages);
             }
             Order order =  orderService.createOrder(orderDTO);
-            return ResponseEntity.ok(order);
+            return ResponseEntity.ok(localizationUtils.getLocalizedMessage(MessageKeys.CREATE_ORDER_SUCCESSFULLY));
         } catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(localizationUtils.getLocalizedMessage(MessageKeys.CREATE_PRODUCT_FAILED,e.getMessage()));
         }
     }
     @GetMapping("/user/{user_id}")//Them duong dan user_id

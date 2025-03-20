@@ -75,10 +75,10 @@ public class UserService implements IUserService{
                 throw new BadCredentialsException(localizationUtils.getLocalizedMessage(MessageKeys.PASSWORD_NOT_CORRECT));
             }
         }
-//        Optional<Role> optionalRole = roleRepository.findById(roleId);
-//        if (optionalRole.isEmpty() || !roleId.equals(existingUser.getRole().getId())){
-//            throw new DataNotFoundException(localizationUtils.getLocalizedMessage(MessageKeys.ROLE_NOT_EXIST));
-//        }
+        Optional<Role> optionalRole = roleRepository.findById(roleId);
+        if (optionalRole.isEmpty() || !roleId.equals(existingUser.getRole().getId())){
+            throw new DataNotFoundException(localizationUtils.getLocalizedMessage(MessageKeys.ROLE_NOT_EXIST));
+        }
         UsernamePasswordAuthenticationToken  authenticationToken = new UsernamePasswordAuthenticationToken(
                 phoneNumber, password,
                 existingUser.getAuthorities()

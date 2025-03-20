@@ -13,8 +13,10 @@ export class LoginDto {
   @IsPhoneNumber()
   phone_number: string;
 
+  role_id: number;
   constructor(data: any) {
     this.password = data.password;
     this.phone_number = data.phoneNumber;
+    this.role_id = data.role_id;
   }
 } 

@@ -8,6 +8,7 @@ import com.project.shopapp.models.User;
 import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.UserRepository;
 import com.project.shopapp.responses.OrderResponse;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class OrderService implements IOrderService{
     private final OrderRepository orderRepository;
     private final ModelMapper modelMapper;
     @Override
+    @Transactional
     public Order createOrder(OrderDTO orderDTO) throws DataNotFoundException {
         //tim xem user_id co ton tai hay khong
         User user = userRepository
@@ -57,6 +59,7 @@ public class OrderService implements IOrderService{
     }
 
     @Override
+    @Transactional
     public Order updateOrder(Long id, OrderDTO orderDTO)
             throws DataNotFoundException {
         Order order = orderRepository.findById(id).
@@ -78,6 +81,7 @@ public class OrderService implements IOrderService{
     }
 
     @Override
+    @Transactional
     public void deleteOrder(Long id) {
         Order order =orderRepository.findById(id).orElse(null);
         //chi xoa trong  phanmem

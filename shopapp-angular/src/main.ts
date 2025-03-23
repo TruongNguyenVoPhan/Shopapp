@@ -8,5 +8,5 @@ import { RegisterComponent } from './app/components/register/register.component'
 import { DetailProductComponent } from './app/components/detail-product/detail-product.component';
 import { FormsModule } from '@angular/forms';
 
-bootstrapApplication(LoginComponent, appConfig)
+bootstrapApplication(HomeComponent, appConfig)
   .catch((err) => console.error(err));

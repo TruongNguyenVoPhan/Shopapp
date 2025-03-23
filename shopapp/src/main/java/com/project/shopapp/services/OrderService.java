@@ -35,7 +35,7 @@ public class OrderService implements IOrderService{
         //Dung thu vien model mapper
         modelMapper.typeMap(OrderDTO.class, Order.class)
                 .addMappings(mapper -> mapper.skip(Order::setId));
-        //Cap nhat cac truong cua don hang tu OrdeDTO
+        //Cap nhat cac truong cua don hang tu OrderDTO
         Order order = new Order();
         modelMapper.map(orderDTO, order);
         order.setUser(user);

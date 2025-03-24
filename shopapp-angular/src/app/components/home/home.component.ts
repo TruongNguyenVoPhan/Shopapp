@@ -5,13 +5,15 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../service/product.sevice';
 import { Router } from '@angular/router';
 import { environment } from '../../environment/environment';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   standalone: true,
   styleUrl: './home.component.scss',
-  imports: [FooterComponent, HeaderComponent]
+  imports: [FooterComponent, HeaderComponent, CommonModule]
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
@@ -29,25 +31,20 @@ export class HomeComponent implements OnInit {
 
   getProducts(page: number, limit: number) {
     this.productService.getProducts(page, limit)
-    .subscribe( {
+    .subscribe({
       next: (response: any) => {
         debugger
         response.products.forEach((product: Product) => {
-          product.url= `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
+          product.url = `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
         });
+        this.products = response.products; 
         this.totalPages = response.totalPages;
-        this.pages = Array(this.totalPages).fill(0).map((x,i) => i + 1);
         this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
       },
-      complete: () => {
-        debugger;
-      },
-      error: (error: any) => {
-        debugger;
-        console.error('Error fetching products: ',error);
-      } 
+      error: (error: any) => console.error('Error fetching products:', error)
     });
   }
+  
   generateVisiblePageArray(currentPage: number, totalPages: number): number[] {
     const visiblePages: number[] = [];
     const maxVisiblePages = 5;

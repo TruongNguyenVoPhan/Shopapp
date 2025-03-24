@@ -136,7 +136,7 @@ public class ProductController {
         PageRequest pageRequest = PageRequest.of(
                 page, limit,
 //                Sort.by("createdAt").descending()
-                Sort.by("id").descending());
+                Sort.by("id").ascending());
         Page<ProductResponse> productPage = productService.getAllProduct(pageRequest);
         int totalPages = productPage.getTotalPages();
         List<ProductResponse> products = productPage.getContent();

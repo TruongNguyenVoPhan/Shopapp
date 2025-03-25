@@ -26,5 +26,15 @@
             </div>
         </div>
     </div>
+<!-- Phân trang -->
+<div class="pagination">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">❮</button>
+    <button *ngFor="let page of visiblePages" 
+            (click)="onPageChange(page)" 
+            [class.active]="page === currentPage">
+        {{ page }}
+    </button>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">❯</button>
+</div>
 </div>
 <app-footer></app-footer>

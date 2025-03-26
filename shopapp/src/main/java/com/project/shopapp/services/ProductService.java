@@ -49,11 +49,12 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public Page<ProductResponse> getAllProduct(PageRequest pageRequest) {
+    public Page<ProductResponse> getAllProduct(Long categoryId,String keyword
+                                               , PageRequest pageRequest) {
         //Laydanh sach san pham theo trang(page) va gioi han(limit)
-        return productRepository
-                .findAll(pageRequest)
-                .map(ProductResponse::fromProduct);
+        Page<Product> productPage;
+        productPage = productRepository.searchProducts(categoryId,keyword,pageRequest);
+        return productPage.map(ProductResponse::fromProduct);
     }
 
     @Override

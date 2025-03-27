@@ -23,33 +23,33 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class JwtTokenFilter extends OncePerRequestFilter {
+
+public class JwtTokenFilter extends OncePerRequestFilter{
     @Value("${api.prefix}")
     private String apiPrefix;
     private final UserDetailsService userDetailsService;
     private final JwtTokenUtils jwtTokenUtil;
     @Override
-    protected void doFilterInternal(@NonNull HttpServletRequest request,
+    protected void doFilterInternal(@NonNull  HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            if (isBypassToken(request)){
-                filterChain.doFilter(request, response);
+            if(isBypassToken(request)) {
+                filterChain.doFilter(request, response); //enable bypass
                 return;
             }
-            final String authHeader =request.getHeader("Authorization");
-            if (authHeader == null
-                    || !authHeader.startsWith("Bearer ")){
+            final String authHeader = request.getHeader("Authorization");
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
                 return;
             }
             final String token = authHeader.substring(7);
             final String phoneNumber = jwtTokenUtil.extractPhoneNumber(token);
-            if (phoneNumber  != null
+            if (phoneNumber != null
                     && SecurityContextHolder.getContext().getAuthentication() == null) {
-                User userDetails =  (User) userDetailsService.loadUserByUsername(phoneNumber);
-                if (jwtTokenUtil.validateToken(token, userDetails)) {
+                User userDetails = (User) userDetailsService.loadUserByUsername(phoneNumber);
+                if(jwtTokenUtil.validateToken(token, userDetails)) {
                     UsernamePasswordAuthenticationToken authenticationToken =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails,
@@ -61,21 +61,24 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 }
             }
             filterChain.doFilter(request, response); //enable bypass
-        }catch (Exception e){
+        }catch (Exception e) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
         }
+
     }
-    private boolean isBypassToken(@NonNull HttpServletRequest request){
+    private boolean isBypassToken(@NonNull  HttpServletRequest request) {
+
         final List<Pair<String, String>> bypassTokens = Arrays.asList(
-                Pair.of(String.format("%s/roles", apiPrefix),"GET"),
-                Pair.of(String.format("%s/products", apiPrefix),"GET"),
-                Pair.of(String.format("%s/categories", apiPrefix),"GET"),
-                Pair.of(String.format("%s/users/register", apiPrefix),"POST"),
-                Pair.of(String.format("%s/users/login", apiPrefix),"POST")
+                Pair.of(String.format("%s/roles", apiPrefix), "GET"),
+                Pair.of(String.format("%s/products", apiPrefix), "GET"),
+                Pair.of(String.format("%s/orders", apiPrefix), "GET"),
+                Pair.of(String.format("%s/categories", apiPrefix), "GET"),
+                Pair.of(String.format("%s/users/register", apiPrefix), "POST"),
+                Pair.of(String.format("%s/users/login", apiPrefix), "POST")
         );
-        for (Pair<String,String> bypassToken : bypassTokens) {
-            if(request.getServletPath().contains(bypassToken.getFirst()) &&
-                    request.getMethod().equals(bypassToken.getSecond())){
+        for(Pair<String, String> bypassToken: bypassTokens) {
+            if (request.getServletPath().contains(bypassToken.getFirst()) &&
+                    request.getMethod().equals(bypassToken.getSecond())) {
                 return true;
             }
         }

@@ -3,9 +3,12 @@ import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { Product } from '../../models/product';
 import { ProductService } from '../../service/product.sevice';
+import { CategoryService } from '../../service/category.service';
 import { Router } from '@angular/router';
 import { environment } from '../../environment/environment';
 import { CommonModule } from '@angular/common';
+import { Category } from '../../models/categories';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -13,24 +16,49 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   standalone: true,
   styleUrl: './home.component.scss',
-  imports: [FooterComponent, HeaderComponent, CommonModule]
+  imports: [FooterComponent, HeaderComponent, CommonModule, FormsModule]
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
+  categories: Category[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 10;
   pages: number[] = [];
   totalPages: number = 0;
   visiblePages: number[] = [];
+  keyword: string = '';
+  selectedCategoryId: number = 0;
 
   constructor(private router: Router, 
-      private productService: ProductService) { }
+      private productService: ProductService,
+      private categoryService: CategoryService) { }
   ngOnInit() {
-    this.getProducts(this.currentPage, this.itemsPerPage);
+    this.getProducts(this.keyword,this.selectedCategoryId,this.currentPage, this.itemsPerPage);
+    this.getCategories(1,100);
   }
 
-  getProducts(page: number, limit: number) {
-    this.productService.getProducts(page, limit)
+  getCategories(page: number, limit: number) {
+    this.categoryService.getCategories(page, limit)
+    .subscribe({
+      next: (categories : Category[]) => {
+        debugger
+        this.categories = categories;
+      },
+      complete: () => {
+        debugger
+      },
+      error: (error: any) => console.error('Error fetching category:', error)
+    });
+  }
+
+  searchProducts(){
+    this.currentPage = 1;
+    this.itemsPerPage = 12;
+    debugger
+    this.getProducts(this.keyword, this.selectedCategoryId, this.currentPage, this.itemsPerPage);
+  }
+  getProducts(keyword:string,selectedCategoryId:number,page: number, limit: number) {
+    this.productService.getProducts(keyword,selectedCategoryId,page, limit)
     .subscribe({
       next: (response: any) => {
         debugger
@@ -65,7 +93,7 @@ export class HomeComponent implements OnInit {
 
   onPageChange(page: number) {
     this.currentPage = page;
-    this.getProducts(this.currentPage, this.itemsPerPage);
+    this.getProducts(this.keyword, this.selectedCategoryId,this.currentPage, this.itemsPerPage);
   }
   onProductClick(productId: number) {
     debugger

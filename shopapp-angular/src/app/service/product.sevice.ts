@@ -11,9 +11,11 @@ export class ProductService{
     private apiGetProducts = `${environment.apiBaseUrl}products`;
 
     constructor(private http: HttpClient) { }
-    getProducts(
+    getProducts( keywword: string,selectedCategoryId: number,
         page: number, limit: number): Observable<Product[]> {
             const params = new HttpParams()
+                .set('keyword', keywword)
+                .set('categoryId', selectedCategoryId.toString())
                 .set('page', page.toString())
                 .set('limit', limit.toString());
             return this.http.get<Product[]>(this.apiGetProducts, { params });

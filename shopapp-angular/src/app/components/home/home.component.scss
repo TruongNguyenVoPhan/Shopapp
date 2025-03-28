@@ -45,9 +45,9 @@
 
 .product-image {
     width: 100%;
-    height: auto;
+    height: 450px;
     border-radius: 10px;
-    margin-bottom: 15px;
+    object-fit: cover;
 }
 
 .product-name {
@@ -84,4 +84,43 @@
 
 .space-x {
     margin: 0 10px;
+}
+
+button {
+    background-color: #007bff; /* Màu xanh dương */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #00b39e; /* Màu xanh đậm khi hover */
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Nút trong phân trang */
+.pagination button {
+    background-color: #f8f9fa;
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+    color: white;
 }

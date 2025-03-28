@@ -7,14 +7,17 @@
     </div>
     <!-- Doan nay co 1 o search box ben trai, 1 combobox be phai -->
     <div class="search-box">
-        <input type="text" class="form-control search-input" placeholder="Tìm sản phẩm">
-        <select class="form-control product-category">
-            <option selected disabled>Danh mục sản phẩm</option>
-            <option>Đồ điện tử</option>
-            <option>Gia dụng</option>
-            <option>Bánh kẹo</option>
-            <option>Hải sản</option>
+        <input type="text" class="form-control search-input" 
+            placeholder="Tìm sản phẩm"
+            [(ngModel)]="keyword">
+        <select class="form-control product-category"
+            [(ngModel)]="selectedCategoryId">
+            <option [value]="0">Tất cả</option>
+            <option *ngFor="let category of categories" [ngValue]="category.id">
+                {{ category.name }}
+            </option>
         </select>
+        <button class="btn btn-primary ml-2" (click)="searchProducts()">Tìm kiếm</button>
     </div>
     <div class="row">
         <div class="col-lg-4 col-md-6" *ngFor="let product of products">
@@ -28,13 +31,13 @@
     </div>
 <!-- Phân trang -->
 <div class="pagination">
-    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">❮</button>
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
     <button *ngFor="let page of visiblePages" 
             (click)="onPageChange(page)" 
             [class.active]="page === currentPage">
         {{ page }}
     </button>
-    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">❯</button>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
 </div>
 </div>
 <app-footer></app-footer>

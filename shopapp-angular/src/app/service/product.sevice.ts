@@ -21,7 +21,7 @@ export class ProductService{
             return this.http.get<Product[]>(this.apiGetProducts, { params });
     }
     getDetailsProduct(productId: number): Observable<Product> {
-        return this.http.get<Product>(`${environment.apiBaseUrl}products/details/${productId}`);
+        return this.http.get<Product>(`${environment.apiBaseUrl}products/${productId}`);
     }
     getProductById(productIds: number[]): Observable<Product[]> {
         debugger

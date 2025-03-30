@@ -10,7 +10,7 @@ import { CategoryService } from '../../service/category.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environment/environment';
 import { ProductImage } from '../../models/product.image';
-
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -23,7 +23,9 @@ export class DetailProductComponent implements OnInit {
   product?: Product;
   productId: number = 0;
   currentImageIndex: number = 0;
+  quantity: number = 1; //Số lượng sản phẩm
   constructor(
+    private cartService: CartService,
     private router: Router,
     private productService: ProductService,
     // private categoryService: CategoryService, 
@@ -89,4 +91,30 @@ export class DetailProductComponent implements OnInit {
     //Gọi khi bấm nút previous
     this.showImage(this.currentImageIndex - 1); //hiện ảnh trước đó
   }
+  addToCart() {
+    debugger
+    if (this.product) {
+      //Thêm sản phẩm vào giỏ hàng
+      this.cartService.addToCart(this.product.id, this.quantity);
+    }else {
+      console.error('Không thể thêm sản phẩm vào giỏ hàng vì product là null.');
+    }
+  }
+
+  increaseQuantity(): void {
+    debugger
+    this.quantity++;
+  }
+  decreaseQuantity(): void {
+    debugger
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+  buyNow() {
+    debugger
+    // Nhấn nút mua ngay, điều hướng đến trang checkout
+    this.router.navigate(['orders']);
+  }
+
 }

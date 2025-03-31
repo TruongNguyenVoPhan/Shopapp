@@ -14,7 +14,7 @@ export class CartService{
     constructor(){
         const storedCart = localStorage.getItem('cart');
         if (storedCart) {
-            const parsedCart = JSON.parse(storedCart);
+            this.cart = new Map(JSON.parse(storedCart));
         }
     }
 

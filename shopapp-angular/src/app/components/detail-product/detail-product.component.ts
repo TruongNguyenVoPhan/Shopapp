@@ -35,7 +35,7 @@ export class DetailProductComponent implements OnInit {
   }
   ngOnInit() {
     debugger
-    const idParam = 5
+    const idParam = 14
     if (idParam !== null) {
       this.productId = +idParam;
     }
@@ -82,18 +82,16 @@ export class DetailProductComponent implements OnInit {
     this.currentImageIndex = index; //cập nhật currentImageIndex
   }
   nextImage() {
-    debugger
     //Gọi khi bấm nút next
     this.showImage(this.currentImageIndex + 1); //hiện ảnh tiếp theo
   }
   previousImage() {
-    debugger
     //Gọi khi bấm nút previous
     this.showImage(this.currentImageIndex - 1); //hiện ảnh trước đó
   }
   addToCart() {
-    debugger
     if (this.product) {
+      debugger
       //Thêm sản phẩm vào giỏ hàng
       this.cartService.addToCart(this.product.id, this.quantity);
     }else {
@@ -102,11 +100,9 @@ export class DetailProductComponent implements OnInit {
   }
 
   increaseQuantity(): void {
-    debugger
     this.quantity++;
   }
   decreaseQuantity(): void {
-    debugger
     if (this.quantity > 1) {
       this.quantity--;
     }

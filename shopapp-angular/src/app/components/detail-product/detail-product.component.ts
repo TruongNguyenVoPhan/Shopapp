@@ -3,7 +3,7 @@ import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { Product } from '../../models/product';
 import { Router } from '@angular/router';
-import { FormsModule, } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../service/product.sevice';
 import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../service/category.service';
@@ -35,7 +35,7 @@ export class DetailProductComponent implements OnInit {
   }
   ngOnInit() {
     debugger
-    const idParam = 14
+    const idParam = 9
     if (idParam !== null) {
       this.productId = +idParam;
     }

@@ -14,61 +14,25 @@
                 <th scope="col">Tổng giá</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <div class="poduct-info">
-                            <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
-                                alt="Product Image" class="product-image">
-                            <span class="prroduct-name">Macbook air 5</span>
-                        </div>
-                    </td>
-                    <td>2</td>
-                    <td>200,000 đ</td>
-                    <td>200,000 đ</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="poduct-info">
-                            <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
-                                alt="Product Image" class="product-image">
-                            <span class="prroduct-name">Macbook air 2</span>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td>110,000 đ</td>
-                    <td>110,000 đ</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="poduct-info">
-                            <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
-                                alt="Product Image" class="product-image">
-                            <span class="prroduct-name">Macbook air 1</span>
-                        </div>
-                    </td>
-                    <td>2</td>
-                    <td>100,000 đ</td>
-                    <td>100,000 đ</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="poduct-info">
-                            <img src="https://media.istockphoto.com/id/1399695296/vi/anh/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-b%C3%ACnh-th%C6%B0%E1%BB%9Dng-freelancer-l%C3%A0m-vi%E1%BB%87c-tr%E1%BB%B1c-tuy%E1%BA%BFn-v%E1%BB%9Bi-macbook-v%C3%A0-%C4%91i%E1%BB%87n-tho%E1%BA%A1i-di-%C4%91%E1%BB%99ng-v%C3%A0.jpg?b=1&s=612x612&w=0&k=20&c=YABWdyQDmHlC1GMyEGlHEC8hQc1eXR7eQZtlB1byyxs=" 
-                                alt="Product Image" class="product-image">
-                            <span class="prroduct-name">Macbook air 3</span>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td>350,000 đ</td>
-                    <td>350,000 đ</td>
-                </tr>
+                <ng-container *ngFor="let item of cartItems">
+                    <tr>
+                        <td>
+                            <div class="product-info">
+                                <img [src]="item.product.thumbnail" alt="Product Image" class="product-image">
+                                <h3 class="product-name">{{ item.product.name }}</h3>
+                            </div>
+                        </td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.product.price | currency:'VND':'symbol':'1.0-0'}}</td>
+                        <td>{{ (item.product.price * item.quantity) | currency:'VND':'symbol':'1.0-0'}}</td>
+                    </tr>
+                </ng-container>
             </tbody>
         </table>
-        <div class="text-start mt-3">
-            <button class="btn btn-gradient" type="submit">Tiếp tục mua sắm</button>
-            <button class="btn btn-gradient" type="submit">Thanh toán</button>
-        </div>
     </div>
-     
+    <p class="mb-0"> Tổng tiền: {{ totalAmount | currency:'VND':'symbol':'1.0-0'}}</p>
+    <div class="text-start mt-3">
+        <button class="btn btn-gradient" type="button">Thanh toán</button>
+    </div>
 </div>
 <app-footer></app-footer>

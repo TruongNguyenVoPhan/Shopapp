@@ -1,61 +1,85 @@
-.container{
+.container {
     color: white;
+    font-size: 18px; /* Tăng cỡ chữ tổng thể */
 }
-.intro-section{
+
+.intro-section {
+    color: white;
+    padding: 30px;
     text-align: center;
-    color: white;
-    padding: 20px;
+    font-size: 22px; /* Tăng cỡ chữ tiêu đề */
 }
-.form-control{
+
+.product-header {
+    color: rgb(233, 66, 176);
+    font-size: 24px; /* Chữ to hơn */
+    font-weight: bold;
+}
+
+.form-control {
     background-color: rgb(19, 23, 42);
     border: 1px solid rgb(29, 33, 54);
     color: white;
+    padding: 12px;
+    font-size: 18px; /* Tăng cỡ chữ trong input */
 }
-.form-control:focus{
+
+.form-control:focus {
     border-color: white;
     background-color: rgb(19, 23, 42);
 }
-.product-header{
-    color: rgb(176, 49, 142);
+
+.form-label {
+    color: white;
+    font-size: 20px; /* Chữ lớn hơn */
+    font-weight: bold;
 }
-.product-order{
-    color: rgb(20, 180, 216);
+
+.product-order {
+    color: rgb(105, 244, 181);
+    font-size: 24px;
+    font-weight: bold;
 }
-table{
+
+table {
     width: 100%;
     border-radius: 10px;
     border: none;
     border-collapse: separate;
+    border: 1px solid white;
     border-spacing: 0;
-    background-color: rgb(19, 23, 42);
+    background-color: rgb(12, 13, 54);
+    font-size: 18px; /* Cỡ chữ trong bảng lớn hơn */
 }
 
 th,
 td {
-    padding: 10px;
+    padding: 15px; /* Tăng padding cho ô bảng */
     text-align: center;
 }
 
-.prroduct-info{
+.product-info {
     display: flex;
     align-items: center;
 }
 
-.product-image{
-    width: 100px;
-    height: 100px;
+.product-image {
+    width: 110px;
+    height: 110px;
     border-radius: 5px;
     margin-right: 10px;
 }
 
-.product-name{
+.product-name {
     color: white;
-    margin-right: 10px;
+    font-size: 20px; /* Tên sản phẩm lớn hơn */
 }
 
-.btn-gradient{
-    background: linear-gradient(to right, rgb(150, 68, 180), rgb(120, 14, 104));
+.btn-gradient {
+    background: linear-gradient(to right, rgb(225, 64, 180), rgb(126, 43, 237));
     color: white;
     border-radius: 30px;
-    width: 200px;
+    width: 220px; /* Nút to hơn */
+    font-size: 20px;
+    padding: 12px;
 }

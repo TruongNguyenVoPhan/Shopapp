@@ -28,4 +28,8 @@ export class ProductService{
         const params = new HttpParams().set('id', productIds.join(','));
         return this.http.get<Product[]>(`${this.apiGetProducts}/by-ids`, { params });
     }
+    getProductByIds(productIds: number[]): Observable<Product[]> {
+        const params = new HttpParams().set('ids', productIds.join(','));
+        return this.http.get<Product[]>(`${this.apiGetProducts}/by-ids`, { params });
+    }
 }

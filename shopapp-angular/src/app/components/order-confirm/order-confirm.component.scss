@@ -1,55 +1,99 @@
-.container{
-    color: white;
-}
-.confirmation-container{
-    margin: 50px auto;
+/* Tổng quan */
+.container {
+    max-width: 900px;
+    margin: auto;
     padding: 20px;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-    color: white;
-}
-.intro-section{
-    text-align: center;
-    color: white;
-    padding: 20px;
-}
-table{
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: rgb(78, 21, 113);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-th,
-td {
-    padding: 10px;
+/* Tiêu đề */
+.confirmation-container {
     text-align: center;
+    margin-bottom: 20px;
 }
-.prroduct-info{
+
+.confirmation-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.confirmation-container p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Bảng đơn hàng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+thead th {
+    background-color: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Sản phẩm */
+.product-image {
+    width: 100px; /* Điều chỉnh kích thước theo mong muốn */
+    height: 100px;
+    object-fit: cover; /* Giữ tỷ lệ hình ảnh */
+    border-radius: 8px; /* Làm góc bo tròn nhẹ */
+    margin-right: 10px;
+}
+
+.product-info {
     display: flex;
     align-items: center;
 }
 
-.product-image{
-    width: 100px;
-    height: 100px;
+.product-name {
+    margin: 0;
+    font-size: 16px; /* Tăng kích thước chữ nếu cần */
+}
+
+
+/* Nút thanh toán */
+.btn-gradient {
+    background: linear-gradient(45deg, #ff7b00, #ff4500);
+    color: white;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.product-name{
-    color: white;
-    margin-right: 10px;
+.btn-gradient:hover {
+    opacity: 0.8;
 }
 
+p {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-.btn-gradient{
-    background: linear-gradient(to right, rgb(180, 68, 148), rgb(120, 14, 104));
-    color: white;
-    border-radius: 40px;
-    width: 250px;
-    margin-left: 300px;
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
 }

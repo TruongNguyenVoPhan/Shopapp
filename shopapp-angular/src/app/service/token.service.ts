@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { RegisterDto } from '../dtos/user/register.dto';
-import { LoginDto } from '../dtos/user/login.dto';
-import { environment } from '../environment/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
    private readonly TOKEN_KEY =  'access_token';
+   private jwtHelper = new JwtHelperService();
     constructor() {}
     //getter & setter
-    getToken(): String | null {
-        return localStorage.getItem(this.TOKEN_KEY);
-
+    getToken(): string | null {
+        const token = localStorage.getItem(this.TOKEN_KEY);
+        return token !== null ? String(token) : null;
     }
     
     setToken(token: string): void {
@@ -23,5 +21,15 @@ export class TokenService {
 
     removeToken(): void {
         localStorage.removeItem(this.TOKEN_KEY);
+    }
+    getUserInfoFromToken(): any {
+        debugger
+        return this.jwtHelper.decodeToken(this.getToken() ?? '');        
+    }
+    isTokenExpired(): boolean { 
+        if(this.getToken() == null) {
+            return false;
+        }       
+        return this.jwtHelper.isTokenExpired(this.getToken()!);
     }
 }

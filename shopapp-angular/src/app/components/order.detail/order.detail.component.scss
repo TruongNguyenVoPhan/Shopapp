@@ -1,0 +1,172 @@
+/* Container chính */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: white;
+    font-size: 18px; /* Tăng kích thước font chung */
+}
+
+/* Phần giới thiệu */
+.intro-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 32px; /* Tăng kích thước tiêu đề */
+    font-weight: bold;
+    color: #fff;
+}
+
+p {
+    color: #ccc;
+    font-size: 18px;
+}
+
+/* Bố cục hàng ngang */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Cột hiển thị */
+.col-md-6 {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Header sản phẩm */
+.product-header, .product-order {
+    font-size: 24px; /* Tăng kích thước tiêu đề sản phẩm */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #e140b4;
+}
+
+/* Các đoạn văn bản */
+.mb-3 {
+    margin-bottom: 12px;
+}
+
+.form-label {
+    font-size: 18px; /* Tăng kích thước font nhãn */
+    font-weight: 500;
+    color: #f0f0f0;
+}
+
+/* Bảng sản phẩm */
+table {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    border-collapse: collapse;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-spacing: 0;
+    background-color: rgb(12, 13, 54);
+}
+
+thead {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+    color: white;
+    font-size: 18px; /* Tăng font bảng */
+}
+
+th {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+td {
+    font-size: 18px;
+}
+
+/* Phần thông tin sản phẩm */
+.product-info {
+    display: flex;
+    align-items: center;
+}
+
+.product-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-name {
+    font-weight: 500;
+    font-size: 18px; /* Tăng font tên sản phẩm */
+    color: #ff69b4;
+}
+
+/* Tổng giá */
+.header-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff4d4d;
+}
+
+/* Căn chỉnh */
+.text-end {
+    text-align: right;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+/* Nút gradient */
+.btn-gradient {
+    background: linear-gradient(to right, rgb(225, 64, 180), rgb(126, 43, 237));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 220px;
+    padding: 12px;
+    font-size: 18px; /* Tăng kích thước chữ của nút */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, rgb(255, 80, 200), rgb(150, 60, 255));
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .text-end {
+        text-align: left;
+    }
+
+    .product-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    th, td {
+        font-size: 16px; /* Giảm nhẹ font trên màn hình nhỏ */
+    }
+
+    .btn-gradient {
+        width: 100%;
+        font-size: 16px;
+    }
+}

@@ -5,7 +5,7 @@ export interface OrderDetail {
     order: Order;
     product: Product;
     price: number;
-    numble_of_product: number;
+    number_of_products: number;
     total_money: number;
     color?: string; // Dấu "?" cho biết thuộc tính này là tùy chọn
 }

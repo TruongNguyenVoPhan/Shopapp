@@ -26,10 +26,10 @@ public class OrderDetailController {
     public ResponseEntity<?> createOrderDetail(
             @Valid @RequestBody OrderDetailDTO orderDetailDTO)  {
         try {
-            OrderDetail orderDetail = orderDetailService.createOrderDetail(orderDetailDTO);
-            return ResponseEntity.ok().body(OrderDetailResponse.fromOrderDetail(orderDetail));
-        } catch (DataNotFoundException e) {
-            throw new RuntimeException(e);
+            OrderDetail newOrderDetail = orderDetailService.createOrderDetail(orderDetailDTO);
+            return ResponseEntity.ok().body(OrderDetailResponse.fromOrderDetail(newOrderDetail));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
 
     }

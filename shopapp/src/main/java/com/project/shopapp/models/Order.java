@@ -23,7 +23,7 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "full_name", length = 100)
+    @Column(name = "fullname", length = 100)
     private String fullName;
 
     @Column(name = "email", length = 100)

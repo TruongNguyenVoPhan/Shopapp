@@ -7,7 +7,7 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { CartItemDTO } from './cart.item.dto';
-export class orderDTO{
+export class OrderDTO{
     user_id: number;
 
     fullname: string;

@@ -26,6 +26,10 @@ export class TokenService {
         debugger
         return this.jwtHelper.decodeToken(this.getToken() ?? '');        
     }
+    getUserId(): number {
+        let userObject = this.jwtHelper.decodeToken(this.getToken() ?? '');
+        return 'userId' in userObject ? parseInt(userObject['userId']) : 0;
+    }
     isTokenExpired(): boolean { 
         if(this.getToken() == null) {
             return false;

@@ -21,8 +21,8 @@ public class OrderDTO {
     @Min(value = 1,message = "User's ID must be > 0")
     private Long userId;
 
-    @JsonProperty("full_name")
-    private String fullName;
+    @JsonProperty("fullname")
+    private String fullname;
 
     private String email;
 

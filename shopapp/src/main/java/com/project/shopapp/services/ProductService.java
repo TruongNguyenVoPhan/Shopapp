@@ -28,7 +28,7 @@ public class ProductService implements IProductService{
     private final ProductImageRepository productImageRepository;
     @Override
     @Transactional
-    public Product createProduct(ProductDTO productDTO) throws DataNotFoundException {
+    public Product createProduct(ProductDTO productDTO) throws Exception {
         Category existingCategory = categoryRepository
                 .findById(productDTO.getCategoryId())
                 .orElseThrow(() ->

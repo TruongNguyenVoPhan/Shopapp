@@ -22,7 +22,7 @@ public class OrderDetailService implements IOrderDetailService{
     private final OrderDetailRepository orderDetailRepository;
     private final ModelMapper modelMapper;
     @Override
-    public OrderDetail createOrderDetail(OrderDetailDTO orderDetailDTO) throws DataNotFoundException {
+    public OrderDetail createOrderDetail(OrderDetailDTO orderDetailDTO) throws Exception {
         Order order = orderRepository.findById(orderDetailDTO.getOrderId())
                 .orElseThrow(() -> new DataNotFoundException("Cannot find Order with id : " + orderDetailDTO.getOrderId()));
         Product product = productRepository.findById(orderDetailDTO.getProductId())

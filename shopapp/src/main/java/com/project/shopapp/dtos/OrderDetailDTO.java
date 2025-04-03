@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class OrderDetailDTO {
     @JsonProperty("order_id")
     @Min(value = 1, message = "Order's ID must be > 0")

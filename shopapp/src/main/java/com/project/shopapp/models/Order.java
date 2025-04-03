@@ -1,10 +1,10 @@
 package com.project.shopapp.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -45,7 +45,7 @@ public class Order {
     private String status;
 
     @Column(name = "total_money")
-    private Integer totalMoney;
+    private Float totalMoney;
 
     @Column(name = "shipping_method")
     private String shippingMethod;
@@ -64,4 +64,5 @@ public class Order {
 
     @Column(name = "active")
     private Boolean active;//thuộc về admin
+
 }

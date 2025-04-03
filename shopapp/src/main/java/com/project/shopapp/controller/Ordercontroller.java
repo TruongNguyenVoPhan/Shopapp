@@ -34,10 +34,10 @@ public class Ordercontroller {
                         .toList();
                 return ResponseEntity.badRequest().body(errorMessages);
             }
-            Order order =  orderService.createOrder(orderDTO);
-            return ResponseEntity.ok(localizationUtils.getLocalizedMessage(MessageKeys.CREATE_ORDER_SUCCESSFULLY));
-        } catch (Exception e){
-            return ResponseEntity.badRequest().body(localizationUtils.getLocalizedMessage(MessageKeys.CREATE_PRODUCT_FAILED,e.getMessage()));
+            Order orderResponse = orderService.createOrder(orderDTO);
+            return ResponseEntity.ok(orderResponse);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
     @GetMapping("/user/{user_id}")//Them duong dan user_id

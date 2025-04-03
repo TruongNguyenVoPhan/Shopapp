@@ -13,7 +13,7 @@ import java.util.List;
 
 
 public interface IProductService {
-    Product createProduct(ProductDTO productDTO) throws DataNotFoundException;
+    Product createProduct(ProductDTO productDTO) throws Exception;
 
     Product getProductById(long id) throws Exception;
 

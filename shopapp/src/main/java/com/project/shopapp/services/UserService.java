@@ -2,6 +2,7 @@ package com.project.shopapp.services;
 
 import com.project.shopapp.components.JwtTokenUtils;
 import com.project.shopapp.components.LocalizationUtils;
+import com.project.shopapp.dtos.UpdateUserDTO;
 import com.project.shopapp.dtos.UserDTO;
 import com.project.shopapp.exceptions.DataNotFoundException;
 import com.project.shopapp.exceptions.PermissionDenyException;
@@ -10,6 +11,7 @@ import com.project.shopapp.models.User;
 import com.project.shopapp.repositories.RoleRepository;
 import com.project.shopapp.repositories.UserRepository;
 import com.project.shopapp.ultils.MessageKeys;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -86,5 +88,63 @@ public class UserService implements IUserService{
         //authenticate with Java Spring Security
         authenticationManager.authenticate(authenticationToken);
         return jwtTokenUtil.generateToken(existingUser);
+    }
+
+
+    @Override
+    public User getUseDetailsFromToken(String token) throws Exception {
+        if(jwtTokenUtil.isTokenExpiration(token)){
+            throw new Exception("Token is expired");
+        }
+        String phoneNumber = jwtTokenUtil.extractPhoneNumber(token);
+        Optional<User> user = userRepository.findByPhoneNumber(phoneNumber);
+
+        if(user.isPresent()) {
+            return user.get();
+        }
+        else {
+            throw new Exception("User not found");
+        }
+    }
+
+    @Override
+    @Transactional
+    public User updateUser(Long userId, UpdateUserDTO updateUserDTO) throws Exception {
+        User existingUser = userRepository.findById(userId)
+                .orElseThrow(() -> new DataNotFoundException("User not found"));
+        String newPhoneNumber = updateUserDTO.getPhoneNumber();
+        if (!existingUser.getPhoneNumber().equals(newPhoneNumber)
+            && userRepository.existsByPhoneNumber(newPhoneNumber)){
+            throw new DataIntegrityViolationException("Phone number already exits");
+        }
+
+        if(existingUser.getFullName() != null){
+            existingUser.setFullName(existingUser.getFullName());
+        }
+
+        if(existingUser.getAddress() != null){
+            existingUser.setAddress(existingUser.getAddress());
+        }
+
+        if(existingUser.getDateOfBirth() != null){
+            existingUser.setDateOfBirth(existingUser.getDateOfBirth());
+        }
+
+        if(existingUser.getFacebookAccountId() > 0){
+            existingUser.setFacebookAccountId(existingUser.getFacebookAccountId());
+        }
+
+        if(existingUser.getGoogleAccountId() > 0){
+            existingUser.setGoogleAccountId(existingUser.getGoogleAccountId());
+        }
+
+        if(updateUserDTO.getPassword() != null
+            && !updateUserDTO.getPassword().isEmpty()){
+            String newPassword = existingUser.getPassword();
+            String encodedPassword = passwordEncoder.encode(newPassword);
+            existingUser.setPassword(encodedPassword);
+        }
+
+        return userRepository.save(existingUser);
     }
 }

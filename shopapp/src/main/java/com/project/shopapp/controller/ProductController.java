@@ -132,7 +132,7 @@ public class ProductController {
             @RequestParam(defaultValue = "0", name = "category_id") Long categoryId,
             @RequestParam(defaultValue = "") String keyword,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int limit
+            @RequestParam(defaultValue = "12") int limit
     ){
         PageRequest pageRequest = PageRequest.of(
                 page, limit,

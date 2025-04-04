@@ -10,6 +10,7 @@ import { LoginResponse } from '../../responses/user/login.response';
 import { TokenService } from '../../service/token.service';
 import { RoleService } from '../../service/role.sevice';
 import { Role }from  '../../models/role';
+import { UserResponse } from '../../responses/user/user.response';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent {
   roles: Role[] = [];
   rememberMe: boolean = true;
   selectedRole: Role | undefined;
+  userResponse?: UserResponse  ;
   constructor(
     private router: Router, 
     private userService: UserService,
@@ -72,10 +74,29 @@ export class LoginComponent {
         debugger
         const {token} = response
         if(this.rememberMe){
+          debugger;
           this.tokenService.setToken(token);
+          this.userService.getUserDetails(token).subscribe({
+            next: (response: any) => {
+              debugger;
+              this.userResponse = {
+                ...response,
+                date_of_birth: new Date(response.date_of_birth),
+              };
+              this.userService.saveUserResponseToLocalStorage(this.userResponse);
+              this.router.navigate(['/']);
+            },
+            complete: () => {
+              debugger
+            },
+            error: (error: any) => {
+              debugger
+              console.error(error);
+            }
+          });
         }
         
-        // this.router.navigate(['/login']);
+        
       },
       complete: () => {
         debugger

@@ -4,18 +4,17 @@ import com.project.shopapp.dtos.*;
 import com.project.shopapp.models.User;
 import com.project.shopapp.responses.LoginResponse;
 import com.project.shopapp.responses.RegisterRespone;
+import com.project.shopapp.responses.UserResponse;
 import com.project.shopapp.services.UserService;
 import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.ultils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -77,5 +76,35 @@ public class Usercontroller {
         }
         //Tra ve token trong response
 
+    }
+    @PostMapping("/details")
+    public ResponseEntity<UserResponse> getUserDetails(
+            @RequestHeader("Authorization") String authorizationHeader
+    ){
+        try {
+            String extractedToken = authorizationHeader.substring(7); // Loại bỏ "Bearer " từ chuỗi token
+            User user = userService.getUseDetailsFromToken(extractedToken);
+            return ResponseEntity.ok(UserResponse.fromUser(user));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+    @PutMapping("/details/{userId}")
+    public ResponseEntity<UserResponse> updateUserDetails(
+            @PathVariable Long userId,
+            @RequestBody UpdateUserDTO updateUserDTO,
+            @RequestHeader("Authorization") String authorizationHeader
+    ){
+        try {
+            String extractedToken = authorizationHeader.substring(7); // Loại bỏ "Bearer " từ chuỗi token
+            User user = userService.getUseDetailsFromToken(extractedToken);
+            if (user.getId() != null){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            }
+            User updateUserDetails = userService.updateUser(userId, updateUserDTO);
+            return ResponseEntity.ok(UserResponse.fromUser(updateUserDetails));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

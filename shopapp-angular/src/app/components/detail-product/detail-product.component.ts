@@ -24,6 +24,7 @@ export class DetailProductComponent implements OnInit {
   productId: number = 0;
   currentImageIndex: number = 0;
   quantity: number = 1; //Số lượng sản phẩm
+  isPressedAddToCart:boolean = false;
   constructor(
     private cartService: CartService,
     private router: Router,
@@ -108,9 +109,10 @@ export class DetailProductComponent implements OnInit {
     }
   }
   buyNow() {
-    debugger
-    // Nhấn nút mua ngay, điều hướng đến trang checkout
-    this.router.navigate(['orders']);
+    if(this.isPressedAddToCart == false) {
+      this.addToCart();
+    }
+    this.router.navigate(['/orders']);
   }
 
 }

@@ -98,7 +98,7 @@ public class Usercontroller {
         try {
             String extractedToken = authorizationHeader.substring(7); // Loại bỏ "Bearer " từ chuỗi token
             User user = userService.getUseDetailsFromToken(extractedToken);
-            if (user.getId() != null){
+            if (user.getId() == null){
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
             }
             User updateUserDetails = userService.updateUser(userId, updateUserDTO);

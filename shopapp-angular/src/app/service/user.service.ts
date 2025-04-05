@@ -13,6 +13,7 @@ export class UserService {
   private apiUrl = `${environment.apiBaseUrl}users/register`;
   private apiLogin =`${environment.apiBaseUrl}users/login`;
   private apiUserDetail =`${environment.apiBaseUrl}users/details`;
+  localStorage?:Storage;
   constructor(private http: HttpClient) { }
   private createHeader(): HttpHeaders {
     return new HttpHeaders({ 
@@ -65,5 +66,13 @@ export class UserService {
       return null;
     }
   }
-
+  removeUserFromLocalStorage(): void {
+    try {
+      localStorage.removeItem('user'); // dùng trực tiếp global localStorage
+      console.log('User data removed from local storage.');
+    } catch (error) {
+      console.error('Error removing user data from local storage:', error);
+    }
+  }
+  
 }

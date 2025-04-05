@@ -1,9 +1,10 @@
+@use '../styles/shared-styles' as styles;
 .container{
     color: white;
     height: 100vh;
 }
 .login-form{
-    background-color: rgb(12, 12, 55);
+    background-color:styles.$shopapp-color;
     border-radius: 10px;
     padding: 20px;
     max-width: 500px;
@@ -64,7 +65,7 @@
 }
 
 .access-right {
-    background-color: rgb(61, 66, 91);
+    background-color: styles.$shopapp-color;
     margin-top: 20px;
     width: 200px;
     border: 1px solid rgb(209, 42, 231);
@@ -92,7 +93,7 @@
 }
 
 .login-button{
-    background: linear-gradient(to right, rgb(237, 53, 200), rgb(165, 39, 184));
+    background: linear-gradient(to right, rgb(237, 53, 200),styles.$shopapp-color);
     color: white;
     border-radius: 30px;
     width: 100%;

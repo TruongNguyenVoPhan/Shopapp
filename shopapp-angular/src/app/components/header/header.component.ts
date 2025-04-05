@@ -3,7 +3,7 @@ import { UserService } from '../../service/user.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenService } from '../../service/token.service';
-// import { UserResponse } from '../../models/user/user.response';
+import { UserResponse } from '../../responses/user/user.response';
 
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
   ]
 })
 export class HeaderComponent implements OnInit{
-  // userResponse?:UserResponse | null;
+  userResponse?:UserResponse | null;
   isPopoverOpen = false;
   activeNavItem: number = 0;
 
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit{
     
    }
   ngOnInit() {
-    // this.userResponse = this.userService.getUserResponseFromLocalStorage();    
+    this.userResponse = this.userService.getUserResponseFromLocalStorage();    
   }  
 
   togglePopover(event: Event): void {
@@ -47,9 +47,9 @@ export class HeaderComponent implements OnInit{
       debugger
       this.router.navigate(['/user-profile']);                      
     } else if (index === 2) {
-      // this.userService.removeUserFromLocalStorage();
-      // this.tokenService.removeToken();
-      // this.userResponse = this.userService.getUserResponseFromLocalStorage();    
+      this.userService.removeUserFromLocalStorage();
+      this.tokenService.removeToken();
+      this.userResponse = this.userService.getUserResponseFromLocalStorage();    
     }
     this.isPopoverOpen = false; // Close the popover after clicking an item    
   }
@@ -60,3 +60,4 @@ export class HeaderComponent implements OnInit{
     //alert(this.activeNavItem);
   }  
 }
+

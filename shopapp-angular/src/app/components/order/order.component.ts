@@ -28,14 +28,14 @@ export class OrderComponent implements OnInit{
   couponCode: string = '';
   totalAmount: number = 0;
   orderData: OrderDTO = {
-    user_id: 12, // Thay bằng user_id thích hợp
+    user_id: 0, // Thay bằng user_id thích hợp
     fullname: '', // Khởi tạo rỗng, sẽ được điền từ form
     email: '', // Khởi tạo rỗng, sẽ được điền từ form
     phone_number: '', // Khởi tạo rỗng, sẽ được điền từ form
     address: '', // Khởi tạo rỗng, sẽ được điền từ form
     note: '', // Có thể thêm trường ghi chú nếu cần
     total_money: 0, // Sẽ được tính toán dựa trên giỏ hàng và mã giảm giá
-    payment_method: 'cod', // Mặc định là thanh toán khi nhận hàng (COD)
+    payment_method: 'COD', // Mặc định là thanh toán khi nhận hàng (COD)
     shipping_method: 'express', // Mặc định là vận chuyển nhanh (Express)
     coupon_code: '', // Sẽ được điền từ form khi áp dụng mã giảm giá
     cart_items: []
@@ -58,18 +58,21 @@ export class OrderComponent implements OnInit{
       address: ['nhà x đường y', [Validators.required, Validators.minLength(5)]], // address bắt buộc và ít nhất 5 ký tự
       note: ['dễ vỡ'],
       shipping_method: ['express'],
-      payment_method: ['cod']
+      payment_method: ['COD']
     });
   }
   ngOnInit(): void {
-    // debugger
-    // this.orderData.user_id = this.tokenService.getUserId()!; // Lấy user_id từ token
+    debugger
+    // this.cartService.clearCart(); // Xóa giỏ hàng khi vào trang này
+    // Lấy user_id từ token và gán vào orderData
+    this.orderData.user_id = this.tokenService.getUserId()!; // Lấy user_id từ token
     // Lấy thông tin giỏ hàng từ dịch vụ giỏ hàng
     debugger 
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
     debugger
-    if(productIds.length === 0) {
+    if(productIds.length === 0) //So sanh kieu va gia tri 
+    {
       return;
     }
     this.productService.getProductByIds(productIds).subscribe({
@@ -124,8 +127,8 @@ export class OrderComponent implements OnInit{
       this.orderService.placeOrder(this.orderData).subscribe({
         next: (response:Order) => {
           debugger;          
-          console.log('Đặt hàng thành công');
-          this.router.navigate(['/orders/', response.id]);
+          alert('Đặt hàng thành công');
+          this.router.navigate(['/']);
         },
         complete: () => {
           debugger;
@@ -133,7 +136,7 @@ export class OrderComponent implements OnInit{
         },
         error: (error: any) => {
           debugger;
-          console.error('Lỗi khi đặt hàng:', error);
+          alert('Lỗi khi đặt hàng: {$error}');
         },
       });
     } else {

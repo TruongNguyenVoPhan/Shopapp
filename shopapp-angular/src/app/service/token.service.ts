@@ -7,12 +7,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class TokenService {
    private readonly TOKEN_KEY =  'access_token';
-   private jwtHelper = new JwtHelperService();
+   private jwtHelperService = new JwtHelperService();
     constructor() {}
     //getter & setter
     getToken(): string | null {
-        const token = localStorage.getItem(this.TOKEN_KEY);
-        return token !== null ? String(token) : null;
+        return localStorage.getItem(this.TOKEN_KEY);
     }
     
     setToken(token: string): void {
@@ -24,16 +23,19 @@ export class TokenService {
     }
     getUserInfoFromToken(): any {
         debugger
-        return this.jwtHelper.decodeToken(this.getToken() ?? '');        
+        return this.jwtHelperService.decodeToken(this.getToken() ?? '');        
     }
     getUserId(): number {
-        let userObject = this.jwtHelper.decodeToken(this.getToken() ?? '');
+        debugger
+        let userObject = this.jwtHelperService.decodeToken(this.getToken() ?? '');
+        console.log(this.jwtHelperService.decodeToken(this.getToken() ?? ''));
         return 'userId' in userObject ? parseInt(userObject['userId']) : 0;
     }
     isTokenExpired(): boolean { 
+        debugger
         if(this.getToken() == null) {
             return false;
         }       
-        return this.jwtHelper.isTokenExpired(this.getToken()!);
+        return this.jwtHelperService.isTokenExpired(this.getToken()!);
     }
 }

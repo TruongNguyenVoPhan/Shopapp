@@ -1,3 +1,4 @@
+@use '../styles/shared-styles' as styles;
 /* Container chính */
 .container {
     max-width: 1200px;
@@ -64,11 +65,11 @@ table {
     border-collapse: collapse;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-spacing: 0;
-    background-color: rgb(12, 13, 54);
+    background-color: styles.$shopapp-background-color;
 }
 
 thead {
-    background: rgba(255, 255, 255, 0.1);
+    background:styles.$shopapp-background-color;
 }
 
 th, td {
@@ -130,7 +131,7 @@ td {
 
 /* Nút gradient */
 .btn-gradient {
-    background: linear-gradient(to right, rgb(225, 64, 180), rgb(126, 43, 237));
+    background: linear-gradient(to right, rgb(225, 64, 180),styles.$shopapp-background-color);
     color: white;
     border: none;
     border-radius: 30px;
@@ -142,7 +143,7 @@ td {
 }
 
 .btn-gradient:hover {
-    background: linear-gradient(to right, rgb(255, 80, 200), rgb(150, 60, 255));
+    background: linear-gradient(to right, rgb(255, 80, 200), styles.$shopapp-background-color);
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 

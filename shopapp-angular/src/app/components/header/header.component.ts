@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenService } from '../../service/token.service';
 import { UserResponse } from '../../responses/user/user.response';
-
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';  
+import { NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -32,10 +31,23 @@ export class HeaderComponent implements OnInit{
   ) {
     
    }
-  ngOnInit() {
-    this.userResponse = this.userService.getUserResponseFromLocalStorage();    
-  }  
-
+   ngOnInit() {
+    this.userResponse = this.userService.getUserResponseFromLocalStorage();
+  
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const url = event.urlAfterRedirects;
+  
+        if (url === '/') {
+          this.activeNavItem = 0;
+        } else if (url.includes('/notifications')) {
+          this.activeNavItem = 1;
+        } else if (url.includes('/orders')) {
+          this.activeNavItem = 2;
+        }
+      }
+    });
+  }
   togglePopover(event: Event): void {
     event.preventDefault();
     this.isPopoverOpen = !this.isPopoverOpen;

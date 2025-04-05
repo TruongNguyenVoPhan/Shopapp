@@ -7,7 +7,7 @@ import { CartService } from '../../service/cart.service';
 import { ProductService } from '../../service/product.sevice';
 import { Product } from '../../models/product';
 import { environment } from '../../environment/environment';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { OrderResponse } from '../../responses/order/order.response';
 import { OrderService } from '../../service/order.service';
 import { OrderDetail } from '../../models/order.detail';
@@ -37,14 +37,17 @@ export class OrderDetailComponent implements OnInit {
     payment_method: '',
     order_details: [],
   };
-  constructor(private orderService: OrderService){} 
+  constructor(private orderService: OrderService
+  , private router: ActivatedRoute
+  ){} 
   ngOnInit(): void {
     debugger
     this.getOrderDetails();
   }
   getOrderDetails():void{
     debugger
-    const orderId = 11;
+    // const orderId = 11;
+    const orderId = Number(this.router.snapshot.paramMap.get('orderId'));
     this.orderService.getOrderById(orderId).subscribe({
       next: (response: any) => {
         this.orderResponse.id = response.id;

@@ -1,3 +1,4 @@
+@use '../styles/shared-styles' as styles;
 .container{
     color: white;
     height: 100vh;
@@ -93,7 +94,7 @@
 }
 
 .login-button{
-    background: linear-gradient(to right, rgb(237, 53, 200), rgb(165, 39, 184));
+    background: linear-gradient(to right, rgb(237, 53, 200), styles.$shopapp-background-color);
     color: white;
     border-radius: 30px;
     width: 100%;

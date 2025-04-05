@@ -35,7 +35,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <!-- <ng-container *ngIf="userResponse">
+                      <ng-container *ngIf="userResponse">
                         <ng-container
                           ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất"
                           popoverTitle="User Actions"
@@ -60,8 +60,8 @@
                             </div>
                           </ng-template>
                         </ng-container>
-                      </ng-container> -->
-                      <ng-container >
+                      </ng-container>
+                      <ng-container *ngIf="!userResponse">
                         <a class="nav-link" routerLink="/login">Đăng nhập</a>
                       </ng-container>
                     </li>                                                                

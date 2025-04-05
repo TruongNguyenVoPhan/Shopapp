@@ -30,13 +30,14 @@ export class DetailProductComponent implements OnInit {
     private router: Router,
     private productService: ProductService,
     // private categoryService: CategoryService, 
-    // private route: ActivatedRoute
+    private route: ActivatedRoute
   ) {
 
   }
   ngOnInit() {
     debugger
-    const idParam = 5
+    // const idParam = 5
+    const idParam = this.route.snapshot.paramMap.get('id'); //Lấy id từ URL
     if (idParam !== null) {
       this.productId = +idParam;
     }

@@ -1,3 +1,4 @@
+@use '../styles/shared-styles' as styles;
 .intro-section {
     color: white;
     padding: 20px;
@@ -63,14 +64,14 @@
   }
 
   .product-quantity button {
-      background-color: transparent;
+      background-color: styles.$shopapp-background-color;
       border: none;
       color: white;
       font-size: 16px;
       cursor: pointer;
   }
   .product-quantity input {
-    background-color: transparent;
+    background-color: styles.$shopapp-background-color;
     border: none;
     color: white;
     font-size: 16px;

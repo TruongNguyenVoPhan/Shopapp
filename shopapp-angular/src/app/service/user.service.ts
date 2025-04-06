@@ -5,6 +5,7 @@ import { RegisterDto } from '../dtos/user/register.dto';
 import { LoginDto } from '../dtos/user/login.dto';
 import { environment } from '../environment/environment';
 import { UserResponse } from '../responses/user/user.response';
+import { UpdateUserDTO } from '../dtos/user/update.user.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,17 @@ export class UserService {
       })
     });
   }
+  updateUserDetail(token: string, updateUserDTO: UpdateUserDTO) {
+    debugger
+    let userResponse = this.getUserResponseFromLocalStorage();
+    return this.http.put(`${this.apiUserDetail}/${userResponse?.id}`, updateUserDTO, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      })
+    });
+  }
+
   saveUserResponseToLocalStorage(userResponse?: UserResponse) {
     try {
       debugger

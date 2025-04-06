@@ -25,6 +25,9 @@ public class UpdateUserDTO {
 
     private String password;
 
+    @JsonProperty("retype_password")
+    private String retypePassword;
+
     @JsonProperty("date_of_birth")
     private Date dateOfBirth;
 

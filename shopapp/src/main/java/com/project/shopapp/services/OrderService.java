@@ -9,9 +9,13 @@ import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.ProductRepository;
 import com.project.shopapp.repositories.UserRepository;
 import com.project.shopapp.responses.OrderResponse;
+import com.project.shopapp.responses.ProductResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -79,10 +83,21 @@ public class OrderService implements IOrderService{
     }
 
     @Override
-    @Transactional
-    public Order getOrder(Long id) {
-        return orderRepository.findById(id).orElseThrow(() -> new RuntimeException("Order not found"));
+    public Order getOrderById(Long orderId) {
+        // Tìm theo ID
+        Order order = orderRepository.findById(orderId).orElse(null);
+//        if (order == null) {
+//            // Nếu không tìm thấy theo ID, tìm theo vnpTxnRef
+//            order = orderRepository.findByVnpTxnRef(orderId.toString()).orElse(null);
+//        }
+        return order;
     }
+
+    @Override
+    public Page<Order> getOrdersByKeyword(String keyword, Pageable pageable) {
+        return orderRepository.findByKeyword(keyword, pageable);
+    }
+
 
     @Override
     @Transactional
@@ -118,8 +133,8 @@ public class OrderService implements IOrderService{
     }
 
     @Override
-    @Transactional
-    public List<Order> findByUserId(Long userId) {
-        return orderRepository.findByUserId(userId);
+    public List<OrderResponse> findByUserId(Long userId) {
+        List<Order> orders = orderRepository.findByUserId(userId);
+        return orders.stream().map(order -> OrderResponse.fromOrder(order)).toList();
     }
 }

@@ -10,10 +10,10 @@ import {
 import { OrderComponent } from './components/order/order.component';
 import { OrderDetailComponent } from './components/order.detail/order.detail.component';
 import { UserProfileComponent } from './components/user-profile/user.profile.component';
-// import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuardFn } from './guards/auth.guard';
-// import { AdminGuardFn } from './guards/admin.guard';
-//import { OrderAdminComponent } from './components/admin/order/order.admin.component';
+import { AdminGuardFn } from './guards/admin.guard';
+// import { OrderAdminComponent } from './components/admin/order/order.admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,10 +23,18 @@ export const routes: Routes = [
   { path: 'orders', component: OrderComponent,canActivate:[AuthGuardFn] },
   { path: 'user-profile', component: UserProfileComponent, canActivate:[AuthGuardFn] },
   { path: 'orders/:id', component: OrderDetailComponent },
-  //Admin   
-  // { 
-  //   path: 'admin', 
-  //   component: AdminComponent, 
-  //   canActivate:[AdminGuardFn] 
-  // },      
+  // Admin   
+  { 
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AdminGuardFn],
+    children: [
+      {
+        path: 'orders',
+        loadComponent: () =>
+          import('./components/admin/order/order.admin.component')
+            .then(m => m.OrderAdminComponent)
+      }
+    ]
+  },      
 ];

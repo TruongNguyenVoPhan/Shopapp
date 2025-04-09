@@ -56,7 +56,7 @@ export class OrderAdminComponent implements OnInit{
     this.orderService.getAllOrders(keyword, page, limit).subscribe({
       next: (response: any) => {
         debugger        
-        this.orders = response.data;
+        this.orders = response.orders;
         this.totalPages = response.totalPages;
         this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
       },
@@ -76,30 +76,20 @@ export class OrderAdminComponent implements OnInit{
     this.getAllOrders(this.keyword, this.currentPage, this.itemsPerPage);
   }
 
- generateVisiblePageArray(currentPage: number, totalPages: number): number[] {
-  const maxVisiblePages = 5;
-  const halfVisiblePages = Math.floor(maxVisiblePages / 2);
+  generateVisiblePageArray(currentPage: number, totalPages: number): number[] {
+    const maxVisiblePages = 5;
+    const halfVisiblePages = Math.floor(maxVisiblePages / 2);
 
-  // Tránh tổng số trang là 0
-  if (totalPages <= 0) {
-    return [];
+    let startPage = Math.max(currentPage - halfVisiblePages, 1);
+    let endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
+
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(endPage - maxVisiblePages + 1, 1);
+    }
+
+    return new Array(endPage - startPage + 1).fill(0)
+        .map((_, index) => startPage + index);
   }
-
-  let startPage = Math.max(currentPage - halfVisiblePages, 1);
-  let endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
-
-  if (endPage - startPage + 1 < maxVisiblePages) {
-    startPage = Math.max(endPage - maxVisiblePages + 1, 1);
-  }
-
-  const pageCount = endPage - startPage + 1;
-
-  if (pageCount <= 0 || isNaN(pageCount)) {
-    return [];
-  }
-
-  return Array.from({ length: pageCount }, (_, index) => startPage + index);
-}
 
   deleteOrder(id:number) {
     const confirmation = window

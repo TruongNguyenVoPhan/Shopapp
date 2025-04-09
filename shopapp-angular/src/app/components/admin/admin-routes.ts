@@ -4,7 +4,7 @@ import { OrderAdminComponent } from "./order/order.admin.component";
 import { Route, Router,Routes } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-// import { ProductAdminComponent } from "./product/product.admin.component";
+import { ProductAdminComponent } from "./product/product.admin.component";
 // import { CategoryAdminComponent } from "./category/category.admin.component";
 // import { UpdateProductAdminComponent } from "./product/update/update.product.admin.component";
 // import { InsertProductAdminComponent } from "./product/insert/insert.product.admin.component";
@@ -21,10 +21,10 @@ export const adminRoutes: Routes = [
                 loadComponent: () =>
                 import('./order/order.admin.component').then(m => m.OrderAdminComponent)
             },            
-            // {
-            //     path: 'products',
-            //     component: ProductAdminComponent
-            // },
+            {
+                path: 'products',
+                component: ProductAdminComponent
+            },
             // {
             //     path: 'categories',
             //     component: CategoryAdminComponent

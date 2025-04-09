@@ -90,7 +90,7 @@ public class Ordercontroller {
     }
     @GetMapping("/get-orders-by-keyword")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<ResponseObject> getOrdersByKeyword(
+    public ResponseEntity<OrderListResponse> getOrdersByKeyword(
             @RequestParam(defaultValue = "", required = false) String keyword,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int limit
@@ -107,11 +107,10 @@ public class Ordercontroller {
         // Lấy tổng số trang
         int totalPages = orderPage.getTotalPages();
         List<OrderResponse> orderResponses = orderPage.getContent();
-        return ResponseEntity.ok().body(ResponseObject.builder()
-                .message("Get orders successfully")
-                .status(HttpStatus.OK)
-                .data(orderResponses)
+        return ResponseEntity.ok(OrderListResponse
+                .builder()
+                .orders(orderResponses)
+                .totalPages(totalPages)
                 .build());
-
     }
 }

@@ -28,3 +28,5 @@ api:
 jwt:
   expiration: 2592000 #30 days = 30 * 24(gio) * 60(phut) * 60(giay)
   secretKey: tA6OX5COgkJCWqGs5PXLmRPBgTaFFT7hphFk0ud8hXI=
+
+logging.level.org.springframework.security: DEBUG

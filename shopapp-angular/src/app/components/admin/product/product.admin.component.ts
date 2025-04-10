@@ -60,7 +60,7 @@ export class ProductAdminComponent implements OnInit {
           debugger
           response.products.forEach((product: Product) => {                      
             if (product) {
-              product.url = `${environment.apiBaseUrl}/products/images/${product.thumbnail}`;
+              product.url = `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
             }          
           });
           this.products = response.products;

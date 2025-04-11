@@ -17,12 +17,12 @@ export const adminRoutes: Routes = [
         component: AdminComponent,
         children: [
             {
-                path: '/orders',
+                path: 'orders',
                 loadComponent: () =>
                 import('./order/order.admin.component').then(m => m.OrderAdminComponent)
             },            
             {
-                path: '/products',
+                path: 'products',
                 component: ProductAdminComponent
             },
             // {
@@ -31,7 +31,7 @@ export const adminRoutes: Routes = [
             // },
             // //sub path
             {
-                path: '/orders/:id',
+                path: 'orders/:id',
                 component: OrderDetailAdminComponent
             },
             // {

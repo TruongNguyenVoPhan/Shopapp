@@ -52,13 +52,16 @@ export class OrderDetailAdminComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
+    debugger
     this.getOrderDetails();
   }
 
   getOrderDetails(): void {
+    debugger
     this.orderId = Number(this.route.snapshot.paramMap.get('id'));
     this.orderService.getOrderById(this.orderId).subscribe({
-      next: (response: any) => {        
+      next: (response: any) => {      
+        debugger  
         this.orderResponse.id = response.id;
         this.orderResponse.user_id = response.user_id;
         this.orderResponse.fullname = response.fullname;
@@ -102,7 +105,8 @@ export class OrderDetailAdminComponent implements OnInit{
     });
   }    
   
-  saveOrder(): void {    
+  saveOrder(): void {   
+    debugger 
     this.orderService
       .updateOrder(this.orderId, new OrderDTO(this.orderResponse))
       .subscribe({

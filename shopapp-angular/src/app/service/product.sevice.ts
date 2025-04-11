@@ -32,4 +32,8 @@ export class ProductService{
         const params = new HttpParams().set('ids', productIds.join(','));
         return this.http.get<Product[]>(`${this.apiGetProducts}/by-ids`, { params });
     }
+    deleteProduct(productId: number): Observable<any> {
+        debugger
+        return this.http.delete<any>(`${this.apiGetProducts}products/${productId}`);
+    }
 }

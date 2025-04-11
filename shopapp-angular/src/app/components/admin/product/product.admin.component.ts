@@ -60,7 +60,7 @@ export class ProductAdminComponent implements OnInit {
           debugger
           response.products.forEach((product: Product) => {                      
             if (product) {
-              product.url = `${environment.apiBaseUrl}/products/images/${product.thumbnail}`;
+              product.url = `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
             }          
           });
           this.products = response.products;
@@ -101,36 +101,34 @@ export class ProductAdminComponent implements OnInit {
     // Hàm xử lý sự kiện khi thêm mới sản phẩm
     insertProduct() {
       debugger
-      // Điều hướng đến trang detail-product với productId là tham số
       this.router.navigate(['/admin/products/insert']);
     } 
 
     // Hàm xử lý sự kiện khi sản phẩm được bấm vào
     updateProduct(productId: number) {
       debugger
-      // Điều hướng đến trang detail-product với productId là tham số
       this.router.navigate(['/admin/products/update', productId]);
     }  
-    // deleteProduct(product: Product) {      
-    //   const confirmation = window
-    //   .confirm('Are you sure you want to delete this product?');
-    //   if (confirmation) {
-    //     debugger
-    //     this.productService.deleteProduct(product.id).subscribe({
-    //       next: (response: any) => {
-    //         debugger 
-    //         alert('Xóa thành công')
-    //         location.reload();          
-    //       },
-    //       complete: () => {
-    //         debugger;          
-    //       },
-    //       error: (error: any) => {
-    //         debugger;
-    //         alert(error.error)
-    //         console.error('Error fetching products:', error);
-    //       }
-    //     });  
-    //   }      
-    // }      
+    deleteProduct(product: Product) {      
+      const confirmation = window
+      .confirm('Are you sure you want to delete this product?');
+      if (confirmation) {
+        debugger
+        this.productService.deleteProduct(product.id).subscribe({
+          next: (response: any) => {
+            debugger 
+            alert('Xóa thành công')
+            location.reload();          
+          },
+          complete: () => {
+            debugger;          
+          },
+          error: (error: any) => {
+            debugger;
+            alert(error.error)
+            console.error('Error fetching products:', error);
+          }
+        });  
+      }      
+    }      
 }

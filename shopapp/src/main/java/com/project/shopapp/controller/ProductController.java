@@ -10,6 +10,8 @@ import com.project.shopapp.responses.ProductResponse;
 import com.project.shopapp.services.IProductService;
 import com.project.shopapp.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,6 +40,7 @@ import java.util.stream.Collectors;
 @RequestMapping("${api.prefix}/products")
 @RequiredArgsConstructor
 public class ProductController {
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final IProductService productService;
     private final LocalizationUtils localizationUtils;
     @PostMapping("")
@@ -138,6 +141,8 @@ public class ProductController {
                 page, limit,
 //                Sort.by("createdAt").descending()
                 Sort.by("id").ascending());
+        logger.info(String.format("category_id= %d, keyword= %s,page= %d,limit= %d",
+                categoryId,keyword,page,limit));
         Page<ProductResponse> productPage = productService.getAllProducts(categoryId,keyword,pageRequest);
         int totalPages = productPage.getTotalPages();
         List<ProductResponse> products = productPage.getContent();

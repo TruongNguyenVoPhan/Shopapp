@@ -4,19 +4,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.project.shopapp.models.Order;
 import com.project.shopapp.models.OrderDetail;
 import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+@Getter
+@Setter
 @AllArgsConstructor
-@Builder
 @NoArgsConstructor
+@Builder
 public class OrderResponse extends BaseResponse{
     private Long id;
 
@@ -67,7 +66,7 @@ public class OrderResponse extends BaseResponse{
         OrderResponse orderResponse =  OrderResponse
                 .builder()
                 .id(order.getId())
-                .userId(order.getId())
+                .userId(order.getUser().getId())
                 .fullName(order.getFullName())
                 .phoneNumber(order.getPhoneNumber())
                 .email(order.getEmail())

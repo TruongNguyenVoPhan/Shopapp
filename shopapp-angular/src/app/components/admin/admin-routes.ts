@@ -1,6 +1,6 @@
 import { AdminComponent } from "./admin.component";
 import { OrderAdminComponent } from "./order/order.admin.component";
-// import { DetailOrderAdminComponent } from "./detail-order/detail.order.admin.component";
+import { OrderDetailAdminComponent } from "./order-detail/order.detail.admin.component";
 import { Route, Router,Routes } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
@@ -17,12 +17,12 @@ export const adminRoutes: Routes = [
         component: AdminComponent,
         children: [
             {
-                path: 'orders',
+                path: '/orders',
                 loadComponent: () =>
                 import('./order/order.admin.component').then(m => m.OrderAdminComponent)
             },            
             {
-                path: 'products',
+                path: '/products',
                 component: ProductAdminComponent
             },
             // {
@@ -30,10 +30,10 @@ export const adminRoutes: Routes = [
             //     component: CategoryAdminComponent
             // },
             // //sub path
-            // {
-            //     path: 'orders/:id',
-            //     component: DetailOrderAdminComponent
-            // },
+            {
+                path: '/orders/:id',
+                component: OrderDetailAdminComponent
+            },
             // {
             //     path: 'products/update/:id',
             //     component: UpdateProductAdminComponent

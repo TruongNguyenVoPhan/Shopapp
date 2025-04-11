@@ -24,20 +24,21 @@ export class OrderService {
     }
     getAllOrders(keyword:string,
         page: number, limit: number
-      ): Observable<OrderResponse[]> {
-          const params = new HttpParams()
-          .set('keyword', keyword)      
-          .set('page', page.toString())
-          .set('limit', limit.toString());            
-          return this.http.get<any>(this.apiGetAllOrders, { params });
-      }
-      updateOrder(orderId: number, orderData: OrderDTO): Observable<Object> {
-        const url = `${environment.apiBaseUrl}/orders/${orderId}`;
-        return this.http.put(url, orderData);
-      }
-      deleteOrder(orderId: number): Observable<any> {
-        const url = `${environment.apiBaseUrl}/orders/${orderId}`;
-        return this.http.delete(url, { responseType: 'text' });
-      }
+    ): Observable<OrderResponse[]> {
+      debugger
+        const params = new HttpParams()
+        .set('keyword', keyword)      
+        .set('page', page.toString())
+        .set('limit', limit.toString());            
+        return this.http.get<OrderResponse[]>(this.apiGetAllOrders, { params });
+    }
+    updateOrder(orderId: number, orderData: OrderDTO): Observable<Object> {
+      const url = `${environment.apiBaseUrl}orders/${orderId}`;
+      return this.http.put(url, orderData);
+    }
+    deleteOrder(orderId: number): Observable<any> {
+      const url = `${environment.apiBaseUrl}orders/${orderId}`;
+      return this.http.delete(url, { responseType: 'text' });
+    }
 
 }

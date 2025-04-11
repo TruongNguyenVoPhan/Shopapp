@@ -41,8 +41,9 @@ export class OrderAdminComponent implements OnInit{
   }
   ngOnInit(): void {
     debugger
-    this.currentPage = Number(this.localStorage?.getItem('currentOrderAdminPage')) || 0; 
-    this.getAllOrders(this.keyword, this.currentPage, this.itemsPerPage);
+    this.currentPage = Number(this.localStorage?.getItem('currentOrderAdminPage')) || 1;
+    this.getAllOrders(this.keyword, this.currentPage - 1, this.itemsPerPage); // <-- subtract 1 here
+
   }
   searchOrders() {
     this.currentPage = 0;
@@ -71,9 +72,10 @@ export class OrderAdminComponent implements OnInit{
   }
   onPageChange(page: number) {
     debugger;
-    this.currentPage = page < 0 ? 0 : page;
+    this.currentPage = page < 1 ? 1 : page;
     this.localStorage?.setItem('currentOrderAdminPage', String(this.currentPage));         
-    this.getAllOrders(this.keyword, this.currentPage, this.itemsPerPage);
+    this.getAllOrders(this.keyword, this.currentPage - 1, this.itemsPerPage); // <-- subtract 1
+
   }
 
   generateVisiblePageArray(currentPage: number, totalPages: number): number[] {

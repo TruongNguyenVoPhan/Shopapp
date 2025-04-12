@@ -3329,3 +3329,8 @@ org.springframework.security.web.firewall.RequestRejectedException: The request 
 2025-04-12 22:58:08.294 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/orders/get-orders-by-keyword?keyword=&page=1&limit=12
 2025-04-12 22:58:08.296 [http-nio-8088-exec-2] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.project.shopapp.controller.Ordercontroller.getOrdersByKeyword(java.lang.String,int,int); target is of class [com.project.shopapp.controller.Ordercontroller]
 2025-04-12 22:58:08.297 [http-nio-8088-exec-2] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.project.shopapp.controller.Ordercontroller.getOrdersByKeyword(java.lang.String,int,int); target is of class [com.project.shopapp.controller.Ordercontroller]
+2025-04-12 23:03:08.106 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-12 23:03:08.161 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-12 23:03:08.166 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-12 23:03:08.169 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-12 23:03:08.181 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

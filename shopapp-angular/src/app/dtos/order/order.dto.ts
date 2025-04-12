@@ -18,6 +18,8 @@ export class OrderDTO{
 
     address: string;
 
+    status: string;
+
     note: string;
 
     shipping_method: string;
@@ -34,6 +36,7 @@ export class OrderDTO{
         this.user_id = data.user_id;
         this.fullname = data.fullname;
         this.email = data.email;
+        this.status = data.status?.toLowerCase();
         this.phone_number = data.phone_number;
         this.address = data.address;
         this.note = data.note;
@@ -41,6 +44,9 @@ export class OrderDTO{
         this.payment_method = data.payment_method;
         this.coupon_code = data.coupon_code;
         this.total_money = data.total_money;
-        this.cart_items = data.cart_items.map((item: any) => new CartItemDTO(item));
+        this.cart_items = Array.isArray(data.cart_items)
+        ? data.cart_items.map((item: any) => new CartItemDTO(item))
+        : [];
+
     }
 }

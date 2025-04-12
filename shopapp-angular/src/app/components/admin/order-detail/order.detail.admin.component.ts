@@ -116,6 +116,7 @@ export class OrderDetailAdminComponent implements OnInit{
         },
         complete: () => {},
         error: (error: any) => {
+          debugger
           console.error('Error updating order:', error);
           this.router.navigate(['../'], { relativeTo: this.route });
         }

@@ -111,6 +111,7 @@ export class OrderDetailAdminComponent implements OnInit{
       .updateOrder(this.orderId, new OrderDTO(this.orderResponse))
       .subscribe({
         next: (response: Object) => {
+          debugger
           this.router.navigate(['../'], { relativeTo: this.route });
         },
         complete: () => {},

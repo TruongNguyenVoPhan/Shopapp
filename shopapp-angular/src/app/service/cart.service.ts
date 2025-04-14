@@ -28,7 +28,7 @@ export class CartService{
             this.cart.set(productId, quantity);
         }
         // Sau khi thay đổi giỏ hàng, lưu trữ nó vào localStorage
-        localStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
+        // localStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
     }
     getCart(): Map<number, number> {
         return this.cart;

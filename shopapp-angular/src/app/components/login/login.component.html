@@ -17,15 +17,21 @@
                     <div class="mt-5">
                         <div class="form-group password-field">
                             <label for="password">Mật khẩu</label>
-                            <input type="password" 
-                                name="password"
-                                [(ngModel)]="password"
-                                class="form-control" 
-                                placeholder="Ít nhất 3 ký tự" 
-                                id="password">
-                            <i class="password-toggle fas fa-eye-slash"></i>
-                            <div class="divider-nospace"></div>
-                        </div>
+                            
+                            <div class="input-wrapper">
+                              <input [type]="showPassword ? 'text' : 'password'" 
+                                     name="password"
+                                     [(ngModel)]="password"
+                                     class="form-control" 
+                                     placeholder="Ít nhất 3 ký tự" 
+                                     id="password">
+                              
+                              <i class="password-toggle fas"
+                                 [class.fa-eye]="!showPassword"
+                                 [class.fa-eye-slash]="showPassword"
+                                 (click)="togglePasswordVisibility()"></i>
+                            </div>
+                          </div>
                     </div>
                     <div class="form-group">
                         <div class="form-group checkbox-text">
@@ -51,7 +57,7 @@
                     class="login-button">Đăng nhập</button>
                     <div class="divider"></div>
                     <p class="text-center">Bạn đăng ký chưa?<span>
-                        <a href="#" class="register-link">Tạo tài khoản</a></span></p>
+                        <a href="/register" class="register-link">Tạo tài khoản</a></span></p>
                 </div>
             </div>
         </div>

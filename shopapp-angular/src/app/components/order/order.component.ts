@@ -69,6 +69,15 @@ export class OrderComponent implements OnInit{
     this.orderData.user_id = this.tokenService.getUserId()!; // Lấy user_id từ token
     // Lấy thông tin giỏ hàng từ dịch vụ giỏ hàng
     debugger 
+    // ✅ Lấy user info từ localStorage nếu có
+    const userInfo = localStorage.getItem('userInfo');
+    if (userInfo) {
+      const parsedUser = JSON.parse(userInfo);
+      this.orderData.fullname = parsedUser.fullname || '';
+      this.orderData.email = parsedUser.email || '';
+      this.orderData.phone_number = parsedUser.phone_number || '';
+      this.orderData.address = parsedUser.address || '';
+    }
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
     debugger
@@ -129,6 +138,7 @@ export class OrderComponent implements OnInit{
         next: (response:Order) => {
           debugger;          
           alert('Đặt hàng thành công');
+          this.cartService.clearCart();
           this.router.navigate(['/']);
         },
         complete: () => {

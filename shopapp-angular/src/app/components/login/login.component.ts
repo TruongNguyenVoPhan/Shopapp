@@ -29,6 +29,7 @@ export class LoginComponent {
   //LoginAdmin
   phoneNumber: string = '555555555';
   password: string = '12345467';
+  showPassword: boolean = false;
 
   roles: Role[] = [];
   rememberMe: boolean = true;
@@ -117,4 +118,10 @@ export class LoginComponent {
       }
     });
   }
+
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
 }

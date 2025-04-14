@@ -4,7 +4,7 @@
     height: 100vh;
 }
 .login-form{
-    background-color:styles.$shopapp-color;
+    background-color:styles.$shopapp-background-color;
     border-radius: 10px;
     padding: 20px;
     max-width: 500px;
@@ -65,7 +65,7 @@
 }
 
 .access-right {
-    background-color: styles.$shopapp-color;
+    background-color: styles.$shopapp-background-color;
     margin-top: 20px;
     width: 200px;
     border: 1px solid rgb(209, 42, 231);
@@ -93,7 +93,7 @@
 }
 
 .login-button{
-    background: linear-gradient(to right, rgb(237, 53, 200),styles.$shopapp-color);
+    background: linear-gradient(to right, rgb(237, 53, 200),styles.$shopapp-tint-color);
     color: white;
     border-radius: 30px;
     width: 100%;
@@ -107,3 +107,23 @@
     background-color: rgb(223, 236, 40);
     margin: 20px;
 }
+
+.input-wrapper {
+    position: relative;
+  }
+  
+  .input-wrapper input {
+    width: 100%;
+    padding-right: 40px; // chừa chỗ cho icon bên phải
+  }
+  
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
+  }
+  

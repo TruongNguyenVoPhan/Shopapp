@@ -190,13 +190,13 @@ public class ProductController {
 
     }
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateProduct(
+    public ResponseEntity<?> updateProduct(
             @PathVariable long id,
             @RequestBody ProductDTO productDTO
     ){
         try {
-            productService.updateProduct(id,productDTO);
-            return ResponseEntity.ok("Update product successfully");
+            Product updatedProduct = productService.updateProduct(id,productDTO);
+            return ResponseEntity.ok(updatedProduct);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

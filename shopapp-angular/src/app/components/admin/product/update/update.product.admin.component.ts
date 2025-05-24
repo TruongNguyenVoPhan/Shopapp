@@ -85,11 +85,13 @@ export class UpdateProductAdminComponent implements OnInit {
     }
     updateProduct() {
       // Implement your update logic here
+      const thumbnailImage = this.product.product_images[this.currentImageIndex];
       const updateProductDTO: UpdateProductDTO = {
         name: this.updatedProduct.name,
         price: this.updatedProduct.price,
         description: this.updatedProduct.description,
-        category_id: this.updatedProduct.category_id
+        category_id: this.updatedProduct.category_id,
+        thumbnail_image_id: thumbnailImage.id
       };
       this.productService.updateProduct(this.product.id, updateProductDTO).subscribe({
         next: (response: any) => {  

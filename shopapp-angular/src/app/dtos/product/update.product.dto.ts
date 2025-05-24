@@ -14,6 +14,7 @@ export class UpdateProductDTO {
 
     @IsNumber()
     category_id: number;
+    
 
     constructor(data: any) {
         this.name = data.name;

@@ -1,6 +1,6 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { withFetch } from '@angular/common/http';
 
 import { routes } from './app.routes';
@@ -12,20 +12,21 @@ import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { adminRoutes } from './components/admin/admin-routes';
 import { RouterModule } from '@angular/router';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 const tokenInterceptorProvider: Provider =
   { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true };
 
-
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), 
-    // importProvidersFrom(RouterModule.forRoot(routes)),
-    importProvidersFrom(RouterModule.forChild(adminRoutes)),    
-    provideHttpClient(withFetch()),
-    //provideHttpClient(),
-    tokenInterceptorProvider,
-    provideClientHydration(),
-    importProvidersFrom(HttpClientModule),
+    provideRouter(routes),
+    importProvidersFrom(RouterModule.forChild(adminRoutes)),
+
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([AuthInterceptor])
+    ),
+
+    provideClientHydration()
   ]
 };

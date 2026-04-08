@@ -12,6 +12,7 @@ export class LoginDto {
   @IsNotEmpty()
   @IsPhoneNumber()
   phone_number: string;
+  
 
   role_id: number;
   constructor(data: any) {

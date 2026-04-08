@@ -63,8 +63,8 @@ public class Usercontroller {
         try {
             String token = userService.login(
                     userLoginDTO.getPhoneNumber(),
-                    userLoginDTO.getPassword(),
-                    userLoginDTO.getRoleId() == null ? 1 : userLoginDTO.getRoleId());
+                    userLoginDTO.getPassword()
+            );
             return ResponseEntity.ok(LoginResponse.builder()
                             .message(localizationUtils.getLocalizedMessage(MessageKeys.LOGIN_SUCCESSFULLY))
                             .token(token)

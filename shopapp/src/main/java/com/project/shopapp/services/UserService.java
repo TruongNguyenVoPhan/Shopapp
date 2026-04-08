@@ -64,29 +64,39 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public String login(String phoneNumber, String password, Long roleId) throws Exception{
+    public String login(String phoneNumber, String password) throws Exception {
+
         Optional<User> optionalUser = userRepository.findByPhoneNumber(phoneNumber);
-        if (optionalUser.isEmpty()){
+
+        if (optionalUser.isEmpty()) {
             throw new DataNotFoundException("Invalid phone number or password");
         }
-        //return optionalUser.get();//muon tra ve JWT token ?
+
         User existingUser = optionalUser.get();
-        //check password
-        if(existingUser.getFacebookAccountId() == 0 && existingUser.getGoogleAccountId() == 0){
-            if(!passwordEncoder.matches(password, existingUser.getPassword())){
-                throw new BadCredentialsException(localizationUtils.getLocalizedMessage(MessageKeys.PASSWORD_NOT_CORRECT));
+
+        // check password (nếu không phải social login)
+        if (existingUser.getFacebookAccountId() == 0 && existingUser.getGoogleAccountId() == 0) {
+            if (!passwordEncoder.matches(password, existingUser.getPassword())) {
+                throw new BadCredentialsException(
+                    localizationUtils.getLocalizedMessage(MessageKeys.PASSWORD_NOT_CORRECT)
+                );
             }
         }
-        Optional<Role> optionalRole = roleRepository.findById(roleId);
-        if (optionalRole.isEmpty() || !roleId.equals(existingUser.getRole().getId())){
-            throw new DataNotFoundException(localizationUtils.getLocalizedMessage(MessageKeys.ROLE_NOT_EXIST));
-        }
-        UsernamePasswordAuthenticationToken  authenticationToken = new UsernamePasswordAuthenticationToken(
-                phoneNumber, password,
-                existingUser.getAuthorities()
-        );
-        //authenticate with Java Spring Security
+
+        // role lấy từ DB:
+        String roleName = existingUser.getRole().getName();
+
+        // authenticate (Spring Security)
+        UsernamePasswordAuthenticationToken authenticationToken =
+                new UsernamePasswordAuthenticationToken(
+                        phoneNumber,
+                        password,
+                        existingUser.getAuthorities()
+                );
+
         authenticationManager.authenticate(authenticationToken);
+
+        // tạo JWT (có role bên trong)
         return jwtTokenUtil.generateToken(existingUser);
     }
 

@@ -49,7 +49,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private com.project.shopapp.models.Role role;
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

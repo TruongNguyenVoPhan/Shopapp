@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environment/environment';
 import { Category } from '../models/categories';
@@ -8,14 +8,20 @@ import { Category } from '../models/categories';
   providedIn: 'root'
 })
 
-export class CategoryService{
-    private apiGetCategories = `${environment.apiBaseUrl}categories`;
+export class CategoryService {
+  private apiGetCategories = `${environment.apiBaseUrl}categories`;
 
-    constructor(private http: HttpClient) { }
-    getCategories(page: number, limit: number): Observable<Category[]> {
-        const params = new HttpParams()
-            .set('page', page.toString())
-            .set('limit', limit.toString());
-        return this.http.get<Category[]>(this.apiGetCategories, { params });
-    }
+  constructor(private http: HttpClient) { }
+
+  getCategories(page: number, limit: number): Observable<Category[]> {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+
+    return this.http.get<Category[]>(this.apiGetCategories, { params });
+  }
+
+  deleteCategory(categoryId: number): Observable<string> {
+    return this.http.delete<string>(`${this.apiGetCategories}/${categoryId}`);
+  }
 }

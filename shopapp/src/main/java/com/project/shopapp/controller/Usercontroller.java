@@ -65,9 +65,12 @@ public class Usercontroller {
                     userLoginDTO.getPhoneNumber(),
                     userLoginDTO.getPassword()
             );
+            User user = userService.getUseDetailsFromToken(token);
+
             return ResponseEntity.ok(LoginResponse.builder()
-                            .message(localizationUtils.getLocalizedMessage(MessageKeys.LOGIN_SUCCESSFULLY))
-                            .token(token)
+                    .message(localizationUtils.getLocalizedMessage(MessageKeys.LOGIN_SUCCESSFULLY))
+                    .token(token)
+                    .user(UserResponse.fromUser(user))
                     .build());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(LoginResponse.builder()
@@ -77,7 +80,7 @@ public class Usercontroller {
         //Tra ve token trong response
 
     }
-    @PostMapping("/details")
+    @GetMapping("/details")
     public ResponseEntity<UserResponse> getUserDetails(
             @RequestHeader("Authorization") String authorizationHeader
     ){
@@ -96,9 +99,13 @@ public class Usercontroller {
             @RequestHeader("Authorization") String authorizationHeader
     ){
         try {
-            String extractedToken = authorizationHeader.substring(7); // Loại bỏ "Bearer " từ chuỗi token
+                        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
+
+            String extractedToken = authorizationHeader.substring(7);
             User user = userService.getUseDetailsFromToken(extractedToken);
-            if (user.getId() == null){
+            if (!user.getId().equals(userId)) {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
             }
             User updateUserDetails = userService.updateUser(userId, updateUserDTO);

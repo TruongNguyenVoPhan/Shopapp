@@ -12,7 +12,7 @@ import java.util.List;
 public class RoleService implements IRoleService{
     private final RoleRepository roleRepository;
     @Override
-    public List<Role> getAllRole() {
+    public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
 }

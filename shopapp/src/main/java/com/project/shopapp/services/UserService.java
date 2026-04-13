@@ -39,11 +39,8 @@ public class UserService implements IUserService{
         if (userRepository.existsByPhoneNumber(phoneNumber)){
             throw new DataIntegrityViolationException("PhoneNumber already exist");
         }
-        Role role = roleRepository.findById(useDTO.getRoleId())
-                .orElseThrow(() -> new DataNotFoundException("Role not found"));
-        if (role.getName().toUpperCase().equals(Role.ADMIN))  {
-            throw new PermissionDenyException("You cannot register an admin account");
-        }
+        Role role = roleRepository.findByName("USER")
+        .orElseThrow(() -> new DataNotFoundException("Role not found"));
         User newUser = User.builder()
                 .fullName(useDTO.getFullName())
                 .phoneNumber(useDTO.getPhoneNumber())

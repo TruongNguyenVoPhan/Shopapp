@@ -10522,3 +10522,940 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'shopapp'
 2026-04-08 20:12:46.449 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-04-08 20:12:46.468 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-04-08 20:12:46.492 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-09 22:30:23.036 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-04-09 22:30:23.110 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 18.0.1.1 with PID 7180 (E:\javascripts\ShopApp_Backend\shopapp\target\classes started by Admin in E:\javascripts\ShopApp_Backend\shopapp)
+2026-04-09 22:30:23.125 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-09 22:30:24.138 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-09 22:30:24.228 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 84 ms. Found 7 JPA repository interfaces.
+2026-04-09 22:30:25.185 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-04-09 22:30:25.202 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-04-09 22:30:25.202 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-09 22:30:25.213 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-04-09 22:30:25.322 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-09 22:30:25.324 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2139 ms
+2026-04-09 22:30:25.507 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-09 22:30:25.592 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-04-09 22:30:25.628 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-09 22:30:25.993 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-09 22:30:26.039 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-09 22:30:26.253 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4768b95c
+2026-04-09 22:30:26.256 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-09 22:30:26.285 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-09 22:30:26.287 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-04-09 22:30:26.310 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-09 22:30:27.790 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-09 22:30:27.790 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-09 22:30:28.268 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-09 22:30:28.391 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-09 22:30:30.584 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-09 22:30:30.585 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-09 22:30:30.941 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/users/register, api/v1/users/login] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.941 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/roles**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.955 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.957 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.959 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.964 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.966 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.967 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.969 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.972 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.974 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/images/*] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.977 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.979 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.981 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.983 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.984 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.986 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.989 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.990 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.993 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.994 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:30.996 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:30:31.045 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-04-09 22:30:31.540 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-04-09 22:30:31.574 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-04-09 22:30:31.579 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 8.969 seconds (process running for 9.707)
+2026-04-09 22:35:20.009 [http-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-09 22:35:20.015 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-09 22:35:20.022 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-04-09 22:35:20.064 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-09 22:35:20.064 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-09 22:35:20.129 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-09 22:35:20.129 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-09 22:35:20.191 [http-nio-8088-exec-1] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-09 22:35:20.291 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:35:20.341 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:35:21.571 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 22:35:21.573 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 22:35:21.630 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:35:51.249 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/register
+2026-04-09 22:35:51.254 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/register
+2026-04-09 22:35:51.255 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/register
+2026-04-09 22:35:51.363 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:36:15.347 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/register
+2026-04-09 22:36:15.347 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/register
+2026-04-09 22:36:15.360 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/register
+2026-04-09 22:36:15.365 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:41:44.374 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-09 22:41:44.374 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-09 22:41:44.376 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-09 22:41:44.376 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-09 22:41:44.380 [http-nio-8088-exec-8] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-09 22:41:44.393 [http-nio-8088-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:41:44.425 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:41:45.760 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 22:41:45.767 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 22:41:45.780 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:41:57.032 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 22:41:57.036 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 22:41:57.037 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 22:41:57.059 [http-nio-8088-exec-1] WARN  o.s.s.c.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
+2026-04-09 22:41:57.075 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:52:05.974 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 22:52:05.977 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 22:52:05.986 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-09 22:52:05.992 [http-nio-8088-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:52:06.238 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-09 22:52:06.256 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-09 22:52:06.262 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-09 22:52:06.286 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-09 22:52:36.797 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-04-09 22:52:36.912 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 18.0.1.1 with PID 16064 (E:\javascripts\ShopApp_Backend\shopapp\target\classes started by Admin in E:\javascripts\ShopApp_Backend\shopapp)
+2026-04-09 22:52:36.914 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-09 22:52:38.106 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-09 22:52:38.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 7 JPA repository interfaces.
+2026-04-09 22:52:39.089 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-04-09 22:52:39.105 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-04-09 22:52:39.109 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-09 22:52:39.109 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-04-09 22:52:39.195 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-09 22:52:39.197 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2197 ms
+2026-04-09 22:52:39.371 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-09 22:52:39.462 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-04-09 22:52:39.514 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-09 22:52:39.870 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-09 22:52:39.923 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-09 22:52:40.315 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51e94b7d
+2026-04-09 22:52:40.317 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-09 22:52:40.353 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-09 22:52:40.354 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-04-09 22:52:40.377 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-09 22:52:41.816 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-09 22:52:41.816 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-09 22:52:42.316 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-09 22:52:42.462 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-09 22:52:45.214 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-09 22:52:45.214 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-09 22:52:45.637 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/users/register, api/v1/users/login] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.637 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/roles**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.656 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.660 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.666 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.675 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.677 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.681 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.686 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.692 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.700 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/images/*] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.705 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.708 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.711 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.714 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.717 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.719 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.723 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.727 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.731 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.735 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.738 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 22:52:45.812 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-04-09 22:52:46.351 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-04-09 22:52:46.402 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-04-09 22:52:46.417 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 10.473 seconds (process running for 11.741)
+2026-04-09 22:52:51.376 [http-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-09 22:52:51.379 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-09 22:52:51.381 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-09 22:52:51.417 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 22:52:51.464 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 22:52:51.664 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:52:51.931 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 22:52:51.936 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 22:52:51.938 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 22:52:52.107 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:52:59.353 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 22:52:59.358 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 22:52:59.360 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 22:52:59.373 [http-nio-8088-exec-5] WARN  o.s.s.c.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
+2026-04-09 22:52:59.373 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:53:34.938 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 22:53:34.943 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 22:53:34.944 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 22:53:34.953 [http-nio-8088-exec-7] WARN  o.s.s.c.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
+2026-04-09 22:53:34.953 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:55:05.324 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 22:55:05.331 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 22:55:05.355 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 22:55:50.394 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/register
+2026-04-09 22:55:50.399 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/register
+2026-04-09 22:55:50.400 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/register
+2026-04-09 22:55:50.414 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:25:45.061 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-09 23:25:45.209 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-09 23:25:45.218 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-09 23:25:45.223 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-09 23:25:45.228 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-09 23:43:09.967 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-04-09 23:43:10.049 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 18.0.1.1 with PID 7800 (E:\javascripts\ShopApp_Backend\shopapp\target\classes started by Admin in E:\javascripts\ShopApp_Backend\shopapp)
+2026-04-09 23:43:10.049 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-09 23:43:11.057 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-09 23:43:11.181 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112 ms. Found 7 JPA repository interfaces.
+2026-04-09 23:43:12.326 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-04-09 23:43:12.349 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-04-09 23:43:12.349 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-09 23:43:12.349 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-04-09 23:43:12.443 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-09 23:43:12.445 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2321 ms
+2026-04-09 23:43:12.626 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-09 23:43:12.715 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-04-09 23:43:12.765 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-09 23:43:13.068 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-09 23:43:13.099 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-09 23:43:13.295 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51e94b7d
+2026-04-09 23:43:13.311 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-09 23:43:13.336 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-09 23:43:13.336 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-04-09 23:43:13.370 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-09 23:43:14.733 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-09 23:43:14.743 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-09 23:43:15.164 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-09 23:43:15.279 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-09 23:43:17.430 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-09 23:43:17.431 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-09 23:43:17.784 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/users/register, api/v1/users/login] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.798 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/roles**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.801 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.804 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.808 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.815 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.815 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.821 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.823 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.825 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.829 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/images/*] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.831 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.831 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.837 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.839 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.840 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.843 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.847 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.848 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.848 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.855 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.857 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-09 23:43:17.922 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-04-09 23:43:18.473 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-04-09 23:43:18.522 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-04-09 23:43:18.538 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 9.064 seconds (process running for 9.851)
+2026-04-09 23:43:22.523 [http-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-09 23:43:22.523 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-09 23:43:22.523 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-04-09 23:43:22.554 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/register
+2026-04-09 23:43:22.586 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/register
+2026-04-09 23:43:22.597 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/register
+2026-04-09 23:43:23.127 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:43:23.183 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 23:43:23.186 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 23:43:23.211 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:00.956 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:44:00.968 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:00.970 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:01.299 [http-nio-8088-exec-6] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:01.432 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:01.432 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:44:01.450 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:01.450 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:01.450 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:01.468 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:44:09.082 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:44:09.086 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:09.087 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:09.304 [http-nio-8088-exec-9] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:09.304 [http-nio-8088-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:09.313 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:44:09.313 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:09.313 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:09.313 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:09.313 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:44:23.503 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:44:23.508 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:23.510 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:23.827 [http-nio-8088-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:23.835 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:23.841 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:44:23.841 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:23.841 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:23.841 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:23.852 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:44:24.051 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:24.052 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:24.241 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:24.242 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:24.323 [http-nio-8088-exec-7] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:24.329 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:24.335 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:24.336 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:24.337 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:24.337 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:44:24.523 [http-nio-8088-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:24.534 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:24.544 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:24.547 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:24.547 [http-nio-8088-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:24.548 [http-nio-8088-exec-9] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:44:32.765 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:44:32.769 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:32.770 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:32.988 [http-nio-8088-exec-1] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:32.990 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:32.990 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:44:32.990 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:32.990 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:32.990 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:32.990 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:44:45.622 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:44:45.626 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:44:45.627 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:44:45.841 [http-nio-8088-exec-6] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:44:45.846 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:45.852 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:44:45.858 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:44:45.859 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:44:45.860 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:44:45.860 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:51:14.253 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 23:51:14.255 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 23:51:14.289 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:51:22.158 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:51:22.158 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:51:22.158 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:51:22.445 [http-nio-8088-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:51:22.461 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:51:22.461 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:51:22.477 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/details
+2026-04-09 23:51:22.535 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/details
+2026-04-09 23:51:22.546 [http-nio-8088-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-04-09 23:51:22.548 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2026-04-09 23:51:22.548 [http-nio-8088-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:51:22.550 [http-nio-8088-exec-4] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-09 23:56:24.957 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-09 23:56:24.959 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-09 23:56:24.974 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:56:31.048 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:56:31.048 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:56:31.048 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:56:31.361 [http-nio-8088-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:56:31.377 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:56:31.384 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:56:31.389 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-09 23:56:31.398 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-09 23:56:59.980 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:56:59.985 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:56:59.986 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:57:00.252 [http-nio-8088-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:57:00.265 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:57:00.281 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:57:00.293 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-09 23:57:00.308 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-09 23:57:15.400 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-09 23:57:15.404 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-09 23:57:15.404 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-09 23:57:15.648 [http-nio-8088-exec-7] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-09 23:57:15.652 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-09 23:57:15.666 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-09 23:57:15.666 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-09 23:57:15.679 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:00:32.695 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-10 00:00:32.696 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-10 00:00:32.704 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:00:38.186 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-10 00:00:38.188 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-10 00:00:38.191 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-10 00:00:38.464 [http-nio-8088-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-10 00:00:38.470 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:00:38.478 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:00:38.482 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:00:38.490 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:00:52.996 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-10 00:00:52.997 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-10 00:00:53.021 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:01:26.062 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:01:26.067 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:01:26.071 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:01:26.072 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:01:26.079 [http-nio-8088-exec-7] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:01:26.087 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:01:26.124 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:01:30.859 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:01:30.865 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:01:30.875 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:01:35.619 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:01:35.622 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:01:35.627 [http-nio-8088-exec-10] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:01:35.634 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:01:35.636 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:01:35.638 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:01:35.650 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:01:41.915 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:01:41.915 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:01:41.915 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:01:41.916 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:01:41.918 [http-nio-8088-exec-2] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:01:41.926 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:01:41.929 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:02:19.337 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:02:19.350 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:02:19.366 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:02:24.068 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:02:24.069 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:02:24.070 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:02:24.072 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:02:24.072 [http-nio-8088-exec-8] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:02:24.084 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:02:24.087 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:04:47.718 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:04:47.721 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:04:47.723 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:04:47.723 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:04:47.726 [http-nio-8088-exec-10] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:04:47.744 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:04:47.745 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:04:54.511 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-10 00:04:54.511 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-10 00:04:54.600 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:05:02.095 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-10 00:05:02.100 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-10 00:05:02.101 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-10 00:05:02.343 [http-nio-8088-exec-4] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-10 00:05:02.343 [http-nio-8088-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:05:02.359 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:05:02.359 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:05:02.369 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:05:02.741 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-10 00:05:02.746 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-10 00:05:02.762 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:05:46.255 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-10 00:05:46.260 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-10 00:05:46.288 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:05:50.835 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:05:50.837 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:05:50.839 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:05:50.840 [http-nio-8088-exec-10] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:05:50.842 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:05:50.859 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:05:50.872 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:05:52.595 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:05:52.603 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:05:52.621 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:10:31.949 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:10:31.956 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:10:31.969 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:10:51.959 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:10:51.962 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-10 00:10:51.962 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:10:51.964 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-10 00:10:51.964 [http-nio-8088-exec-5] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-10 00:10:51.974 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:10:51.974 [http-nio-8088-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:10:53.568 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-10 00:10:53.569 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-10 00:10:53.579 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:10:58.909 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-10 00:10:58.913 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-10 00:10:58.914 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-10 00:10:59.171 [http-nio-8088-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-10 00:10:59.186 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:10:59.186 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-10 00:10:59.186 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-10 00:10:59.207 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-10 00:10:59.873 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/orders/get-orders-by-keyword?keyword=&page=0&limit=12
+2026-04-10 00:10:59.902 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?keyword=&page=0&limit=12
+2026-04-10 00:10:59.915 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:10:59.919 [http-nio-8088-exec-6] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-10 00:11:06.761 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-10 00:11:06.762 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-10 00:11:06.763 [http-nio-8088-exec-7] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 0,limit= 12
+2026-04-10 00:11:06.772 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:11:09.093 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/orders/get-orders-by-keyword?keyword=&page=0&limit=12
+2026-04-10 00:11:09.094 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?keyword=&page=0&limit=12
+2026-04-10 00:11:09.095 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-10 00:11:09.095 [http-nio-8088-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-10 00:11:10.131 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-10 00:11:10.132 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-10 00:11:10.134 [http-nio-8088-exec-9] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 0,limit= 12
+2026-04-10 00:11:10.141 [http-nio-8088-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 16:26:33.573 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-04-13 16:26:33.687 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 18.0.1.1 with PID 12140 (E:\javascripts\ShopApp_Backend\shopapp\target\classes started by Admin in E:\javascripts\ShopApp_Backend\shopapp)
+2026-04-13 16:26:33.689 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-13 16:26:34.972 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-13 16:26:35.102 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 116 ms. Found 7 JPA repository interfaces.
+2026-04-13 16:26:36.762 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-04-13 16:26:36.791 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-04-13 16:26:36.796 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-13 16:26:36.797 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-04-13 16:26:36.944 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-13 16:26:36.945 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3173 ms
+2026-04-13 16:26:37.348 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-13 16:26:37.460 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-04-13 16:26:37.520 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-13 16:26:38.053 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-13 16:26:38.125 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-13 16:26:39.477 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
+2026-04-13 16:26:39.479 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2026-04-13 16:26:39.486 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1361)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1711)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1460)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1606)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1552)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1361)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1606)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1552)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:174)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:169)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:154)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4467)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:520)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:222)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:13)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:837)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:420)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	... 128 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:142)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:961)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	... 141 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:539)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:144)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
+	... 144 common frames omitted
+2026-04-13 16:26:39.573 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-13 16:26:39.577 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-04-13 16:26:39.609 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-13 16:26:42.285 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-13 16:26:42.296 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-13 16:26:43.180 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-13 16:26:43.301 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-13 16:26:46.990 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-13 16:26:47.053 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-13 16:26:47.849 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/users/register, api/v1/users/login] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.866 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/roles**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.870 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.876 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.883 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.891 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.896 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.899 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.904 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.907 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.911 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/images/*] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.915 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.919 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.921 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.924 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.928 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.932 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.935 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.938 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.942 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.945 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:47.948 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:26:48.052 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-04-13 16:26:48.925 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-04-13 16:26:49.004 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-04-13 16:26:49.027 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 15.943 seconds (process running for 16.854)
+2026-04-13 16:26:49.051 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-13 16:26:50.089 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
+2026-04-13 16:26:50.090 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2026-04-13 16:26:50.107 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-13 16:26:50.165 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:466)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:532)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:639)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:374)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy151.count(Unknown Source)
+	at com.project.shopapp.ShopappApplication.lambda$init$0(ShopappApplication.java:19)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:788)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:796)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:772)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:772)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.project.shopapp.ShopappApplication.main(ShopappApplication.java:13)
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:129)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:156)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:164)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:420)
+	... 33 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:837)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:420)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:238)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:46)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:126)
+	... 36 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:142)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:961)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	... 49 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:539)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:144)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
+	... 52 common frames omitted
+2026-04-13 16:26:50.176 [main] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-13 16:26:50.547 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-13 16:26:50.563 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-13 16:27:22.022 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-04-13 16:27:22.147 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 18.0.1.1 with PID 8172 (E:\javascripts\ShopApp_Backend\shopapp\target\classes started by Admin in E:\javascripts\ShopApp_Backend\shopapp)
+2026-04-13 16:27:22.149 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-13 16:27:23.517 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-13 16:27:23.648 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 117 ms. Found 7 JPA repository interfaces.
+2026-04-13 16:27:24.725 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-04-13 16:27:24.741 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2026-04-13 16:27:24.746 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-13 16:27:24.747 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2026-04-13 16:27:24.870 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-13 16:27:24.873 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2630 ms
+2026-04-13 16:27:25.105 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-13 16:27:25.174 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2026-04-13 16:27:25.228 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-13 16:27:25.634 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-13 16:27:25.690 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-13 16:27:26.055 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51e94b7d
+2026-04-13 16:27:26.058 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-13 16:27:26.097 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-13 16:27:26.100 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-04-13 16:27:26.130 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-13 16:27:27.872 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-13 16:27:27.877 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-13 16:27:28.380 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-13 16:27:28.518 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-13 16:27:31.081 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-13 16:27:31.082 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-13 16:27:31.396 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/users/register, api/v1/users/login] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.405 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/roles**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.408 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.411 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.414 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.421 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.423 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/categories/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.426 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.431 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.433 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.439 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/images/*] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.442 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.444 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.445 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/products/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.447 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.450 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.453 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.456 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/orders/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.459 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.462 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.464 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.466 [main] WARN  o.s.s.c.a.w.c.AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry - One of the patterns in [api/v1/order_details/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2026-04-13 16:27:31.525 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-04-13 16:27:32.018 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2026-04-13 16:27:32.056 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-04-13 16:27:32.068 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 10.64 seconds (process running for 11.645)
+2026-04-13 17:40:33.998 [http-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-13 17:40:34.005 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-13 17:40:34.089 [http-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 81 ms
+2026-04-13 17:40:34.160 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/categories?page=1&limit=100
+2026-04-13 17:40:34.160 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-13 17:40:34.313 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=1&limit=10
+2026-04-13 17:40:34.313 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/categories?page=1&limit=100
+2026-04-13 17:40:34.410 [http-nio-8088-exec-2] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 1,limit= 10
+2026-04-13 17:40:34.598 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 17:40:34.642 [http-nio-8088-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 17:40:37.290 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-13 17:40:37.297 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-13 17:40:37.546 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-13 17:40:41.496 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/roles
+2026-04-13 17:40:41.498 [http-nio-8088-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/roles
+2026-04-13 17:40:41.513 [http-nio-8088-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 17:40:51.164 [http-nio-8088-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/login
+2026-04-13 17:40:51.168 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/v1/users/login
+2026-04-13 17:40:51.170 [http-nio-8088-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/v1/users/login
+2026-04-13 17:40:51.624 [http-nio-8088-exec-7] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-04-13 17:40:51.678 [http-nio-8088-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 17:40:51.678 [http-nio-8088-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing OPTIONS /api/v1/users/details
+2026-04-13 17:40:51.678 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/users/details
+2026-04-13 17:40:51.694 [http-nio-8088-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/users/details
+2026-04-13 17:40:52.176 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/orders/get-orders-by-keyword?keyword=&page=0&limit=12
+2026-04-13 17:40:52.201 [http-nio-8088-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error?keyword=&page=0&limit=12
+2026-04-13 17:40:52.205 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 17:40:52.222 [http-nio-8088-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-04-13 17:40:55.945 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-13 17:40:55.947 [http-nio-8088-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-13 17:40:55.949 [http-nio-8088-exec-1] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 0,limit= 12
+2026-04-13 17:40:55.960 [http-nio-8088-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-04-13 17:54:22.853 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-13 17:54:22.856 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?keyword=&categoryId=0&page=0&limit=12
+2026-04-13 17:54:22.857 [http-nio-8088-exec-4] INFO  c.p.s.controller.ProductController - category_id= 0, keyword= ,page= 0,limit= 12
+2026-04-13 17:54:22.869 [http-nio-8088-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext

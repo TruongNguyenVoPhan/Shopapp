@@ -1,8 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
-
-import { Location } from '@angular/common';
 import { environment } from '../../../environment/environment';
 import { Category } from '../../../models/categories';
 import { CategoryService } from '../../../service/category.service';

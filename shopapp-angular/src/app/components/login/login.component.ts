@@ -73,7 +73,6 @@ export class LoginComponent {
     const loginDto:LoginDto = {
       phone_number : this.phoneNumber,
       password : this.password,
-      role_id: this.selectedRole?.id ?? 1
     }
     this.userService.login(loginDto).subscribe({
       next: (response: LoginResponse) => {
@@ -90,11 +89,16 @@ export class LoginComponent {
                 date_of_birth: new Date(response.date_of_birth),
               };
               this.userService.saveUserResponseToLocalStorage(this.userResponse);
-              if(this.userResponse?.role.name == 'admin'){
-                this.router.navigate(['/admin']);
-              }else if(this.userResponse?.role.name == 'user'){
-                this.router.navigate(['/']);
+              if(this.userResponse?.role.name === 'ADMIN'){
+                this.router.navigate(['/admin']).then(() => {
+                  window.location.reload();
+                });
+              }else if(this.userResponse?.role.name === 'USER'){
+                this.router.navigate(['/']).then(() => {
+                  window.location.reload();
+                });
               }
+              
             },
             complete: () => {
               debugger

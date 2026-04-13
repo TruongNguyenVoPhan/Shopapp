@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.MappedSuperclass;
 import lombok.*;
 
-@MappedSuperclass
 @Data//toString
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -17,4 +14,7 @@ public class LoginResponse {
 
     @JsonProperty("token")
     private String token;
+
+    @JsonProperty("user")
+    private UserResponse user;
 }

@@ -4,7 +4,6 @@ export interface User {
     fullname: string;
     phone_number: string;
     address: string;
-    password: string;
     active: boolean;
     date_of_birth: Date;
     facebook_account_id: number;

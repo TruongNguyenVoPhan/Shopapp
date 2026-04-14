@@ -35,7 +35,7 @@ public class UserResponse {
     private boolean isActive;
 
     @JsonProperty("date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @JsonProperty("facebook_account_id")
     private int facebookAccountId;

@@ -38,7 +38,9 @@ export class ProductService{
     }
     deleteProduct(productId: number): Observable<any> {
         debugger
-        return this.http.delete<any>(`${this.apiGetProducts}products/${productId}`);
+        return this.http.delete(`${this.apiGetProducts}/${productId}`, {
+        responseType: 'text'
+        });
     }
     updateProduct(productId: number, updatedProduct: UpdateProductDTO): Observable<Product> {
         return this.http.put<Product>(`${this.apiBaseUrl}products/${productId}`, updatedProduct);

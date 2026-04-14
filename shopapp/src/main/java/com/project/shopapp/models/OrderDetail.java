@@ -3,6 +3,7 @@ package com.project.shopapp.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "order_details")
@@ -26,13 +27,13 @@ public class OrderDetail {
     private Product product;
 
     @Column(name = "price", nullable = false)
-    private float price;
+    private BigDecimal price;
 
     @Column(name = "number_of_product", nullable = false)
     private int numberOfProduct;
 
     @Column(name = "total_money", nullable = false)
-    private Float totalMoney;
+    private BigDecimal totalMoney;
 
     @Column(name = "color")
     private String color;

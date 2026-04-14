@@ -11,6 +11,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.math.BigDecimal;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ import java.util.List;
 public class ProductResponse extends BaseResponse {
     private Long id;
     private String name;
-    private Float price;
+    private BigDecimal price;
     private String thumbnail;
     private String description;
     @JsonProperty("product_images")

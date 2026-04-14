@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -45,7 +46,7 @@ public class OrderResponse extends BaseResponse{
     private String status;
 
     @JsonProperty("total_money")
-    private double totalMoney;
+    private BigDecimal totalMoney;
 
     @JsonProperty("shipping_method")
     private String shippingMethod;

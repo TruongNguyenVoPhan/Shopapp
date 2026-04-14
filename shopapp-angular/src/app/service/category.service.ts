@@ -8,8 +8,8 @@ import { Category } from '../models/categories';
   providedIn: 'root'
 })
 
-export class CategoryService {
-  private apiGetCategories = `${environment.apiBaseUrl}categories`;
+export class CategoryService{
+    private apiGetCategories = `${environment.apiBaseUrl}categories`;
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,10 @@ export class CategoryService {
       .set('limit', limit.toString());
 
     return this.http.get<Category[]>(this.apiGetCategories, { params });
+  }
+  
+  insertCategory(data: any): Observable<any> {
+    return this.http.post(this.apiGetCategories, data);
   }
 
   deleteCategory(categoryId: number): Observable<string> {

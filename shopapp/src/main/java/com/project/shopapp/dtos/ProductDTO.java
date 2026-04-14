@@ -9,6 +9,7 @@ import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.math.BigDecimal;
 
 @Data//toString
 @Getter
@@ -23,7 +24,7 @@ public class ProductDTO {
 
     @Min(value = 0, message = "Price must be greater than or equal to 0")
     @Max(value = 10000000, message = "Price must less than or equal to 10,000,000")
-    private Float price;
+    private BigDecimal price;
 
     private String thumbnail;
 

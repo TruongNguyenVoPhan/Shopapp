@@ -1,21 +1,23 @@
 import {
-    IsString,
-    IsNotEmpty,
-    IsPhoneNumber,
-    IsDate,
+  IsString,
+  IsNotEmpty,
+  IsPhoneNumber,
+  MinLength
 } from 'class-validator';
+
 export class RegisterDto {
-    @IsString()
+
+  @IsString()
   address: string;
 
-  @IsDate()
   date_of_birth: Date;
 
+  @IsNotEmpty()
   @IsString()
   fullname: string;
 
   @IsNotEmpty()
-  @IsString()
+  @MinLength(6)
   password: string;
 
   @IsNotEmpty()
@@ -23,12 +25,12 @@ export class RegisterDto {
   phone_number: string;
 
   @IsNotEmpty()
-  @IsString()
   retype_password: string;
 
   google_account_id: string;
   facebook_account_id: string;
   role_id: number = 2;
+
   constructor(data: any) {
     this.address = data.address;
     this.date_of_birth = new Date(data.dateOfBirth);
@@ -40,4 +42,4 @@ export class RegisterDto {
     this.retype_password = data.retypePassword;
     this.role_id = data.role || 2;
   }
-} 
+}

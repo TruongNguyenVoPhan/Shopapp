@@ -6,6 +6,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -22,7 +23,7 @@ public class Product extends BaseEntity{
     @Column(name = "name", nullable = false, length = 350)
     private String name;
 
-    private Float price;
+    private BigDecimal price;
 
     @Column(name = "thumbnail", length = 300)
     private String thumbnail;
@@ -36,4 +37,7 @@ public class Product extends BaseEntity{
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ProductImage> productImages;
+
+    @Column(name = "is_active")
+    private Boolean active = true;
 }

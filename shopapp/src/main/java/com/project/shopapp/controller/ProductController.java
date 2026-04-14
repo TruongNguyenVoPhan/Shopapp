@@ -35,6 +35,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("${api.prefix}/products")
@@ -77,31 +78,41 @@ public class ProductController {
             Product existingProduct = productService.getProductById(productId);
             files = files == null ? new ArrayList<MultipartFile>() : files;
             List<ProductImage> productImages = new ArrayList<>();
-            for (MultipartFile file : files) {
-                if(file.getSize() == 0) {
-                    continue;
-                }
-                // Kiểm tra kích thước file và định dạng
-                if(file.getSize() > 10 * 1024 * 1024) { // Kích thước > 10MB
-                    return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE)
-                            .body("File is too large! Maximum size is 10MB");
-                }
-                String contentType = file.getContentType();
-                if(contentType == null || !contentType.startsWith("image/")) {
-                    return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
-                            .body("File must be an image");
-                }
-                // Lưu file và cập nhật thumbnail trong DTO
-                String filename = storeFile(file); // Thay thế hàm này với code của bạn để lưu file
-                //lưu vào đối tượng product trong DB
-                ProductImage productImage = productService.createProductImage(
-                        existingProduct.getId(),
-                        ProductImageDTO.builder()
-                                .imageUrl(filename)
-                                .build()
-                );
-                productImages.add(productImage);
+            for (int i = 0; i < files.size(); i++) {
+            MultipartFile file = files.get(i);
+
+            if (file.getSize() == 0) continue;
+
+            if (file.getSize() > 10 * 1024 * 1024) {
+                return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE)
+                        .body("File is too large! Maximum size is 10MB");
             }
+
+            String contentType = file.getContentType();
+            if (contentType == null || !contentType.startsWith("image/")) {
+                return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+                        .body("File must be an image");
+            }
+
+            String filename = storeFile(file);
+
+           if (i == 0 &&
+                (existingProduct.getThumbnail() == null
+                || existingProduct.getThumbnail().isEmpty())) {
+
+                existingProduct.setThumbnail(filename);
+                productService.save(existingProduct);
+            }
+
+            ProductImage productImage = productService.createProductImage(
+                    existingProduct.getId(),
+                    ProductImageDTO.builder()
+                            .imageUrl(filename)
+                            .build()
+            );
+
+            productImages.add(productImage);
+        }
             return ResponseEntity.ok().body(productImages);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -235,7 +246,7 @@ public class ProductController {
             }
             ProductDTO productDTO = ProductDTO.builder()
                     .name(productName)
-                    .price((float)faker.number().numberBetween(10, 90_000_000))
+                    .price(BigDecimal.valueOf(faker.number().numberBetween(10, 90_000_000)))
                     .description(faker.lorem().sentence())
                     .thumbnail("")
                     .categoryId((long)faker.number().numberBetween(2, 5))

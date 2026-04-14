@@ -7,14 +7,14 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.Date;
+import java.time.LocalDate;
 
 @Data//toString
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class UserDTO {
+    @NotBlank(message = "Full name is required")
     @JsonProperty("fullname")
     private String fullName;
 
@@ -25,18 +25,19 @@ public class UserDTO {
     private String address;
 
     @NotBlank(message = "Password can not be blank")
+    @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
     @JsonProperty("retype_password")
     private String retypePassword;
 
     @JsonProperty("date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
-    @JsonProperty("face_book_account_id")
-    private int faceBookAccountId;
+    @JsonProperty("facebook_account_id")
+    private Integer faceBookAccountId;
 
     @JsonProperty("google_account_id")
-    private int googleAccountId;
+    private Integer googleAccountId;
 
 }

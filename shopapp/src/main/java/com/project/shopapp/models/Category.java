@@ -18,4 +18,7 @@ public class Category {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "is_active")
+    private Boolean active = true;
 }

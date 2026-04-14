@@ -21,7 +21,7 @@ public interface IProductService {
 
     Product updateProduct(long  id, ProductDTO productDTO) throws Exception;
 
-    void deleteProduct(long id);
+    public void deleteProduct(long id) throws Exception;
 
     boolean existsByName(String name);
 
@@ -30,4 +30,6 @@ public interface IProductService {
             ProductImageDTO productImageDTO) throws Exception;
 
     List<Product> findProductByIds(List<Long> productIds);
+    
+    Product save(Product product);
 }

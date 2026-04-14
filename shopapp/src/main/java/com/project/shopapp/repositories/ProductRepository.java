@@ -11,21 +11,37 @@ import java.util.Optional;
 
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    boolean existsByName(String name);
 
-    Page<Product> findAll(Pageable pageable);//Phan trang cac san pham
+    boolean existsByNameIgnoreCase(String name);
 
-    @Query("SELECT p FROM Product p WHERE " +
-            "(:categoryId IS NULL OR :categoryId = 0 OR p.category.id = :categoryId) " +
-            "AND (:keyword IS NULL OR :keyword = '' OR p.name LIKE CONCAT('%', :keyword, '%') OR p.description LIKE CONCAT('%', :keyword, '%'))")
-    Page<Product> searchProducts
-            (@Param("categoryId") Long categoryId,
-             @Param("keyword") String keyword, Pageable pageable);
+    Page<Product> findByActiveTrue(Pageable pageable);
 
-    @Query("SELECT p FROM Product p LEFT JOIN FETCH p.productImages WHERE p.id = :productId")
+    List<Product> findByActiveTrue();
+
+    @Query("""
+        SELECT p FROM Product p
+        WHERE p.active = true
+        AND (:categoryId IS NULL OR :categoryId = 0 OR p.category.id = :categoryId)
+        AND (
+            :keyword IS NULL OR :keyword = ''
+            OR LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%'))
+            OR LOWER(p.description) LIKE LOWER(CONCAT('%', :keyword, '%'))
+        )
+    """)
+    Page<Product> searchProducts(
+        @Param("categoryId") Long categoryId,
+        @Param("keyword") String keyword,
+        Pageable pageable
+    );
+
+    @Query("""
+        SELECT p FROM Product p
+        LEFT JOIN FETCH p.productImages
+        WHERE p.id = :productId
+        AND p.active = true
+    """)
     Optional<Product> getDetailProduct(@Param("productId") Long productId);
 
     @Query("SELECT p FROM Product p WHERE p.id IN :productIds")
     List<Product> findProductByIds(@Param("productIds") List<Long> productIds);
 }
-

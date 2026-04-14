@@ -40,6 +40,7 @@ public class ProductService implements IProductService{
                 .description(productDTO.getDescription())
                 .thumbnail(productDTO.getThumbnail())
                 .category(existingCategory)
+                .active(true)
                 .build();
         return productRepository.save(newProduct);
     }
@@ -71,33 +72,37 @@ public class ProductService implements IProductService{
     @Transactional
     public Product updateProduct(long id, ProductDTO productDTO) throws Exception {
         Product existingProduct = getProductById(id);
-        if(existingProduct != null){
-            Category existingCategory = categoryRepository
-                    .findById(productDTO.getCategoryId())
-                    .orElseThrow(() ->
-                            new DataNotFoundException(
-                                    "Cannot find category with id: "+productDTO.getCategoryId()));
-            existingProduct.setName(productDTO.getName());
-            existingProduct.setCategory(existingCategory);
-            existingProduct.setPrice(productDTO.getPrice());
-            existingProduct.setDescription(productDTO.getDescription());
-            existingProduct.setThumbnail(productDTO.getThumbnail());
-            return productRepository.save(existingProduct);
-        }
-        return null;
-    }
 
+        Category existingCategory = categoryRepository
+                .findById(productDTO.getCategoryId())
+                .orElseThrow(() ->
+                        new DataNotFoundException(
+                                "Cannot find category with id: " + productDTO.getCategoryId()));
+
+        existingProduct.setName(productDTO.getName());
+        existingProduct.setCategory(existingCategory);
+        existingProduct.setPrice(productDTO.getPrice());
+        existingProduct.setDescription(productDTO.getDescription());
+
+        if(productDTO.getThumbnail() != null && !productDTO.getThumbnail().isEmpty()) {
+            existingProduct.setThumbnail(productDTO.getThumbnail());
+        }
+
+        return productRepository.save(existingProduct);
+    }
     @Override
-    @Transactional
-    public void deleteProduct(long id) {
-        Optional<Product> optionalProduct = productRepository.findById(id);;
-        optionalProduct.ifPresent(productRepository::delete);
+    public void deleteProduct(long id) throws Exception {
+        Product product = productRepository.findById(id)
+            .orElseThrow(() -> new Exception("Cannot find product"));
+
+        product.setActive(false);
+        productRepository.save(product);
     }
 
     @Override
     @Transactional
     public boolean existsByName(String name) {
-        return productRepository.existsByName(name);
+        return productRepository.existsByNameIgnoreCase(name);
     }
 
     @Override
@@ -121,5 +126,9 @@ public class ProductService implements IProductService{
                     +ProductImage.MAXIMUM_IMAGES_PER_PRODUCT);
         }
         return productImageRepository.save(newProductImage);
+    }
+
+    public Product save(Product product){
+        return productRepository.save(product);
     }
 }

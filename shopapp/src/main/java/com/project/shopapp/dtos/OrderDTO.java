@@ -9,6 +9,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 @Data//toString
 @Getter
@@ -40,7 +41,7 @@ public class OrderDTO {
 
     @JsonProperty("total_money")
     @Min(value =0, message = "Total money must be >= 0")
-    private Float totalMoney;
+    private BigDecimal totalMoney;
 
     @JsonProperty("shipping_method")
     private String shippingMethod;

@@ -8,6 +8,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "orders")
@@ -47,7 +48,7 @@ public class Order {
     private String status;
 
     @Column(name = "total_money")
-    private Float totalMoney;
+    private BigDecimal totalMoney;
 
     @Column(name = "shipping_method")
     private String shippingMethod;

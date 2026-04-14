@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.Date;
+import java.time.LocalDate;
 
 @Data//toString
 @Getter
@@ -29,12 +30,12 @@ public class UpdateUserDTO {
     private String retypePassword;
 
     @JsonProperty("date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @JsonProperty("face_book_account_id")
-    private int faceBookAccountId;
+    private Integer faceBookAccountId;
 
     @JsonProperty("google_account_id")
-    private int googleAccountId;
+    private Integer googleAccountId;
 
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
@@ -39,7 +40,7 @@ public class User extends BaseEntity implements UserDetails {
     private boolean isActive;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "facebook_account_id")
     private int facebookAccountId;
@@ -81,6 +82,6 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isActive;
     }
 }

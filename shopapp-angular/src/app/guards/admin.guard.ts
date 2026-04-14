@@ -22,7 +22,7 @@ export class AdminGuard {
     const isTokenExpired = this.tokenService.isTokenExpired();
     const isUserIdValid = this.tokenService.getUserId() > 0;
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
-    const isAdmin = this.userResponse?.role.name === 'ADMIN';
+    const isAdmin = this.userResponse?.role.name.toUpperCase() === 'ADMIN';
     debugger
     if (!isTokenExpired && isUserIdValid && isAdmin) {
       return true;

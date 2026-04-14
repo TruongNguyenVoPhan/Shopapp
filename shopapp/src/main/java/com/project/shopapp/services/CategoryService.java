@@ -13,10 +13,16 @@ public class CategoryService implements ICategoryService{
     private final CategoryRepository categoryRepository;
     @Override
     public Category createCategory(CategoryDTO categoryDTO) {
-        Category newCategory = Category
-                .builder()
+
+        if (categoryRepository.existsByName(categoryDTO.getName())) {
+            throw new RuntimeException("Category already exists");
+        }
+
+        Category newCategory = Category.builder()
                 .name(categoryDTO.getName())
+                .active(true)
                 .build();
+
         return categoryRepository.save(newCategory);
     }
 
@@ -28,7 +34,7 @@ public class CategoryService implements ICategoryService{
 
     @Override
     public List<Category> getAllCategory() {
-        return categoryRepository.findAll();
+        return categoryRepository.findByActiveTrue();
     }
 
     @Override
@@ -41,7 +47,8 @@ public class CategoryService implements ICategoryService{
 
     @Override
     public void deleteCategory(long id) {
-        //Xoa xong
-        categoryRepository.deleteById(id);
+        Category existingCategory = getCategoryById(id);
+        existingCategory.setActive(false);
+        categoryRepository.save(existingCategory);
     }
 }

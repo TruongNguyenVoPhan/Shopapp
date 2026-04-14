@@ -6,6 +6,7 @@ import com.project.shopapp.models.Product;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.Min;
 import lombok.*;
+import java.math.BigDecimal;
 
 @MappedSuperclass
 @Getter
@@ -22,13 +23,13 @@ public class OrderDetailResponse{
     @JsonProperty("product_id")
     private Long productId;
 
-    private Float price;
+    private BigDecimal price;
 
     @JsonProperty("number_of_product")
     private int numberOfProduct;
 
     @JsonProperty("total_money")
-    private Float totalMoney;
+    private BigDecimal totalMoney;
 
     private String color;
 

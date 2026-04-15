@@ -26,6 +26,9 @@ public class ProductDTO {
     @Max(value = 10000000, message = "Price must less than or equal to 10,000,000")
     private BigDecimal price;
 
+    @Min(value = 0, message = "Quantity must be greater than or equal to 0")
+    private Integer quantity;
+
     private String thumbnail;
 
     private String description;

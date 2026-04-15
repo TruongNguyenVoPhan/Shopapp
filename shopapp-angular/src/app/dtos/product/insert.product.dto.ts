@@ -9,6 +9,7 @@ export class InsertProductDTO {
     name: string;
 
     price: number;
+    quantity: number;
 
     @IsString()
     @IsNotEmpty()
@@ -20,6 +21,7 @@ export class InsertProductDTO {
     constructor(data: any) {
         this.name = data.name;
         this.price = data.price;
+        this.quantity = data.quantity;
         this.description = data.description;
         this.category_id = data.category_id;
     }

@@ -88,6 +88,7 @@ export class UpdateProductAdminComponent implements OnInit {
       const updateProductDTO: UpdateProductDTO = {
         name: this.updatedProduct.name,
         price: this.updatedProduct.price,
+        quantity: this.updatedProduct.quantity,
         description: this.updatedProduct.description,
         category_id: this.updatedProduct.category_id
       };

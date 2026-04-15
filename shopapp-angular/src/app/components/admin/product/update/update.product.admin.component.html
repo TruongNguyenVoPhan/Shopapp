@@ -14,7 +14,13 @@
               <input type="text" id="price" [(ngModel)]="updatedProduct.price" 
                 name="price" class="form-control col-md-3" required>
             </div>
-      
+
+            <div class="form-group mb-3">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" [(ngModel)]="updatedProduct.quantity" 
+                name="quantity" class="form-control col-md-3" required>
+            </div>
+
             <div class="form-group mb-3">
               <label for="description">Description:</label>
               <textarea id="description" [(ngModel)]="updatedProduct.description" name="description" class="form-control" required></textarea>

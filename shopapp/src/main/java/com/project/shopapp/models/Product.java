@@ -25,6 +25,9 @@ public class Product extends BaseEntity{
 
     private BigDecimal price;
 
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
     @Column(name = "thumbnail", length = 300)
     private String thumbnail;
 

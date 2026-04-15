@@ -8,6 +8,9 @@ export class UpdateProductDTO {
     @IsNumber()
     price: number;
 
+    @IsNumber()
+    quantity: number;
+
     @IsString()
     @IsNotEmpty()
     description: string;
@@ -19,6 +22,7 @@ export class UpdateProductDTO {
     constructor(data: any) {
         this.name = data.name;
         this.price = data.price;
+        this.quantity = data.quantity;
         this.description = data.description;
         this.category_id = data.category_id;
     }

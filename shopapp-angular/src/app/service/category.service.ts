@@ -15,10 +15,13 @@ export class CategoryService{
 
   getCategories(page: number, limit: number): Observable<Category[]> {
     const params = new HttpParams()
-      .set('page', page.toString())
-      .set('limit', limit.toString());
+      .set('page', page)
+      .set('limit', limit);
 
-    return this.http.get<Category[]>(this.apiGetCategories, { params });
+    return this.http.get<Category[]>(
+      `${environment.apiBaseUrl}categories/with-count`,
+      { params }
+    );
   }
   
   insertCategory(data: any): Observable<any> {

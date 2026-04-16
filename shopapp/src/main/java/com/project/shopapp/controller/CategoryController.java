@@ -73,5 +73,10 @@ public class CategoryController  {
         categoryService.deleteCategory(id);
         return ResponseEntity.ok(localizationUtils.getLocalizedMessage(MessageKeys.DELETED_CATEGORY_SUCCESSFULLY));
     }
+
+    @GetMapping("/with-count")
+    public ResponseEntity<?> getCategoriesWithCount() {
+        return ResponseEntity.ok(categoryService.getCategoriesWithCount());
+    }   
 }
 

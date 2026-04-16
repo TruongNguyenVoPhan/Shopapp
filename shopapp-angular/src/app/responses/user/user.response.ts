@@ -3,6 +3,7 @@ import { Role } from "../../models/role";
 export interface UserResponse {
   id: number;
   fullname: string;
+  email: string;
   phone_number: string;
   address: string;
   is_active: boolean;

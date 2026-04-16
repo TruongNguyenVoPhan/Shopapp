@@ -32,10 +32,10 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, 
       private productService: ProductService,
       private categoryService: CategoryService) { }
-  ngOnInit() {
-    this.getProducts(this.keyword,this.selectedCategoryId,this.currentPage, this.itemsPerPage);
-    this.getCategories(1,100);
-  }
+  // ngOnInit() {
+  //   this.getProducts(this.keyword,this.selectedCategoryId,this.currentPage, this.itemsPerPage);
+  //   this.getCategories(1,100);
+  // }
 
   getCategories(page: number, limit: number) {
     this.categoryService.getCategories(page, limit)
@@ -51,26 +51,89 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  searchProducts(){
-    this.currentPage = 1;
-    this.itemsPerPage = 12;
-    debugger
-    this.getProducts(this.keyword, this.selectedCategoryId, this.currentPage, this.itemsPerPage);
+  // searchProducts(){
+  //   this.currentPage = 1;
+  //   this.itemsPerPage = 12;
+  //   debugger
+  //   this.getProducts(this.keyword, this.selectedCategoryId, this.currentPage, this.itemsPerPage);
+  // }
+  // getProducts(keyword:string,selectedCategoryId:number,page: number, limit: number) {
+  //   this.productService.getProducts(keyword,selectedCategoryId,page, limit)
+  //   .subscribe({
+  //     next: (response: any) => {
+  //       debugger
+  //       response.products.forEach((product: Product) => {
+  //         product.url = `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
+  //       });
+  //       this.products = response.products; 
+  //       this.totalPages = response.totalPages;
+  //       this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
+  //     },
+  //     error: (error: any) => console.error('Error fetching products:', error)
+  //   });
+  // }
+  
+  ngOnInit() {
+    this.getProducts(
+      this.keyword,
+      this.selectedCategoryId,
+      this.currentPage,
+      this.itemsPerPage
+    );
+    this.getCategories(1, 100);
   }
-  getProducts(keyword:string,selectedCategoryId:number,page: number, limit: number) {
-    this.productService.getProducts(keyword,selectedCategoryId,page, limit)
-    .subscribe({
+
+  searchProducts() {
+    this.currentPage = 1;
+    this.getProducts(
+      this.keyword,
+      this.selectedCategoryId,
+      this.currentPage,
+      this.itemsPerPage
+    );
+  }
+
+  getProducts(
+    keyword: string,
+    selectedCategoryId: number,
+    page: number,
+    limit: number
+  ) {
+    this.productService.getProducts(
+      keyword,
+      selectedCategoryId,
+      page - 1, // Spring bắt đầu từ 0
+      limit
+    ).subscribe({
       next: (response: any) => {
-        debugger
+
         response.products.forEach((product: Product) => {
-          product.url = `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
+          product.url =
+            `${environment.apiBaseUrl}products/images/${product.thumbnail}`;
         });
-        this.products = response.products; 
+
+        this.products = response.products;
         this.totalPages = response.totalPages;
-        this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
+
+        this.visiblePages = this.generateVisiblePageArray(
+          this.currentPage,
+          this.totalPages
+        );
       },
-      error: (error: any) => console.error('Error fetching products:', error)
+      error: (error: any) => {
+        console.error('Error fetching products:', error);
+      }
     });
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.getProducts(
+      this.keyword,
+      this.selectedCategoryId,
+      this.currentPage,
+      this.itemsPerPage
+    );
   }
   
   generateVisiblePageArray(currentPage: number, totalPages: number): number[] {
@@ -91,10 +154,6 @@ export class HomeComponent implements OnInit {
     return visiblePages;
   }
 
-  onPageChange(page: number) {
-    this.currentPage = page;
-    this.getProducts(this.keyword, this.selectedCategoryId,this.currentPage, this.itemsPerPage);
-  }
   onProductClick(productId: number) {
     debugger
     // Điều hướng đến trang detail-product với productId là tham số

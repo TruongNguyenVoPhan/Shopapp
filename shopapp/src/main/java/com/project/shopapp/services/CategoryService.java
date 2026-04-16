@@ -5,6 +5,7 @@ import com.project.shopapp.models.Category;
 import com.project.shopapp.repositories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.project.shopapp.responses.CategoryCountResponse;
 
 import java.util.List;
 @Service
@@ -50,5 +51,18 @@ public class CategoryService implements ICategoryService{
         Category existingCategory = getCategoryById(id);
         existingCategory.setActive(false);
         categoryRepository.save(existingCategory);
+    }
+
+    @Override
+    public List<CategoryCountResponse> getCategoriesWithCount() {
+        List<Object[]> result = categoryRepository.getCategoriesWithCount();
+
+        return result.stream().map(row ->
+            new CategoryCountResponse(
+                (Long) row[0],
+                (String) row[1],
+                ((Long) row[2]).intValue()
+            )
+        ).toList();
     }
 }

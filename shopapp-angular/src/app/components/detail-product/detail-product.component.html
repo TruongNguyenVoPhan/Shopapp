@@ -41,7 +41,10 @@
         <div class="product-details">
           <h2>{{ product?.name }}</h2>
           <p>{{ product?.description }}</p>
-          <p>Giá: ${{ product?.price }}</p>
+          <!-- <p>Giá: ${{ product?.price }}</p> -->
+          <p class="product-price text-danger fw-bold">
+            {{ product?.price | number:'1.0-0' }}₫
+          </p>
           <div class="product-actions">
             <button class="btn btn-primary" (click)="addToCart()">Thêm vào giỏ hàng</button>
             <button class="btn btn-success" (click)="buyNow()">Mua ngay</button>

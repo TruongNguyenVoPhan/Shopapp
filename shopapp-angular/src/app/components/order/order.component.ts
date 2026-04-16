@@ -18,8 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
 
 @Component({
   selector: 'app-order',
+  standalone: true,
   templateUrl: './order.component.html',
-  styleUrl: './order.component.scss',
+  styleUrls: ['./order.component.scss'],
   imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule,ReactiveFormsModule]
 })
 export class OrderComponent implements OnInit{
@@ -70,14 +71,30 @@ export class OrderComponent implements OnInit{
     // Lấy thông tin giỏ hàng từ dịch vụ giỏ hàng
     debugger 
     // ✅ Lấy user info từ localStorage nếu có
-    const userInfo = localStorage.getItem('userInfo');
-    if (userInfo) {
-      const parsedUser = JSON.parse(userInfo);
-      this.orderData.fullname = parsedUser.fullname || '';
-      this.orderData.email = parsedUser.email || '';
-      this.orderData.phone_number = parsedUser.phone_number || '';
-      this.orderData.address = parsedUser.address || '';
-    }
+    // const userInfo = localStorage.getItem('userInfo');
+    // if (userInfo) {
+    //   const parsedUser = JSON.parse(userInfo);
+    //   this.orderData.fullname = parsedUser.fullname || '';
+    //   this.orderData.email = parsedUser.email || '';
+    //   this.orderData.phone_number = parsedUser.phone_number || '';
+    //   this.orderData.address = parsedUser.address || '';
+    // }
+   console.log('Before patch:', this.orderForm.value);
+
+  const userInfo = localStorage.getItem('user');
+
+  if (userInfo) {
+    const parsedUser = JSON.parse(userInfo);
+
+    this.orderForm.patchValue({
+      fullname: parsedUser.fullname || '',
+      email: parsedUser.email || '',
+      phone_number: parsedUser.phone_number || '',
+      address: parsedUser.address || ''
+    });
+  }
+
+  console.log('After patch:', this.orderForm.value);
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
     debugger
@@ -110,19 +127,23 @@ export class OrderComponent implements OnInit{
       }
     });
   }
+  
   placeOrder() {
+    console.log(this.orderForm.value);
+    console.log(this.orderForm.valid);
+    console.log(this.orderForm.controls);
     debugger
     if (this.orderForm.valid) {
       // Gán giá trị từ form vào đối tượng orderData
-      /*
-      this.orderData.fullname = this.orderForm.get('fullname')!.value;
-      this.orderData.email = this.orderForm.get('email')!.value;
-      this.orderData.phone_number = this.orderForm.get('phone_number')!.value;
-      this.orderData.address = this.orderForm.get('address')!.value;
-      this.orderData.note = this.orderForm.get('note')!.value;
-      this.orderData.shipping_method = this.orderForm.get('shipping_method')!.value;
-      this.orderData.payment_method = this.orderForm.get('payment_method')!.value;
-      */
+      
+      // this.orderData.fullname = this.orderForm.get('fullname')!.value;
+      // this.orderData.email = this.orderForm.get('email')!.value;
+      // this.orderData.phone_number = this.orderForm.get('phone_number')!.value;
+      // this.orderData.address = this.orderForm.get('address')!.value;
+      // this.orderData.note = this.orderForm.get('note')!.value;
+      // this.orderData.shipping_method = this.orderForm.get('shipping_method')!.value;
+      // this.orderData.payment_method = this.orderForm.get('payment_method')!.value;
+      
       // Sử dụng toán tử spread (...) để sao chép giá trị từ form vào orderData
       this.orderData = {
         ...this.orderData,
@@ -134,6 +155,7 @@ export class OrderComponent implements OnInit{
       }));
       this.orderData.total_money = this.totalAmount; // Cập nhật tổng tiền từ giỏ hàng
       // Dữ liệu hợp lệ, bạn có thể gửi đơn hàng đi
+      debugger
       this.orderService.placeOrder(this.orderData).subscribe({
         next: (response:Order) => {
           debugger;          

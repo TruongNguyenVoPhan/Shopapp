@@ -24,4 +24,6 @@ public class CategoryResponse {
 
     @JsonProperty("category")
     private Category category;
+
+    private Integer productCount;
 }

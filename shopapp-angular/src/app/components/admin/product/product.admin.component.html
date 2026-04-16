@@ -21,6 +21,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Price</th>
+          <th>Quantity</th>
           <th>Thumbnail</th>
           <th>Description</th>
           <th>Actions</th>
@@ -31,7 +32,10 @@
         <tr *ngFor="let product of products">
           <td>{{ product.id }}</td>
           <td>{{ product.name }}</td>
-          <td>{{ product.price }}</td>
+          <!-- <td>{{ product.price }}</td> -->
+          <td class="text-danger fw-bold">
+            {{ product.price | number:'1.0-0' }}₫
+          <td>{{ product.quantity }}</td>
           <td>
             <img src="{{ product.url }}" 
               class="rounded-square" alt="Thumbnail"

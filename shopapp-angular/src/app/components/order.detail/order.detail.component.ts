@@ -16,7 +16,7 @@ import { OrderDetail } from '../../models/order.detail';
   selector: 'app-order-detail',
   templateUrl: './order.detail.component.html',
   standalone: true,
-  styleUrl: './order.detail.component.scss',
+  styleUrls: ['./order.detail.component.scss'],
   imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule]
 })
 export class OrderDetailComponent implements OnInit {

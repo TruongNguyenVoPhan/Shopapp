@@ -44,6 +44,7 @@ public class UserService implements IUserService{
         .orElseThrow(() -> new DataNotFoundException("Role not found"));
         User newUser = User.builder()
                 .fullName(useDTO.getFullName())
+                .email(useDTO.getEmail())
                 .phoneNumber(useDTO.getPhoneNumber())
                 .password(useDTO.getPassword())
                 .address(useDTO.getAddress())

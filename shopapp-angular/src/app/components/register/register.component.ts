@@ -20,6 +20,7 @@ export class RegisterComponent {
   password: string = '';
   retypePassword: string = '';
   fullName: string = '';
+  email: string = '';
   address: string = '';
   isAccepted: boolean = true;
   dateOfBirth: Date = new Date();
@@ -32,6 +33,7 @@ export class RegisterComponent {
   register() {
     const registerDto:RegisterDto = {
       fullname: this.fullName,
+      email: this.email,
       phone_number: this.phoneNumber,
       address: this.address,
       password: this.password,

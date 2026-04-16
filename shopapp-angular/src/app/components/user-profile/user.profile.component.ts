@@ -39,6 +39,8 @@ export class UserProfileComponent implements OnInit{
   ) {
     this.userProfileForm = this.formBuilder.group({
       fullname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phone_number: ['', [Validators.required, Validators.minLength(6)]],
       address: ['', [Validators.minLength(3)]],
       password: ['', [Validators.minLength(6)]],
       retype_password: ['', [Validators.minLength(6)]],
@@ -59,6 +61,8 @@ export class UserProfileComponent implements OnInit{
         };    
         this.userProfileForm.patchValue({
           fullname: this.userResponse?.fullname ?? '',
+          email: this.userResponse?.email ?? '',
+          phone_number: this.userResponse?.phone_number ?? '',
           address: this.userResponse?.address ?? '',
           date_of_birth: this.userResponse?.date_of_birth
             ? new Date(this.userResponse.date_of_birth).toISOString().substring(0,10)
@@ -91,6 +95,8 @@ export class UserProfileComponent implements OnInit{
     if (this.userProfileForm.valid) {
       const updateUserDTO: any = {
         fullname: this.userProfileForm.get('fullname')?.value,
+        email: this.userProfileForm.get('email')?.value,
+        phone_number: this.userProfileForm.get('phone_number')?.value,
         address: this.userProfileForm.get('address')?.value,
         date_of_birth: this.userProfileForm.get('date_of_birth')?.value
       };

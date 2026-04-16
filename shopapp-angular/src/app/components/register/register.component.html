@@ -74,6 +74,16 @@
                 <p></p>
             </div>
             <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email"
+                    [(ngModel)]="email"
+                    required
+                    name="email"
+                    class="form-control"
+                    id="email">
+                <div class="divider-nospace"></div>
+            </div>
+            <div class="form-group">
                 <label for="date_of_birth">Ngày tháng năm sinh</label>
                 <input type="date"
                     [(ngModel)]="dateOfBirth"

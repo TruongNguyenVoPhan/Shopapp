@@ -17,6 +17,10 @@ export class RegisterDto {
   fullname: string;
 
   @IsNotEmpty()
+  @IsString()
+  email: string;
+
+  @IsNotEmpty()
   @MinLength(6)
   password: string;
 
@@ -36,6 +40,7 @@ export class RegisterDto {
     this.date_of_birth = new Date(data.dateOfBirth);
     this.facebook_account_id = data.facebook_account_id;
     this.fullname = data.fullName;
+    this.email = data.email;
     this.google_account_id = data.google_account_id;
     this.password = data.password;
     this.phone_number = data.phoneNumber;

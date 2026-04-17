@@ -28,14 +28,29 @@ public class OrderDetailService implements IOrderDetailService{
                 .orElseThrow(() -> new DataNotFoundException("Cannot find Order with id : " + orderDetailDTO.getOrderId()));
         Product product = productRepository.findById(orderDetailDTO.getProductId())
                 .orElseThrow(() -> new DataNotFoundException("Cannot find Product with id : " + orderDetailDTO.getProductId()));
+        // OrderDetail orderDetail = OrderDetail.builder()
+        //         .order(order)
+        //         .product(product)
+        //         .numberOfProduct(orderDetailDTO.getNumberOfProduct())
+        //         .totalMoney(orderDetailDTO.getTotalMoney())
+        //         .price(orderDetailDTO.getPrice())
+        //         .color(orderDetailDTO.getColor())
+        //         .build();
+        BigDecimal price = product.getPrice();
+        int quantity = orderDetailDTO.getNumberOfProduct();
+
+        BigDecimal totalMoney = price.multiply(BigDecimal.valueOf(quantity));
+
+        System.out.println("Total = " + totalMoney);
+
         OrderDetail orderDetail = OrderDetail.builder()
-                .order(order)
-                .product(product)
-                .numberOfProduct(orderDetailDTO.getNumberOfProduct())
-                .totalMoney(orderDetailDTO.getTotalMoney())
-                .price(orderDetailDTO.getPrice())
-                .color(orderDetailDTO.getColor())
-                .build();
+            .order(order)
+            .product(product)
+            .price(price)
+            .numberOfProduct(quantity)
+            .totalMoney(totalMoney)
+            .color(orderDetailDTO.getColor())
+            .build();
         return orderDetailRepository.save(orderDetail);
     }
 

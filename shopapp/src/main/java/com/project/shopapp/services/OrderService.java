@@ -62,7 +62,7 @@ public class OrderService implements IOrderService{
         orderRepository.save(order);
         List<OrderDetail> OrderDetails = new ArrayList<>();
         orderRepository.save(order);
-        for (CartItemDTO cartItemDTO: orderDTO.getCartItems()){
+        for (CartItemDTO cartItemDTO : orderDTO.getCartItems()) {
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrder(order);
 
@@ -70,12 +70,17 @@ public class OrderService implements IOrderService{
             Integer quantity = cartItemDTO.getQuantity();
 
             Product product = productRepository.findById(productId)
-                    .orElseThrow(() -> new DataNotFoundException("Product not found with id: " + productId));;
+                    .orElseThrow(() -> new DataNotFoundException(
+                            "Product not found with id: " + productId));
+
+            BigDecimal price = product.getPrice();
+            BigDecimal totalMoney = price.multiply(BigDecimal.valueOf(quantity));
 
             orderDetail.setProduct(product);
             orderDetail.setNumberOfProduct(quantity);
-
-            orderDetail.setPrice(product.getPrice());
+            orderDetail.setPrice(price);
+            orderDetail.setTotalMoney(totalMoney); 
+            orderDetail.setColor(product.getThumbnail()); 
 
             OrderDetails.add(orderDetail);
         }

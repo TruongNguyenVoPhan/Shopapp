@@ -33,10 +33,34 @@ export class CartService{
     getCart(): Map<number, number> {
         return this.cart;
     }
+    getQuantity(productId: number): number {
+        const cart = this.getCart();
+        return cart.get(productId) || 0;
+    }
     // Lưu trữ giỏ hàng vào localStorage
     private saveCartToLocalStorage(): void {
         debugger
         localStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
+    }
+    updateQuantity(productId: number, quantity: number) {
+    const cart = this.getCart();
+
+    if (quantity <= 0) {
+        cart.delete(productId);
+    } else {
+        cart.set(productId, quantity);
+    }
+
+    this.saveCart(cart);
+    }
+    removeFromCart(productId: number) {
+    const cart = this.getCart();
+    cart.delete(productId);
+    this.saveCart(cart);
+    }
+    saveCart(cart: Map<number, number>) {
+    const obj = Object.fromEntries(cart);
+    localStorage.setItem('cart', JSON.stringify(obj));
     }
     // Hàm xóa dữ liệu giỏ hàng và cập nhật Local Storage
     clearCart(): void {

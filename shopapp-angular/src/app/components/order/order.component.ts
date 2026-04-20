@@ -183,6 +183,40 @@ export class OrderComponent implements OnInit{
       0
     );
   }
+  increaseItem(productId: number) {
+    const item = this.cartItems.find(x => x.product.id === productId);
+    if (!item) return;
+
+    if (item.quantity >= item.product.quantity) {
+      alert('Đã đạt số lượng tồn kho');
+      return;
+    }
+
+    item.quantity++;
+    this.cartService.addToCart(productId, 1);
+    this.calculateTotal();
+  }
+
+  decreaseItem(productId: number) {
+    const item = this.cartItems.find(x => x.product.id === productId);
+    if (!item) return;
+
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.cartService.updateQuantity(productId, item.quantity);
+    } else {
+      this.removeItem(productId);
+    }
+
+    this.calculateTotal();
+  }
+  removeItem(productId: number) {
+    this.cartItems = this.cartItems.filter(x => x.product.id !== productId);
+
+    this.cartService.removeFromCart(productId);
+
+    this.calculateTotal();
+  }
   // Hàm xử lý việc áp dụng mã giảm giá
   applyCoupon(): void {
     // Viết mã xử lý áp dụng mã giảm giá ở đây

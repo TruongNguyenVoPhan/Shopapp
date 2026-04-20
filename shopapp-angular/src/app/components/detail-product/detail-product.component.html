@@ -41,22 +41,46 @@
         <div class="product-details">
           <h2>{{ product?.name }}</h2>
           <p>{{ product?.description }}</p>
-          <!-- <p>Giá: ${{ product?.price }}</p> -->
+
           <p class="product-price text-danger fw-bold">
             {{ product?.price | number:'1.0-0' }}₫
           </p>
-          <div class="product-actions">
-            <button class="btn btn-primary" (click)="addToCart()">Thêm vào giỏ hàng</button>
-            <button class="btn btn-success" (click)="buyNow()">Mua ngay</button>
+
+          <!-- Tồn kho -->
+          <div class="mb-2">
+            <span *ngIf="product && product.quantity > 0" class="text-success fw-bold">
+              Còn {{ product.quantity }} sản phẩm
+            </span>
+
+            <span *ngIf="product && product.quantity <= 0" class="text-danger fw-bold">
+              Hết hàng
+            </span>
           </div>
-          <div class="product-quantity">
+
+          <div class="product-actions">
+            <button 
+              class="btn btn-primary"
+              (click)="addToCart()"
+              [disabled]="(product?.quantity ?? 0) <= 0">
+              Thêm vào giỏ hàng
+            </button>
+
+            <button 
+              class="btn btn-success"
+              (click)="buyNow()"
+              [disabled]="(product?.quantity ?? 0) <= 0">
+              Mua ngay
+            </button>
+          </div>
+
+          <div class="product-quantity mt-3">
             <div class="border-wrapper">
               <button (click)="decreaseQuantity()">-</button>
-              <input type="text" [value]="quantity">
+              <input type="text" [value]="quantity" readonly>
               <button (click)="increaseQuantity()">+</button>
             </div>
           </div>
-        </div>
+        </div>  
       </div>      
     </div>    
 </div>

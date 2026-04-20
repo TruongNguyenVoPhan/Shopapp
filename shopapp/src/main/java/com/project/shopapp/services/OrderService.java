@@ -70,8 +70,16 @@ public class OrderService implements IOrderService{
             Integer quantity = cartItemDTO.getQuantity();
 
             Product product = productRepository.findById(productId)
-                    .orElseThrow(() -> new DataNotFoundException(
-                            "Product not found with id: " + productId));
+            .orElseThrow(() -> new DataNotFoundException(
+                    "Product not found with id: " + productId));
+
+            if (product.getQuantity() < quantity) {
+                throw new DataNotFoundException(
+                        "Sản phẩm " + product.getName() + " không đủ hàng");
+            }
+
+            product.setQuantity(product.getQuantity() - quantity);
+            productRepository.save(product);
 
             BigDecimal price = product.getPrice();
             BigDecimal totalMoney = price.multiply(BigDecimal.valueOf(quantity));

@@ -92,18 +92,32 @@ export class DetailProductComponent implements OnInit {
     this.showImage(this.currentImageIndex - 1); //hiện ảnh trước đó
   }
   addToCart() {
-    if (this.product) {
-      debugger
-      //Thêm sản phẩm vào giỏ hàng
-      this.cartService.addToCart(this.product.id, this.quantity);
-    }else {
-      console.error('Không thể thêm sản phẩm vào giỏ hàng vì product là null.');
+    if (!this.product) return;
+
+    const stock = this.product.quantity ?? 0; 
+
+    const currentQuantityInCart = this.cartService.getQuantity(this.product.id);
+
+    const totalWanted = currentQuantityInCart + this.quantity; 
+    
+    if (totalWanted > stock) {
+      alert(`Chỉ còn ${stock} sản phẩm trong kho`);
+      return;
     }
+
+    this.cartService.addToCart(this.product.id, this.quantity);
+    alert('Đã thêm vào giỏ hàng');
   }
 
-  increaseQuantity(): void {
+  increaseQuantity() {
+  if(!this.product) return; 
+
+  const stock = this.product.quantity ?? 0; 
+
+  if (this.quantity < stock) {
     this.quantity++;
   }
+}
   decreaseQuantity(): void {
     if (this.quantity > 1) {
       this.quantity--;

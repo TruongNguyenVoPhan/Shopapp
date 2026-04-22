@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';  
 import { NavigationEnd } from '@angular/router';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -25,14 +26,15 @@ export class HeaderComponent implements OnInit{
   activeNavItem: number = 0;
 
   constructor(
-    private userService: UserService,       
+    private userService: UserService, 
+    private cartService: CartService,
     private tokenService: TokenService,    
     private router: Router,
   ) {
     
    }
    ngOnInit() {
-    this.userResponse = this.userService.getUserResponseFromLocalStorage();
+    this.userResponse = this.userService.getUserFromSession();
   
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -59,9 +61,14 @@ export class HeaderComponent implements OnInit{
       debugger
       this.router.navigate(['/user-profile']);                      
     } else if (index === 2) {
-      this.userService.removeUserFromLocalStorage();
+      this.userService.logout();
       this.tokenService.removeToken();
-      this.userResponse = this.userService.getUserResponseFromLocalStorage();    
+      this.userResponse = null;
+      this.cartService.clearCart();
+      
+      this.router.navigate(['/login']).then(() => {
+        window.location.reload();
+      });
     }
     this.isPopoverOpen = false; // Close the popover after clicking an item    
   }

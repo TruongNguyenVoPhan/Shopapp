@@ -35,7 +35,7 @@ export class AdminComponent implements OnInit {
     
    }
   ngOnInit() {
-    this.userResponse = this.userService.getUserResponseFromLocalStorage();    
+    this.userResponse = this.userService.getUserFromSession();    
     // Default router
     debugger
     if (this.router.url === '/admin') {
@@ -43,9 +43,9 @@ export class AdminComponent implements OnInit {
     }
    }  
   logout() {
-    this.userService.removeUserFromLocalStorage();
+    this.userService.removeUserFromSession();
     this.tokenService.removeToken();
-    this.userResponse = this.userService.getUserResponseFromLocalStorage();    
+    this.userResponse = this.userService.getUserFromSession();    
     this.router.navigate(['/']);
   }
   showAdminComponent(componentName: string): void {

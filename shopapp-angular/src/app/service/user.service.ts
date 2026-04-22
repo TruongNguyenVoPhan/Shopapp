@@ -42,7 +42,7 @@ export class UserService {
   }
   updateUserDetail(token: string, updateUserDTO: UpdateUserDTO) {
     debugger
-    let userResponse = this.getUserResponseFromLocalStorage();
+    let userResponse = this.getUserFromSession();
     return this.http.put(`${this.apiUserDetail}/${userResponse?.id}`, updateUserDTO, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -51,40 +51,81 @@ export class UserService {
     });
   }
 
-  saveUserResponseToLocalStorage(userResponse?: UserResponse) {
+  // saveUserResponseToLocalStorage(userResponse?: UserResponse) {
+  //   try {
+  //     debugger
+  //     if(userResponse == null || userResponse == undefined) {
+  //       return;
+  //     }
+  //     //Convert the userResponse object to a string and save it to localStorage
+  //     const userResponseString = JSON.stringify(userResponse);
+  //     localStorage.setItem('user', userResponseString);
+  //   }catch (error) {
+  //     console.error('Error saving user response to local storage:', error);
+  //   }
+  // }
+  // getUserResponseFromLocalStorage(){
+  //   try {
+  //     const userResponseJson = localStorage.getItem('user');
+  //     if(userResponseJson == null || userResponseJson == undefined) {
+  //       return;
+  //     }
+  //     const userResponse = JSON.parse(userResponseJson!);
+  //     console.log('User response from local storage:', userResponse);
+  //     return userResponse;
+  //   } catch (error) {
+  //     console.error('Error retrieving user response from local storage:', error);
+  //     return null;
+  //   }
+  // }
+  // removeUserFromLocalStorage(): void {
+  //   try {
+  //     localStorage.removeItem('user'); // dùng trực tiếp global localStorage
+  //     console.log('User data removed from local storage.');
+  //   } catch (error) {
+  //     console.error('Error removing user data from local storage:', error);
+  //   }
+  // }
+
+  saveUserResponseToSession(userResponse?: UserResponse) {
     try {
-      debugger
-      if(userResponse == null || userResponse == undefined) {
-        return;
-      }
-      //Convert the userResponse object to a string and save it to localStorage
+      if (!userResponse) return;
+
       const userResponseString = JSON.stringify(userResponse);
-      localStorage.setItem('user', userResponseString);
-    }catch (error) {
-      console.error('Error saving user response to local storage:', error);
+      sessionStorage.setItem('user', userResponseString);
+    } catch (error) {
+      console.error('Error saving user response:', error);
     }
   }
-  getUserResponseFromLocalStorage(){
+
+  getUserFromSession(): UserResponse | null {
     try {
-      const userResponseJson = localStorage.getItem('user');
-      if(userResponseJson == null || userResponseJson == undefined) {
-        return;
-      }
-      const userResponse = JSON.parse(userResponseJson!);
-      console.log('User response from local storage:', userResponse);
-      return userResponse;
+      const data = sessionStorage.getItem('user');
+      return data ? JSON.parse(data) : null;
     } catch (error) {
-      console.error('Error retrieving user response from local storage:', error);
+      console.error('Error getting user:', error);
       return null;
     }
   }
-  removeUserFromLocalStorage(): void {
+
+  removeUserFromSession(): void {
     try {
-      localStorage.removeItem('user'); // dùng trực tiếp global localStorage
-      console.log('User data removed from local storage.');
+      sessionStorage.removeItem('user');
+      console.log('User data removed from session storage.');
     } catch (error) {
-      console.error('Error removing user data from local storage:', error);
+      console.error('Error removing user data from session storage:', error);
     }
   }
   
+  logout(): void {
+    try {
+      sessionStorage.clear();
+
+      localStorage.clear();
+
+      console.log('Đã logout sạch sẽ');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  }
 }

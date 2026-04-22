@@ -68,7 +68,7 @@ export class UserProfileComponent implements OnInit{
             ? new Date(this.userResponse.date_of_birth).toISOString().substring(0,10)
             : '',
         });        
-        this.userService.saveUserResponseToLocalStorage(this.userResponse);         
+        this.userService.saveUserResponseToSession(this.userResponse);         
       },
       complete: () => {
         // debugger;
@@ -112,7 +112,7 @@ export class UserProfileComponent implements OnInit{
       this.userService.updateUserDetail(this.token, updateUserDTO)
         .subscribe({
           next: (response: any) => {
-            this.userService.removeUserFromLocalStorage();
+            this.userService.removeUserFromSession();
             this.tokenService.removeToken();
             this.router.navigate(['/login']);
           },

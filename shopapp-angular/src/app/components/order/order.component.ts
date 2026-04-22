@@ -81,7 +81,7 @@ export class OrderComponent implements OnInit{
     // }
    console.log('Before patch:', this.orderForm.value);
 
-  const userInfo = localStorage.getItem('user');
+  const userInfo = sessionStorage.getItem('user');
 
   if (userInfo) {
     const parsedUser = JSON.parse(userInfo);

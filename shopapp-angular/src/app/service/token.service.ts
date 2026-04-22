@@ -18,8 +18,8 @@ export class TokenService {
         localStorage.setItem(this.TOKEN_KEY, token);
     }
 
-    removeToken(): void {
-        localStorage.removeItem(this.TOKEN_KEY);
+    removeToken() {
+    sessionStorage.removeItem('token');
     }
     getUserInfoFromToken(): any {
         debugger
@@ -38,4 +38,5 @@ export class TokenService {
         }       
         return this.jwtHelperService.isTokenExpired(this.getToken()!);
     }
+    
 }

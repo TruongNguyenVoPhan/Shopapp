@@ -88,7 +88,7 @@ export class LoginComponent {
                 ...response,
                 date_of_birth: new Date(response.date_of_birth),
               };
-              this.userService.saveUserResponseToLocalStorage(this.userResponse);
+              this.userService.saveUserResponseToSession(this.userResponse);
               if(this.userResponse?.role.name === 'ADMIN'){
                 this.router.navigate(['/admin']).then(() => {
                   window.location.reload();

@@ -12,7 +12,7 @@ export class CartService{
    private cart: Map<number, number> = new Map();//Dùng Map để lưu trữ giỏ hàng, key là id sản phẩm , value là số lượng sản phẩm
 
     constructor(){
-        const storedCart = localStorage.getItem('cart');
+        const storedCart = sessionStorage.getItem('cart');
         if (storedCart) {
             this.cart = new Map(JSON.parse(storedCart));
         }
@@ -27,8 +27,8 @@ export class CartService{
             // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm vào với số lượng là `quantity`
             this.cart.set(productId, quantity);
         }
-        // Sau khi thay đổi giỏ hàng, lưu trữ nó vào localStorage
-        localStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
+        // Sau khi thay đổi giỏ hàng, lưu trữ nó vào sessionStorage
+        sessionStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
     }
     getCart(): Map<number, number> {
         return this.cart;
@@ -37,10 +37,10 @@ export class CartService{
         const cart = this.getCart();
         return cart.get(productId) || 0;
     }
-    // Lưu trữ giỏ hàng vào localStorage
-    private saveCartToLocalStorage(): void {
+    // Lưu trữ giỏ hàng vào sessionStorage
+    private saveCartToSessionStorage(): void {
         debugger
-        localStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
+        sessionStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
     }
     updateQuantity(productId: number, quantity: number) {
     const cart = this.getCart();
@@ -51,20 +51,19 @@ export class CartService{
         cart.set(productId, quantity);
     }
 
-    this.saveCart(cart);
+    this.saveCart();
     }
     removeFromCart(productId: number) {
     const cart = this.getCart();
     cart.delete(productId);
-    this.saveCart(cart);
+    this.saveCart();
     }
-    saveCart(cart: Map<number, number>) {
-    const obj = Object.fromEntries(cart);
-    localStorage.setItem('cart', JSON.stringify(obj));
+    private saveCart(): void {
+        sessionStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
     }
-    // Hàm xóa dữ liệu giỏ hàng và cập nhật Local Storage
+    // Hàm xóa dữ liệu giỏ hàng và cập nhật sessionStorage
     clearCart(): void {
         this.cart.clear(); // Xóa giỏ hàng
-        localStorage.removeItem('cart'); // Xóa dữ liệu giỏ hàng trong localStorage
+        sessionStorage.removeItem('cart'); // Xóa dữ liệu giỏ hàng trong sessionStorage
     }
 }

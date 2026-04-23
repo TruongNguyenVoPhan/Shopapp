@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit{
   userResponse?:UserResponse | null;
   isPopoverOpen = false;
   activeNavItem: number = 0;
+  totalQuantity: number = 0;
 
   constructor(
     private userService: UserService, 
@@ -35,6 +36,12 @@ export class HeaderComponent implements OnInit{
    }
    ngOnInit() {
     this.userResponse = this.userService.getUserFromSession();
+
+    this.cartService.loadCart().subscribe();
+
+    this.cartService.cartItems$.subscribe(items => {
+      this.totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+    });
   
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

@@ -37,6 +37,7 @@ export class DetailProductComponent implements OnInit {
   ngOnInit() {
     debugger
     // const idParam = 5
+    this.cartService.loadCart().subscribe();
     const idParam = this.route.snapshot.paramMap.get('id'); //Lấy id từ URL
     if (idParam !== null) {
       this.productId = +idParam;
@@ -95,39 +96,45 @@ export class DetailProductComponent implements OnInit {
     if (!this.product) return;
 
     const stock = this.product.quantity ?? 0; 
-
     const currentQuantityInCart = this.cartService.getQuantity(this.product.id);
-
     const totalWanted = currentQuantityInCart + this.quantity; 
-    
+
     if (totalWanted > stock) {
       alert(`Chỉ còn ${stock} sản phẩm trong kho`);
       return;
     }
 
-    this.cartService.addToCart(this.product.id, this.quantity);
-    alert('Đã thêm vào giỏ hàng');
+    this.cartService.addToCart(this.product.id, this.quantity).subscribe({
+      next: () => {
+        this.isPressedAddToCart = true;
+        alert('Đã thêm vào giỏ hàng');
+      },
+      error: err => console.error(err)
+    });
   }
 
   increaseQuantity() {
-  if(!this.product) return; 
+    if(!this.product) return; 
 
-  const stock = this.product.quantity ?? 0; 
+    const stock = this.product.quantity ?? 0; 
 
-  if (this.quantity < stock) {
-    this.quantity++;
+    if (this.quantity < stock) {
+      this.quantity++;
+    }
   }
-}
   decreaseQuantity(): void {
     if (this.quantity > 1) {
       this.quantity--;
     }
   }
   buyNow() {
-    if(this.isPressedAddToCart == false) {
-      this.addToCart();
-    }
-    this.router.navigate(['/orders']);
+    if (!this.product) return;
+
+    this.cartService.addToCart(this.product.id, this.quantity).subscribe({
+      next: () => {
+        this.router.navigate(['/orders']);
+      }
+    });
   }
 
 }

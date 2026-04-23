@@ -87,4 +87,7 @@ public class User extends BaseEntity implements UserDetails {
     public boolean isEnabled() {
         return isActive;
     }
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
 }

@@ -6,7 +6,7 @@ import {
     Length
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { CartItemDTO } from './cart.item.dto';
+
 export class OrderDTO{
     user_id: number;
 
@@ -29,7 +29,7 @@ export class OrderDTO{
     coupon_code: string;
 
     cart_items: { product_id: number; quantity: number }[];
-
+    
     total_money: number;
 
     constructor(data: any) {
@@ -44,9 +44,6 @@ export class OrderDTO{
         this.payment_method = data.payment_method;
         this.coupon_code = data.coupon_code;
         this.total_money = data.total_money;
-        this.cart_items = Array.isArray(data.cart_items)
-        ? data.cart_items.map((item: any) => new CartItemDTO(item))
-        : [];
-
+        this.cart_items = Array.isArray(data.cart_items) ? data.cart_items : [];
     }
 }

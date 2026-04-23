@@ -11,6 +11,7 @@ import { TokenService } from '../../service/token.service';
 import { RoleService } from '../../service/role.sevice';
 import { Role }from  '../../models/role';
 import { UserResponse } from '../../responses/user/user.response';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +41,7 @@ export class LoginComponent {
     private userService: UserService,
     private tokenService: TokenService,
     private roleService: RoleService,
+    private cartService: CartService
   ) { 
     
   }
@@ -89,6 +91,7 @@ export class LoginComponent {
                 date_of_birth: new Date(response.date_of_birth),
               };
               this.userService.saveUserResponseToSession(this.userResponse);
+              this.cartService.loadCart().subscribe();
               if(this.userResponse?.role.name === 'ADMIN'){
                 this.router.navigate(['/admin']).then(() => {
                   window.location.reload();

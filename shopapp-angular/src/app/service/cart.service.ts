@@ -1,69 +1,88 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { environment } from '../environment/environment';
-import { Product } from '../models/product';
-import { ProductService } from './product.sevice';
+import { TokenService } from './token.service';
+import { CartItem } from '../models/cart-item';
+import { CartItemDTO } from '../dtos/cart/cart-item.dto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService{
-   private cart: Map<number, number> = new Map();//Dùng Map để lưu trữ giỏ hàng, key là id sản phẩm , value là số lượng sản phẩm
+export class CartService {
+  private apiUrl = `${environment.apiBaseUrl}cart`;
 
-    constructor(){
-        const storedCart = sessionStorage.getItem('cart');
-        if (storedCart) {
-            this.cart = new Map(JSON.parse(storedCart));
-        }
+  // BehaviorSubject để các component khác (vd: header badge) subscribe số lượng
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
+  cartItems$ = this.cartItemsSubject.asObservable();
+
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService
+  ) {}
+
+  private getHeaders(): HttpHeaders {
+    const token = this.tokenService.getToken();
+    return new HttpHeaders({ Authorization: `Bearer ${token}` });
+  }
+
+  // Load giỏ hàng từ server (gọi sau khi login)
+  loadCart(): Observable<CartItem[]> {
+    return this.http.get<CartItem[]>(this.apiUrl, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap(items => this.cartItemsSubject.next(items))
+    );
+  }
+
+  // Thêm sản phẩm
+  addToCart(productId: number, quantity: number = 1): Observable<CartItem[]> {
+    const dto = new CartItemDTO(productId, quantity);
+    return this.http.post<CartItem[]>(`${this.apiUrl}/add`, dto, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap(items => this.cartItemsSubject.next(items))
+    );
+  }
+
+  // Cập nhật số lượng
+  updateQuantity(productId: number, quantity: number): Observable<CartItem[]> {
+    const dto = new CartItemDTO(productId, quantity);
+    return this.http.put<CartItem[]>(`${this.apiUrl}/update`, dto, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap(items => this.cartItemsSubject.next(items))
+    );
+  }
+
+  // Xóa 1 item
+  removeFromCart(productId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/item/${productId}`, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap(() => {
+        const updated = this.cartItemsSubject.value
+          .filter(i => i.product.id !== productId);
+        this.cartItemsSubject.next(updated);
+      })
+    );
+  }
+
+  // Lấy cart hiện tại (local, không gọi API)
+  getCartSnapshot(): CartItem[] {
+    return this.cartItemsSubject.value;
+  }
+
+  // Tổng số lượng items (cho badge trên header)
+  getQuantity(productId: number): number {
+    const item = this.cartItemsSubject.value
+        .find(i => i.product.id === productId);
+
+    return item ? item.quantity : 0;
     }
 
-    addToCart(productId: number, quantity: number = 1): void {
-        debugger
-        if (this.cart.has(productId)) {
-            // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng lên `quantity`
-            this.cart.set(productId, this.cart.get(productId)! + quantity);
-        }else {
-            // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm vào với số lượng là `quantity`
-            this.cart.set(productId, quantity);
-        }
-        // Sau khi thay đổi giỏ hàng, lưu trữ nó vào sessionStorage
-        sessionStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
-    }
-    getCart(): Map<number, number> {
-        return this.cart;
-    }
-    getQuantity(productId: number): number {
-        const cart = this.getCart();
-        return cart.get(productId) || 0;
-    }
-    // Lưu trữ giỏ hàng vào sessionStorage
-    private saveCartToSessionStorage(): void {
-        debugger
-        sessionStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
-    }
-    updateQuantity(productId: number, quantity: number) {
-    const cart = this.getCart();
-
-    if (quantity <= 0) {
-        cart.delete(productId);
-    } else {
-        cart.set(productId, quantity);
-    }
-
-    this.saveCart();
-    }
-    removeFromCart(productId: number) {
-    const cart = this.getCart();
-    cart.delete(productId);
-    this.saveCart();
-    }
-    private saveCart(): void {
-        sessionStorage.setItem('cart', JSON.stringify(Array.from(this.cart.entries())));
-    }
-    // Hàm xóa dữ liệu giỏ hàng và cập nhật sessionStorage
-    clearCart(): void {
-        this.cart.clear(); // Xóa giỏ hàng
-        sessionStorage.removeItem('cart'); // Xóa dữ liệu giỏ hàng trong sessionStorage
+  clearCart(): void {
+    this.cartItemsSubject.next([]);
     }
 }

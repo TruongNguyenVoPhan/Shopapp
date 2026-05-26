@@ -32,11 +32,10 @@ public class UserService implements IUserService{
     private final JwtTokenUtils jwtTokenUtil;
     private final AuthenticationManager authenticationManager;
     private final LocalizationUtils localizationUtils;
+    private final OtpService otpService;
     @Override
     public User createUser(UserDTO useDTO) throws Exception {
-        //register user
         String phoneNumber = useDTO.getPhoneNumber();
-        //Kiem ta so dien thoai da ton tai hay chua
         if (userRepository.existsByPhoneNumber(phoneNumber)){
             throw new DataIntegrityViolationException("PhoneNumber already exist");
         }
@@ -58,8 +57,13 @@ public class UserService implements IUserService{
             String password = useDTO.getPassword();
             String encodedPassword = passwordEncoder.encode(password);
             newUser.setPassword(encodedPassword);
+            newUser.setActive(false);
         }
-        return userRepository.save(newUser);
+        User savedUser = userRepository.save(newUser);
+
+        otpService.generateAndSendOtp(savedUser.getEmail());
+
+        return savedUser;
     }
 
     @Override
@@ -72,6 +76,10 @@ public class UserService implements IUserService{
         }
 
         User existingUser = optionalUser.get();
+
+        if(!existingUser.isActive()) {
+            throw new Exception("Tài khoản chưa xác minh OTP");
+        }
 
         // check password (nếu không phải social login)
         if (existingUser.getFacebookAccountId() == 0 && existingUser.getGoogleAccountId() == 0) {

@@ -46,14 +46,22 @@ export class RegisterComponent {
     this.userService.register(registerDto).subscribe({
       next: (response: any) => {
         debugger
-        this.router.navigate(['/login']);
+        alert("Đăng ký thành công! Vui lòng nhập OTP");
+        this.router.navigate(
+          ['/verify-otp'],
+          {
+            queryParams: {
+              email: this.email
+            }
+          }
+        );
       },
       complete: () => {
         debugger
       },
       error: (error: any) => {
         debugger
-        alert("Cannot register: " + error.error)
+        alert("Cannot register: " + error.error.message);
         console.error(error.error);
       }
     });

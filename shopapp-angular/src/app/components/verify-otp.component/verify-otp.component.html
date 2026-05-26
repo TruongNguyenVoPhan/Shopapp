@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="verify-otp-container">
+  <div class="verify-card">
+    
+    <h2 class="title">Xác minh OTP</h2>
+
+    <p class="description">
+      Mã OTP đã được gửi đến:
+    </p>
+
+    <p class="email">{{ email }}</p>
+
+    <input
+      type="text"
+      class="form-control otp-input"
+      placeholder="Nhập mã OTP"
+      [(ngModel)]="otp"
+    />
+
+    <button class="btn btn-primary verify-btn" (click)="verify()">
+      Xác minh
+    </button>
+
+    <button class="btn btn-outline-light resend-btn" (click)="resendOtp()">
+      Gửi lại OTP
+    </button>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

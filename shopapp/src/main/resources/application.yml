@@ -8,6 +8,18 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password:
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}      
+    password: ${MAIL_PASSWORD}     
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   jpa:
     show-sql: true
     hibernate:
@@ -31,6 +43,6 @@ api:
   prefix: api/v1
 jwt:
   expiration: 2592000 #30 days = 30 * 24(gio) * 60(phut) * 60(giay)
-  secretKey: tA6OX5COgkJCWqGs5PXLmRPBgTaFFT7hphFk0ud8hXI=
+  secretKey: ${JWT_SECRET}
 
 logging.level.org.springframework.security: DEBUG

@@ -50,8 +50,11 @@ public class Usercontroller {
                     registerRespone.setUser(user);
                     return ResponseEntity.ok(registerRespone);
                 } catch (Exception e) {
+
+                    e.printStackTrace();
+
                     return ResponseEntity.badRequest().body(RegisterRespone.builder()
-                            .message(localizationUtils.getLocalizedMessage(MessageKeys.REGISTER_FAILED, e.getMessage()))
+                            .message(e.getMessage())
                             .build());
                 }
     }

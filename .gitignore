@@ -1,2 +1,21 @@
 
 .codegpt
+
+.idea/
+*.iml
+out/
+
+.vscode/
+
+.env
+*.env
+
+shopapp/target/
+shopapp/uploads/
+
+shopapp-angular/node_modules/
+shopapp-angular/dist/
+shopapp-angular/.angular/
+
+.DS_Store
+Thumbs.db

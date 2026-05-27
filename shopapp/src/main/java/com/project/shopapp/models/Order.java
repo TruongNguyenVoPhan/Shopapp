@@ -1,12 +1,11 @@
 package com.project.shopapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.math.BigDecimal;
 
@@ -20,6 +19,7 @@ import java.math.BigDecimal;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnoreProperties({"cart", "password"})
     private Long id;
 
     @ManyToOne
@@ -66,7 +66,7 @@ public class Order {
     private String paymentMethod;
 
     @Column(name = "active")
-    private Boolean active;//thuộc về admin
+    private Boolean active;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference

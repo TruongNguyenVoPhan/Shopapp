@@ -49,6 +49,12 @@ public class WebSecurityConfig {
 
 //                            .requestMatchers(POST,
 //                                    String.format("%s/users**", apiPrefix)).permitAll()
+
+                                .requestMatchers(GET,
+                                        String.format("%s/payment/vnpay-return", apiPrefix)).permitAll()
+
+                                .requestMatchers(POST,
+                                        String.format("%s/payment/create-payment", apiPrefix)).permitAll()
                             
                             .requestMatchers(GET,
                                     String.format("%s/roles**", apiPrefix)).permitAll()

@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CartService } from '../../service/cart.service';
 import { OrderService } from '../../service/order.service';
@@ -48,6 +49,7 @@ export class OrderComponent implements OnInit {
         private formBuilder: FormBuilder,
         private activatedRoute: ActivatedRoute,
         private router: Router,
+        private http: HttpClient
     ) {
         this.orderForm = this.formBuilder.group({
             fullname: ['', Validators.required],
@@ -94,30 +96,70 @@ export class OrderComponent implements OnInit {
     }
 
     placeOrder(): void {
+        console.log("CLICK DAT HANG");
+
         if (this.orderForm.valid) {
+
             this.orderData = {
                 ...this.orderData,
                 ...this.orderForm.value
             };
+
+            console.log("FORM VALUE:", this.orderForm.value);
+
             this.orderData.cart_items = this.cartItems.map(item => ({
                 product_id: item.product.id,
                 quantity: item.quantity
             }));
+
             this.orderData.total_money = this.totalAmount;
 
             this.orderService.placeOrder(this.orderData).subscribe({
+
                 next: (response: Order) => {
-                    alert('Đặt hàng thành công');
-                    this.cartService.clearCart();
-                    this.router.navigate(['/']);
+
+                    console.log("ORDER RESPONSE:", response);
+
+                    const paymentMethod =
+                        this.orderForm.get('payment_method')?.value;
+
+                    console.log("PAYMENT METHOD:", paymentMethod);
+
+                    if (paymentMethod === 'VNPAY') {
+
+                        console.log("GO VNPAY");
+
+                        this.http.post(
+                            `${environment.apiBaseUrl}payment/create-payment?orderId=${response.id}`,
+                            {}
+                        ).subscribe({
+
+                            next: (res: any) => {
+                                console.log("VNPAY RESPONSE:", res);
+
+                                window.location.href = res.paymentUrl;
+                            },
+
+                            error: (err) => {
+                                console.log("VNPAY ERROR:", err);
+                            }
+                        });
+
+                    } else {
+
+                        alert('Đặt hàng thành công');
+
+                        this.cartService.clearCart();
+
+                        this.router.navigate(['/']);
+                    }
                 },
+
                 error: (error) => {
-                    alert('Lỗi khi đặt hàng: ' + error?.error?.message || 'Vui lòng thử lại');
+                    console.log("ORDER ERROR:", error);
+                    alert('Lỗi: ' + error?.error?.message);
                 }
             });
-        } else {
-            this.orderForm.markAllAsTouched();
-            alert('Dữ liệu không hợp lệ. Vui lòng kiểm tra lại.');
         }
     }
 

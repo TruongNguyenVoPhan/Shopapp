@@ -79,13 +79,20 @@
                 </div>
                 <div class="mb-3">
                     <label for="paymentMethod">Phương thức thanh toán</label>
-                    <select class="form-control" id="paymentMethod"
-                        formControlName="payment_method">                     
-                        <option value="COD">Thanh toán khi nhận hàng (COD)</option>
-                        <option value="OTHER">Thanh toán khác</option>
+                    <select class="form-control"
+                        id="paymentMethod"
+                        formControlName="payment_method">
+
+                        <option value="COD">
+                            Thanh toán khi nhận hàng (COD)
+                        </option>
+
+                        <option value="VNPAY">
+                            Thanh toán VNPay
+                        </option>
+
                     </select>
                 </div>
-            <!-- </form> -->
         </div>        
         <div class="col-md-6">
             <h2 class="product-order">Sản phẩm đã đặt hàng</h2>

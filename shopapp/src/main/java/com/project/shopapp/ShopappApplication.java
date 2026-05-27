@@ -4,9 +4,11 @@ import com.project.shopapp.models.Role;
 import com.project.shopapp.repositories.RoleRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@ConfigurationPropertiesScan
 public class ShopappApplication {
 
 	public static void main(String[] args) {

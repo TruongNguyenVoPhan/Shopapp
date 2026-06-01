@@ -10,8 +10,7 @@ import { UpdateProductAdminComponent } from "./product/update/update.product.adm
 import { InsertProductAdminComponent } from "./product/insert/insert.product.admin.component";
 import { InsertCategoryAdminComponent } from "./category/insert/insert.category.admin.component";
 import { CategoryAdminComponent } from "./category/category.admin.component";
-// import { InsertCategoryAdminComponent } from "./category/insert/insert.category.admin.component";
-// import { UpdateCategoryAdminComponent } from "./category/update/update.category.admin.component";
+import { UpdateCategoryAdminComponent } from "./category/update/update.category.admin.component";
 
 export const adminRoutes: Routes = [
     {
@@ -49,15 +48,14 @@ export const adminRoutes: Routes = [
                 loadComponent: () =>
                 import('./product/insert/insert.product.admin.component').then(m => m.InsertProductAdminComponent)
             },
-            // //categories            
-            // {
-            //     path: 'categories/update/:id',
-            //     component: UpdateCategoryAdminComponent
-            // },
-            // {
-            //     path: 'categories/insert',
-            //     component: InsertCategoryAdminComponent
-            // },
+            {
+                path: 'categories/update/:id',
+                component: UpdateCategoryAdminComponent
+            },
+            {
+                path: 'categories/insert',
+                component: InsertCategoryAdminComponent
+            },
         ]
     }
 ];

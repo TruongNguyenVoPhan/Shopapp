@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Cập Nhật Danh Mục</h1>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+
+      <div class="mb-3">
+        <label class="form-label">Tên danh mục</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="categoryName"
+          placeholder="Nhập tên danh mục"
+        />
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-success" (click)="saveCategory()">
+          Lưu
+        </button>
+
+        <button class="btn btn-secondary" (click)="goBack()">
+          Quay lại
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

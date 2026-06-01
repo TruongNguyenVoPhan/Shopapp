@@ -28,6 +28,10 @@ export class CategoryService{
     return this.http.post(this.apiGetCategories, data);
   }
 
+  updateCategory(categoryId: number, data: { name: string }): Observable<any> {
+    return this.http.put(`${this.apiGetCategories}/${categoryId}`, data);
+  }
+  
   deleteCategory(categoryId: number): Observable<string> {
     return this.http.delete<string>(`${this.apiGetCategories}/${categoryId}`);
   }

@@ -15,6 +15,7 @@ import { AuthGuardFn } from './guards/auth.guard';
 import { AdminGuardFn } from './guards/admin.guard';
 import { VerifyOtpComponent } from './components/verify-otp.component/verify-otp.component';
 // import { OrderAdminComponent } from './components/admin/order/order.admin.component';
+import { PurchaseComponent } from './components/purchase/purchase.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent, canActivate:[AuthGuardFn] },
   { path: 'orders/:id', component: OrderDetailComponent },
   { path: 'verify-otp', component: VerifyOtpComponent },
+  { path: 'purchase', component: PurchaseComponent },
   // Admin   
   { 
     path: 'admin',

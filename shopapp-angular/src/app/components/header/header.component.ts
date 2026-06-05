@@ -67,7 +67,10 @@ export class HeaderComponent implements OnInit{
     if(index === 0) {
       debugger
       this.router.navigate(['/user-profile']);                      
-    } else if (index === 2) {
+    } else if(index === 1) {
+
+    this.router.navigate(['/purchase']);
+    }else if (index === 2) {
       this.userService.logout();
       this.tokenService.removeToken();
       this.userResponse = null;

@@ -14,6 +14,12 @@ import java.util.Optional;
 public interface OrderRepository extends JpaRepository<Order,  Long> {
     //Tim cac don hang cua 1 user nao do
     List<Order> findByUserId(Long userId);
+
+    List<Order> findByUserIdAndStatus(
+            Long userId,
+            String status
+    );
+    
     @Query("SELECT o FROM Order o JOIN o.user u WHERE " +
             "o.active = true AND (" +
             ":keyword IS NULL OR :keyword = '' OR " +
@@ -24,7 +30,7 @@ public interface OrderRepository extends JpaRepository<Order,  Long> {
             ") ORDER BY o.orderDate DESC")
     Page<Order> findByKeyword(@Param("keyword") String keyword, Pageable pageable);
 
-
+    
 
 
 

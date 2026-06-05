@@ -151,4 +151,21 @@ public class OrderService implements IOrderService{
         List<Order> orders = orderRepository.findByUserId(userId);
         return orders.stream().map(order -> OrderResponse.fromOrder(order)).toList();
     }
+
+    @Override
+    public List<OrderResponse> findByUserIdAndStatus(
+            Long userId,
+            String status
+    ) {
+
+        List<Order> orders =
+                orderRepository.findByUserIdAndStatus(
+                        userId,
+                        status
+                );
+
+        return orders.stream()
+                .map(OrderResponse::fromOrder)
+                .toList();
+    }
 }

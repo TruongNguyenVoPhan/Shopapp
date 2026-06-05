@@ -22,4 +22,9 @@ public interface IOrderService {
     void deleteOrder(Long id);
 
     List<OrderResponse> findByUserId(Long userId);
+
+    List<OrderResponse> findByUserIdAndStatus(
+        Long userId,
+        String status
+    );
 }

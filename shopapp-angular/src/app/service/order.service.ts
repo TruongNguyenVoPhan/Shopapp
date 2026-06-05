@@ -41,4 +41,23 @@ export class OrderService {
       return this.http.delete(url, { responseType: 'text' });
     }
 
+    getOrdersByStatus(
+      userId:number,
+      status:string
+    ): Observable<any> {
+
+      return this.http.get(
+        `${environment.apiBaseUrl}orders/user/${userId}/status`,
+        {
+          params: {
+            status: status
+          }
+        }
+      );
+    }
+    getOrdersByUser(userId:number): Observable<any> {
+    return this.http.get(
+      `${environment.apiBaseUrl}orders/user/${userId}`
+    );
+    }
 }

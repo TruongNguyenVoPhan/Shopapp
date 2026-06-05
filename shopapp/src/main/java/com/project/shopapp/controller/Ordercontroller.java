@@ -113,4 +113,18 @@ public class Ordercontroller {
                 .totalPages(totalPages)
                 .build());
     }
+
+    @GetMapping("/user/{user_id}/status")
+    public ResponseEntity<?> getOrdersByStatus(
+            @PathVariable("user_id") Long userId,
+            @RequestParam String status) {
+
+        List<OrderResponse> responses =
+                orderService.findByUserIdAndStatus(
+                        userId,
+                        status
+                );
+
+        return ResponseEntity.ok(responses);
+    }
 }

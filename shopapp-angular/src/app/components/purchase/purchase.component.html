@@ -1,0 +1,103 @@
+<div class="purchase-container">
+
+  <div class="tabs">
+
+    <button (click)="loadAllOrders()">
+        Tất cả
+    </button>
+
+    <button (click)="filterStatus('pending')">
+        Chờ xác nhận
+    </button>
+
+    <button (click)="filterStatus('processing')">
+        Đang xử lý
+    </button>
+
+    <button (click)="filterStatus('shipped')">
+        Đang giao
+    </button>
+
+    <button (click)="filterStatus('delivered')">
+        Hoàn thành
+    </button>
+
+    <button (click)="filterStatus('cancelled')">
+        Đã hủy
+    </button>
+
+    </div>
+
+  <div class="order-card" *ngFor="let order of orders">
+
+    <div class="order-header">
+      <span>Mã đơn #{{order.id}}</span>
+
+      <span class="status">
+        {{order.status}}
+      </span>
+    </div>
+
+    <div class="order-body">
+
+      <div
+        *ngFor="let item of order.order_details"
+        class="product-row">
+
+        <img
+          [src]="item.product.thumbnail"
+          class="product-image">
+
+        <div class="product-info">
+          <div class="name">
+            {{item.product.name}}
+          </div>
+
+          <div class="quantity">
+            x{{item.number_of_products}}
+          </div>
+        </div>
+
+        <div class="price">
+          {{item.total_money | number}} ₫
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="order-footer">
+
+      <div class="total">
+        Tổng tiền:
+        <strong>
+          {{order.total_money | number}} ₫
+        </strong>
+      </div>
+
+      <div class="actions">
+
+        <button
+          *ngIf="order.status=='pending'"
+          class="btn-pay">
+          Thanh toán
+        </button>
+
+        <button
+          *ngIf="order.status=='delivered'"
+          class="btn-buy">
+          Mua lại
+        </button>
+
+        <button
+          class="btn-detail">
+          Chi tiết
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

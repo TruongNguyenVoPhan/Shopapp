@@ -39,7 +39,7 @@ public class OrderService implements IOrderService{
         //tim xem user_id co ton tai hay khong
         User user = userRepository
                 .findById(orderDTO.getUserId())
-                .orElseThrow(() -> new DataNotFoundException("Cannot found user with id : %d"+orderDTO.getUserId()));;
+                .orElseThrow(() -> new DataNotFoundException("Cannot found user with id: "+orderDTO.getUserId()));;
         //convert oderDTO => Order
         //Dung thu vien model mapper
         modelMapper.typeMap(OrderDTO.class, Order.class)

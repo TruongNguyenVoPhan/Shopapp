@@ -21,7 +21,6 @@ public class CartService implements ICartService {
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
 
-    // 🔹 Lấy hoặc tạo cart
     @Override
     public Cart getCartByUser(User user) {
         return cartRepository.findByUser(user)
@@ -33,7 +32,6 @@ public class CartService implements ICartService {
                 });
     }
 
-    // 🔹 Thêm sản phẩm vào cart
     @Override
     public Cart addItemToCart(User user, CartItemDTO cartItemDTO) {
 
@@ -66,14 +64,12 @@ public class CartService implements ICartService {
         return cart;
     }
 
-    // 🔹 Lấy danh sách item
     @Override
-    public List<                                                                                                                                                                                                                                                   CartItem> getCartItems(User user) {
+    public List<CartItem> getCartItems(User user) {
         Cart cart = getCartByUser(user);
         return cartItemRepository.findByCart(cart);
     }
 
-    // 🔹 Xóa item
     @Override
     public void removeItem(User user, Long productId) {
         Cart cart = getCartByUser(user);

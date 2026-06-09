@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderService } from '../../service/order.service';
-import { OrderDetail } from '../../models/order.detail';
-import { environment } from '../../environment/environment';
-import { OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
+import { environment } from '../../environment/environment';
 
 @Component({
   selector: 'app-purchase',
@@ -15,8 +13,18 @@ import { UserService } from '../../service/user.service';
 })
 export class PurchaseComponent implements OnInit {
 
-  orders:any[] = [];
-  userId:number = 0;
+  orders: any[] = [];
+  userId: number = 0;
+  activeTab: string = 'all';
+  loading: boolean = false;
+
+  readonly statusLabels: Record<string, string> = {
+    pending:    'Chờ xác nhận',
+    processing: 'Đang xử lý',
+    shipped:    'Đang giao',
+    delivered:  'Hoàn thành',
+    cancelled:  'Đã huỷ',
+  };
 
   constructor(
     private orderService: OrderService,
@@ -24,58 +32,57 @@ export class PurchaseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-        const user = this.userService.getUserFromSession();
-
-    if(user){
-        this.userId = user.id;
+    const user = this.userService.getUserFromSession();
+    if (user) {
+      this.userId = user.id;
     }
-
-    this.loadOrders();
-    }
-
-  loadOrders() {
-
-    this.orderService.getOrdersByUser(1)
-      .subscribe({
-
-        next: (response:any) => {
-
-          this.orders = response.map((order:any) => {
-
-            order.order_details =
-              order.order_details.map((detail:OrderDetail)=>{
-
-                detail.product.thumbnail =
-                  `${environment.apiBaseUrl}products/images/${detail.product.thumbnail}`;
-
-                return detail;
-              });
-
-            return order;
-          });
-        }
-
-      });
+    this.loadOrders('all');
   }
-  loadAllOrders() {
 
-    this.orderService
-        .getOrdersByUser(this.userId)
-        .subscribe({
-        next:(response)=>{
-            this.orders = response;
-        }
-        });
-    }
+  selectTab(status: string): void {
+    this.activeTab = status;
+    this.loadOrders(status);
+  }
 
-    filterStatus(status:string) {
+  loadOrders(status: string): void {
+    this.loading = true;
 
-    this.orderService
-        .getOrdersByStatus(this.userId,status)
-        .subscribe({
-        next:(response)=>{
-            this.orders = response;
-        }
-        });
-}
+    const call$ = status === 'all'
+      ? this.orderService.getOrdersByUser(this.userId)
+      : this.orderService.getOrdersByStatus(this.userId, status);
+
+    call$.subscribe({
+      next: (response: any[]) => {
+        this.orders = response.map(order => ({
+          ...order,
+          order_details: (order.order_details || []).map((detail: any) => ({
+            ...detail,
+            product: {
+              ...detail.product,
+              thumbnail: this.buildImageUrl(detail.product?.thumbnail)
+            }
+          }))
+        }));
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+      }
+    });
+  }
+
+  buildImageUrl(thumbnail: string | null): string {
+    if (!thumbnail) return 'assets/images/no-image.png';
+    if (thumbnail.startsWith('http')) return thumbnail;
+    return `${environment.apiBaseUrl}products/images/${thumbnail}`;
+  }
+
+  getStatusLabel(status: string): string {
+    return this.statusLabels[status] ?? status;
+  }
+
+  formatMoney(amount: number): string {
+    if (!amount) return '0 ₫';
+    return amount.toLocaleString('vi-VN') + ' ₫';
+  }
 }

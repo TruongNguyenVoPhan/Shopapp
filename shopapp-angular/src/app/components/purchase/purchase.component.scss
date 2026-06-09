@@ -81,3 +81,28 @@
     padding:8px 16px;
     border-radius:5px;
 }
+
+
+.tabs button.active {
+  border-bottom: 3px solid #ee4d2d;
+  color: #ee4d2d;
+  font-weight: 500;
+}
+
+.state-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+.order-id {
+  font-size: 14px;
+  color: #555;
+}
+
+.status-pending    { color: #d46b08; }
+.status-processing { color: #185fa5; }
+.status-shipped    { color: #3b6d11; }
+.status-delivered  { color: #389e0d; }
+.status-cancelled  { color: #a32d2d; }

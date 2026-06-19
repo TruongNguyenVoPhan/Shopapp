@@ -59,6 +59,9 @@ public class WebSecurityConfig {
                             .requestMatchers(GET,
                                     String.format("%s/roles**", apiPrefix)).permitAll()
 
+                            .requestMatchers(POST,
+                                String.format("%s/otp/reset-password", apiPrefix)).permitAll()
+
                             .requestMatchers(GET,
                                     String.format("%s/categories**", apiPrefix)).permitAll()
 

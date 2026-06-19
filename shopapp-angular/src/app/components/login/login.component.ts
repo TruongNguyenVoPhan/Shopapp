@@ -12,13 +12,14 @@ import { RoleService } from '../../service/role.sevice';
 import { Role }from  '../../models/role';
 import { UserResponse } from '../../responses/user/user.response';
 import { CartService } from '../../service/cart.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule]
+  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule, RouterLink]
 })
 export class LoginComponent {
   @ViewChild('loginForm') loginForm!: NgForm;

@@ -13,9 +13,10 @@ import { UserProfileComponent } from './components/user-profile/user.profile.com
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuardFn } from './guards/auth.guard';
 import { AdminGuardFn } from './guards/admin.guard';
-import { VerifyOtpComponent } from './components/verify-otp.component/verify-otp.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
 // import { OrderAdminComponent } from './components/admin/order/order.admin.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
+import { ForgotPasswordComponent } from './components/forgot-password/components/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
   { path: 'orders/:id', component: OrderDetailComponent },
   { path: 'verify-otp', component: VerifyOtpComponent },
   { path: 'purchase', component: PurchaseComponent },
+  {path: 'forgot-password',component: ForgotPasswordComponent},
   // Admin   
   { 
     path: 'admin',

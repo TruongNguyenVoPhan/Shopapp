@@ -6,6 +6,8 @@ import com.project.shopapp.models.User;
 import com.project.shopapp.repositories.OtpRepository;
 import com.project.shopapp.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,7 @@ public class OtpService {
     private final OtpRepository otpRepository;
     private final UserRepository userRepository;
     private final EmailService emailService; 
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public void generateAndSendOtp(String email) throws DataNotFoundException {
@@ -63,6 +66,31 @@ public class OtpService {
         otpRepository.save(otp);
 
         user.setActive(true);
+        userRepository.save(user);
+    }
+
+    @Transactional
+    public void resetPassword(String email, String inputOtp, String newPassword) throws Exception {
+        User user = userRepository.findByEmail(email)
+            .orElseThrow(() -> new DataNotFoundException("Không tìm thấy user với email: " + email));
+
+        Otp otp = otpRepository
+            .findTopByUserAndIsUsedFalseOrderByCreatedAtDesc(user)
+            .orElseThrow(() -> new Exception("OTP không hợp lệ hoặc đã được sử dụng"));
+
+        if (otp.getExpiresAt().isBefore(LocalDateTime.now())) {
+            throw new Exception("OTP đã hết hạn");
+        }
+
+        if (!otp.getOtpCode().equals(inputOtp)) {
+            throw new Exception("OTP không đúng");
+        }
+
+        otp.setUsed(true);
+        otpRepository.save(otp);
+
+        String encoded = passwordEncoder.encode(newPassword);
+        user.setPassword(encoded);
         userRepository.save(user);
     }
 }

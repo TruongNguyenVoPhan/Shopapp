@@ -46,8 +46,8 @@ public class JwtTokenUtils {
         }
     }
     private SecretKey getSignKey(){
-        byte[] bytes = Decoders.BASE64.decode(secretKey);//Decoders.BASE64.decode("tA6OX5COgkJCWqGs5PXLmRPBgTaFFT7hphFk0ud8hXI=");
-        return Keys.hmacShaKeyFor(bytes);//Keys.hmacShaKeyFor("tA6OX5COgkJCWqGs5PXLmRPBgTaFFT7hphFk0ud8hXI=");
+        byte[] bytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(bytes);
     }
     private String generateSecretKey(){
         SecureRandom random = new SecureRandom();

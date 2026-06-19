@@ -2,6 +2,7 @@ package com.project.shopapp.controller;
 
 import com.project.shopapp.dtos.OtpRequestDTO;
 import com.project.shopapp.dtos.OtpVerifyDTO;
+import com.project.shopapp.dtos.ResetPasswordDTO;
 import com.project.shopapp.services.OtpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,16 @@ public class OtpController {
         try {
             otpService.verifyOtp(dto.getEmail(), dto.getOtp());
             return ResponseEntity.ok("Xác minh thành công! Bạn có thể đăng nhập.");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody ResetPasswordDTO dto) {
+        try {
+            otpService.resetPassword(dto.getEmail(), dto.getOtp(), dto.getNewPassword());
+            return ResponseEntity.ok("Đổi mật khẩu thành công!");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

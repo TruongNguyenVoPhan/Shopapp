@@ -138,7 +138,7 @@ public class WebSecurityConfig {
                 CorsConfiguration configuration = new CorsConfiguration();
                 configuration.setAllowedOrigins(List.of(
                                                 "http://localhost:4200",
-                                                "https://shopapp-frontend.vercel.app"
+                                                "https://kshopapp.vercel.app"
                                                 ));
                 configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
                 configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));

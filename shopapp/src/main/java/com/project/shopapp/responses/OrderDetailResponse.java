@@ -2,19 +2,15 @@ package com.project.shopapp.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.project.shopapp.models.OrderDetail;
-import com.project.shopapp.models.Product;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.validation.constraints.Min;
 import lombok.*;
 import java.math.BigDecimal;
 
-@MappedSuperclass
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderDetailResponse{
+public class OrderDetailResponse {
     private Long id;
 
     @JsonProperty("order_id")
@@ -22,6 +18,12 @@ public class OrderDetailResponse{
 
     @JsonProperty("product_id")
     private Long productId;
+
+    @JsonProperty("product_name")
+    private String productName;
+
+    @JsonProperty("product_thumbnail")
+    private String productThumbnail;
 
     private BigDecimal price;
 
@@ -33,12 +35,13 @@ public class OrderDetailResponse{
 
     private String color;
 
-    public static OrderDetailResponse fromOrderDetail(OrderDetail orderDetail){
-        return OrderDetailResponse
-                .builder()
+    public static OrderDetailResponse fromOrderDetail(OrderDetail orderDetail) {
+        return OrderDetailResponse.builder()
                 .id(orderDetail.getId())
                 .orderId(orderDetail.getOrder().getId())
                 .productId(orderDetail.getProduct().getId())
+                .productName(orderDetail.getProduct().getName())
+                .productThumbnail(orderDetail.getProduct().getThumbnail())
                 .price(orderDetail.getPrice())
                 .numberOfProduct(orderDetail.getNumberOfProduct())
                 .totalMoney(orderDetail.getTotalMoney())

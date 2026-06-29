@@ -53,16 +53,7 @@ export class PurchaseComponent implements OnInit {
 
     call$.subscribe({
       next: (response: any[]) => {
-        this.orders = response.map(order => ({
-          ...order,
-          order_details: (order.order_details || []).map((detail: any) => ({
-            ...detail,
-            product: {
-              ...detail.product,
-              thumbnail: this.buildImageUrl(detail.product?.thumbnail)
-            }
-          }))
-        }));
+        this.orders = response;
         this.loading = false;
       },
       error: () => {

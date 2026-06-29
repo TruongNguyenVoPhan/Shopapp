@@ -1,41 +1,27 @@
 <div class="purchase-container">
 
   <div class="tabs">
-    <button
-      [class.active]="activeTab === 'all'"
-      (click)="selectTab('all')">
+    <button [class.active]="activeTab === 'all'" (click)="selectTab('all')">
       Tất cả
     </button>
-    <button
-      [class.active]="activeTab === 'pending'"
-      (click)="selectTab('pending')">
+    <button [class.active]="activeTab === 'pending'" (click)="selectTab('pending')">
       Chờ xác nhận
     </button>
-    <button
-      [class.active]="activeTab === 'processing'"
-      (click)="selectTab('processing')">
+    <button [class.active]="activeTab === 'processing'" (click)="selectTab('processing')">
       Đang xử lý
     </button>
-    <button
-      [class.active]="activeTab === 'shipped'"
-      (click)="selectTab('shipped')">
+    <button [class.active]="activeTab === 'shipped'" (click)="selectTab('shipped')">
       Đang giao
     </button>
-    <button
-      [class.active]="activeTab === 'delivered'"
-      (click)="selectTab('delivered')">
+    <button [class.active]="activeTab === 'delivered'" (click)="selectTab('delivered')">
       Hoàn thành
     </button>
-    <button
-      [class.active]="activeTab === 'cancelled'"
-      (click)="selectTab('cancelled')">
+    <button [class.active]="activeTab === 'cancelled'" (click)="selectTab('cancelled')">
       Đã huỷ
     </button>
   </div>
 
-  <div *ngIf="loading" class="state-empty">
-    Đang tải...
-  </div>
+  <div *ngIf="loading" class="state-empty">Đang tải...</div>
 
   <div *ngIf="!loading && orders.length === 0" class="state-empty">
     Không có đơn hàng nào
@@ -51,41 +37,34 @@
     </div>
 
     <div class="order-body">
-      <div
-        *ngFor="let item of order.order_details"
-        class="product-row">
+      <div *ngFor="let item of order.order_details" class="product-row">
 
         <img
-          [src]="item.product?.thumbnail"
-          [alt]="item.product?.name"
+          [src]="buildImageUrl(item.product_thumbnail)"
+          [alt]="item.product_name"
           class="product-image"
           (error)="$any($event.target).src='assets/images/no-image.png'">
 
         <div class="product-info">
-          <div class="name">{{ item.product?.name }}</div>
+          <div class="name">{{ item.product_name }}</div>
+          <!-- ✅ field đúng là number_of_product (từ OrderDetailResponse DTO) -->
           <div class="quantity">x{{ item.number_of_product }}</div>
         </div>
 
         <div class="price">{{ formatMoney(item.price) }}</div>
-
       </div>
     </div>
 
     <div class="order-footer">
       <div class="total">
-        Tổng tiền:
-        <strong>{{ formatMoney(order.total_money) }}</strong>
+        Tổng tiền: <strong>{{ formatMoney(order.total_money) }}</strong>
       </div>
 
       <div class="actions">
-        <button
-          *ngIf="order.status === 'pending'"
-          class="btn-pay">
+        <button *ngIf="order.status === 'pending'" class="btn-pay">
           Thanh toán
         </button>
-        <button
-          *ngIf="order.status === 'delivered'"
-          class="btn-buy">
+        <button *ngIf="order.status === 'delivered'" class="btn-buy">
           Mua lại
         </button>
         <button class="btn-detail">Chi tiết</button>

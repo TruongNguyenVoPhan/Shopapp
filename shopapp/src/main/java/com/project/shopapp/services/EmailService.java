@@ -60,6 +60,10 @@ public class EmailService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public void sendOtpEmail(String toEmail, String otpCode) {
+        System.out.println("DEBUG >>> Brevo API key length = " + (brevoApiKey == null ? "NULL" : brevoApiKey.length()));
+        System.out.println("DEBUG >>> Brevo API key preview = " + (brevoApiKey == null ? "NULL" : 
+            (brevoApiKey.length() > 10 ? brevoApiKey.substring(0,6) + "..." + brevoApiKey.substring(brevoApiKey.length()-4) : brevoApiKey)));
+        System.out.println("DEBUG >>> Sender email = " + senderEmail);
         String url = "https://api.brevo.com/v3/smtp/email";
 
         Map<String, Object> body = new HashMap<>();

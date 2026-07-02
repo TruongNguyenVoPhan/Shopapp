@@ -95,6 +95,10 @@ public class EmailService {
         try {
             restTemplate.postForEntity(url, request, String.class);
             System.out.println("EMAIL SENT SUCCESS via Brevo");
+        } catch (org.springframework.web.client.HttpClientErrorException e) {
+            System.out.println("DEBUG >>> Brevo response body: " + e.getResponseBodyAsString());
+            e.printStackTrace();
+            throw new RuntimeException("Gửi email thất bại: " + e.getResponseBodyAsString());
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Gửi email thất bại: " + e.getMessage());
